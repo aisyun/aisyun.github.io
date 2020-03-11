@@ -14,12 +14,10 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-fill-left.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="中国民族民间音乐 第一章 民间歌曲 民歌是一切艺术的基础，是民间歌曲的简称  是劳动人民在集体劳作、生产过程中创作的，以口头创作、口耳相传的形式流传下来的歌曲。  一、汉族民歌体裁 分类：号子、山歌、小调  （一）号子 又叫“劳动号子”   1. 搬运号子：黑龙江，《哈腰挂》  2. 挑担号子：河北、山西、陕西北部。《走绛州》  3. 工程号子：常德。《打硪歌》  4. 农事号子：湖北《嶉咚嶉》，">
@@ -57,16 +55,6 @@
     isHome : false,
     isPost : true
   };
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入查看密码') !== ''){
-                alert('密码不正确,请询问主编大大！');
-                history.back();
-            }
-        }
-    })();
-</script>
 </script>
 
   <title>中国民族民间音乐 | AisYun</title>
@@ -103,7 +91,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -172,8 +160,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -186,10 +175,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -218,7 +211,7 @@
     <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/03/09/%E4%B8%AD%E5%9B%BD%E6%B0%91%E6%97%8F%E6%B0%91%E9%97%B4%E9%9F%B3%E4%B9%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CYIDA">
       <meta itemprop="description" content="爱尚音乐">
     </span>
@@ -240,22 +233,15 @@
 
               <time title="创建时间：2020-03-09 19:41:35" itemprop="dateCreated datePublished" datetime="2020-03-09T19:41:35+08:00">2020-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-05 11:43:31" itemprop="dateModified" datetime="2020-03-05T11:43:31+08:00">2020-03-05</time>
+              </span>
 
           
-            <span id="/2020/03/09/%E4%B8%AD%E5%9B%BD%E6%B0%91%E6%97%8F%E6%B0%91%E9%97%B4%E9%9F%B3%E4%B9%90/" class="post-meta-item leancloud_visitors" data-flag-title="中国民族民间音乐" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
 
         </div>
       </header>
@@ -263,7 +249,6 @@
     
     
     
-	
     <div class="post-body" itemprop="articleBody">
 
       
@@ -832,6 +817,35 @@
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
 
@@ -841,12 +855,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/09/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2/" rel="prev" title="中国古代音乐史">
-      <i class="fa fa-chevron-left"></i> 中国古代音乐史
+    <a href="/2020/03/09/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2/" rel="prev" title="中国近代音乐史">
+      <i class="fa fa-chevron-left"></i> 中国近代音乐史
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/09/%E4%B8%AD%E5%9B%BD%E8%BF%91%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2/" rel="next" title="中国近代音乐史">
-      中国近代音乐史 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/09/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2/" rel="next" title="中国古代音乐史">
+      中国古代音乐史 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -907,14 +921,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中国民族民间音乐"><span class="nav-text">中国民族民间音乐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-民间歌曲"><span class="nav-text">第一章 民间歌曲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、汉族民歌体裁"><span class="nav-text">一、汉族民歌体裁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）号子"><span class="nav-text">（一）号子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#【艺术特征】"><span class="nav-text">【艺术特征】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）山歌"><span class="nav-text">（二）山歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一般山歌："><span class="nav-text">1.一般山歌：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-其它地区山歌："><span class="nav-text">2.其它地区山歌：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【艺术特征】-1"><span class="nav-text">【艺术特征】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）小调"><span class="nav-text">（三）小调</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-吟唱调："><span class="nav-text">1.吟唱调：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-谣曲："><span class="nav-text">2.谣曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-时调："><span class="nav-text">3.时调：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【艺术特征】-2"><span class="nav-text">【艺术特征】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、少数民族民歌代表"><span class="nav-text">二、少数民族民歌代表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）蒙古族民歌"><span class="nav-text">（一）蒙古族民歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-长调和短调"><span class="nav-text">1.长调和短调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-呼麦："><span class="nav-text">2.呼麦：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）维吾尔族的情歌"><span class="nav-text">（二）维吾尔族的情歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品："><span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）哈萨克族歌曲"><span class="nav-text">（三）哈萨克族歌曲</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-1"><span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）藏族的山歌和酒歌"><span class="nav-text">（四）藏族的山歌和酒歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-2"><span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）朝鲜族的抒情谣"><span class="nav-text">（五）朝鲜族的抒情谣</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-3"><span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）侗族大歌"><span class="nav-text">（六）侗族大歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-4"><span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（七）彝族“四大腔”"><span class="nav-text">（七）彝族“四大腔”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-民间舞蹈音乐"><span class="nav-text">第二章 民间舞蹈音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、汉族民间歌舞音乐"><span class="nav-text">一、汉族民间歌舞音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#北方：秧歌"><span class="nav-text">北方：秧歌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#南方：采茶、花灯"><span class="nav-text">南方：采茶、花灯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、少数民族民间歌舞和乐舞"><span class="nav-text">二、少数民族民间歌舞和乐舞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）维吾尔族舞蹈"><span class="nav-text">（一）维吾尔族舞蹈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-风格特点"><span class="nav-text">1.风格特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-手鼓舞《摘葡萄》"><span class="nav-text">2.手鼓舞《摘葡萄》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-木卡姆"><span class="nav-text">3.木卡姆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）藏族舞蹈"><span class="nav-text">（二）藏族舞蹈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-囊玛"><span class="nav-text">1.囊玛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-堆谐"><span class="nav-text">2.堆谐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-弦子"><span class="nav-text">3.弦子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、近现代歌舞作品"><span class="nav-text">三、近现代歌舞作品</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-说唱音乐"><span class="nav-text">第三章 说唱音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、说唱音乐表现形式"><span class="nav-text">一、说唱音乐表现形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、汉族说唱音乐分类"><span class="nav-text">二、汉族说唱音乐分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）鼓词类"><span class="nav-text">（一）鼓词类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）弹词类"><span class="nav-text">（二）弹词类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）道情类"><span class="nav-text">（三）道情类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）牌子曲类"><span class="nav-text">（四）牌子曲类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）琴书类"><span class="nav-text">（五）琴书类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、说唱音乐的唱腔结构"><span class="nav-text">三、说唱音乐的唱腔结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）板腔体（板式变化体）"><span class="nav-text">（一）板腔体（板式变化体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）联曲体（曲牌联缀体）"><span class="nav-text">（二）联曲体（曲牌联缀体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）单曲体"><span class="nav-text">（三）单曲体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）主插体"><span class="nav-text">（四）主插体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、说唱音乐艺术特点"><span class="nav-text">四、说唱音乐艺术特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-戏曲音乐"><span class="nav-text">第四章 戏曲音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、戏曲的艺术特色"><span class="nav-text">一、戏曲的艺术特色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）戏曲音乐的三大特征"><span class="nav-text">（一）戏曲音乐的三大特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-综合性"><span class="nav-text">1.综合性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-虚拟性"><span class="nav-text">2.虚拟性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-程式性"><span class="nav-text">3.程式性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）戏曲表演基本功"><span class="nav-text">（二）戏曲表演基本功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、戏曲唱腔的结构形式"><span class="nav-text">二、戏曲唱腔的结构形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）曲牌体戏曲声腔"><span class="nav-text">（一）曲牌体戏曲声腔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）板腔体戏曲声腔"><span class="nav-text">（二）板腔体戏曲声腔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、戏曲唱腔主要剧种"><span class="nav-text">三、戏曲唱腔主要剧种</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）京剧"><span class="nav-text">（一）京剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）评剧"><span class="nav-text">（二）评剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）河北梆子"><span class="nav-text">（三）河北梆子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）豫剧"><span class="nav-text">（四）豫剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）吕剧"><span class="nav-text">（五）吕剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）晋剧"><span class="nav-text">（六）晋剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（七）秦腔"><span class="nav-text">（七）秦腔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（八）越剧"><span class="nav-text">（八）越剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（九）沪剧"><span class="nav-text">（九）沪剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十）凤阳花鼓戏"><span class="nav-text">（十）凤阳花鼓戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十一）黄梅戏"><span class="nav-text">（十一）黄梅戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十二）汉剧"><span class="nav-text">（十二）汉剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十三）湖南花鼓戏"><span class="nav-text">（十三）湖南花鼓戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十四）川剧"><span class="nav-text">（十四）川剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十五）闽剧"><span class="nav-text">（十五）闽剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十六）粤剧"><span class="nav-text">（十六）粤剧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-民族器乐"><span class="nav-text">第五章 民族器乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、独奏音乐"><span class="nav-text">一、独奏音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）汉族"><span class="nav-text">（一）汉族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-笛子"><span class="nav-text">1.笛子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-笙"><span class="nav-text">2.笙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唢呐"><span class="nav-text">3.唢呐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二胡"><span class="nav-text">4.二胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-板胡"><span class="nav-text">5.板胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-京胡"><span class="nav-text">6.京胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-琵琶"><span class="nav-text">7.琵琶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-古琴"><span class="nav-text">8.古琴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-古筝"><span class="nav-text">9.古筝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）少数民族"><span class="nav-text">（二）少数民族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-蒙古族"><span class="nav-text">1.蒙古族</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-维吾尔族"><span class="nav-text">2.维吾尔族</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）热瓦普"><span class="nav-text">（1）热瓦普</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）都塔尔"><span class="nav-text">（2）都塔尔</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（3）弹布尔"><span class="nav-text">（3）弹布尔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-哈萨克族"><span class="nav-text">3.哈萨克族</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#冬不拉"><span class="nav-text">冬不拉</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-云南少数民族"><span class="nav-text">4.云南少数民族</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、合奏音乐"><span class="nav-text">二、合奏音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）丝竹乐"><span class="nav-text">（一）丝竹乐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-江南丝竹"><span class="nav-text">1.江南丝竹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-广东音乐"><span class="nav-text">2.广东音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-福建南曲"><span class="nav-text">3.福建南曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-民族管弦乐"><span class="nav-text">4.民族管弦乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）鼓吹乐"><span class="nav-text">（二）鼓吹乐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-冀中管乐"><span class="nav-text">1.冀中管乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-山西八大套"><span class="nav-text">2.山西八大套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-鲁西南鼓吹乐"><span class="nav-text">3.鲁西南鼓吹乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-辽南鼓吹"><span class="nav-text">4.辽南鼓吹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-绛州鼓乐"><span class="nav-text">5.绛州鼓乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-西安鼓乐"><span class="nav-text">6.西安鼓乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）弦索乐"><span class="nav-text">（三）弦索乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）清锣鼓"><span class="nav-text">（四）清锣鼓</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中国音乐非物质文化遗产名录"><span class="nav-text">中国音乐非物质文化遗产名录</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中国民族民间音乐"><span class="nav-number">1.</span> <span class="nav-text">中国民族民间音乐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-民间歌曲"><span class="nav-number">2.</span> <span class="nav-text">第一章 民间歌曲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、汉族民歌体裁"><span class="nav-number">2.1.</span> <span class="nav-text">一、汉族民歌体裁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）号子"><span class="nav-number">2.1.1.</span> <span class="nav-text">（一）号子</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#【艺术特征】"><span class="nav-number">2.1.1.0.1.</span> <span class="nav-text">【艺术特征】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）山歌"><span class="nav-number">2.1.2.</span> <span class="nav-text">（二）山歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-一般山歌："><span class="nav-number">2.1.2.1.</span> <span class="nav-text">1.一般山歌：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-其它地区山歌："><span class="nav-number">2.1.2.2.</span> <span class="nav-text">2.其它地区山歌：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【艺术特征】-1"><span class="nav-number">2.1.2.3.</span> <span class="nav-text">【艺术特征】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）小调"><span class="nav-number">2.1.3.</span> <span class="nav-text">（三）小调</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-吟唱调："><span class="nav-number">2.1.3.1.</span> <span class="nav-text">1.吟唱调：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-谣曲："><span class="nav-number">2.1.3.2.</span> <span class="nav-text">2.谣曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-时调："><span class="nav-number">2.1.3.3.</span> <span class="nav-text">3.时调：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【艺术特征】-2"><span class="nav-number">2.1.3.4.</span> <span class="nav-text">【艺术特征】</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、少数民族民歌代表"><span class="nav-number">2.2.</span> <span class="nav-text">二、少数民族民歌代表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）蒙古族民歌"><span class="nav-number">2.2.1.</span> <span class="nav-text">（一）蒙古族民歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-长调和短调"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">1.长调和短调</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-呼麦："><span class="nav-number">2.2.1.2.</span> <span class="nav-text">2.呼麦：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）维吾尔族的情歌"><span class="nav-number">2.2.2.</span> <span class="nav-text">（二）维吾尔族的情歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品："><span class="nav-number">2.2.2.1.</span> <span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）哈萨克族歌曲"><span class="nav-number">2.2.3.</span> <span class="nav-text">（三）哈萨克族歌曲</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-1"><span class="nav-number">2.2.3.1.</span> <span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）藏族的山歌和酒歌"><span class="nav-number">2.2.4.</span> <span class="nav-text">（四）藏族的山歌和酒歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-2"><span class="nav-number">2.2.4.1.</span> <span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）朝鲜族的抒情谣"><span class="nav-number">2.2.5.</span> <span class="nav-text">（五）朝鲜族的抒情谣</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-3"><span class="nav-number">2.2.5.1.</span> <span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）侗族大歌"><span class="nav-number">2.2.6.</span> <span class="nav-text">（六）侗族大歌</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代表作品：-4"><span class="nav-number">2.2.6.1.</span> <span class="nav-text">代表作品：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（七）彝族“四大腔”"><span class="nav-number">2.2.7.</span> <span class="nav-text">（七）彝族“四大腔”</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-民间舞蹈音乐"><span class="nav-number">3.</span> <span class="nav-text">第二章 民间舞蹈音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、汉族民间歌舞音乐"><span class="nav-number">3.1.</span> <span class="nav-text">一、汉族民间歌舞音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#北方：秧歌"><span class="nav-number">3.1.1.</span> <span class="nav-text">北方：秧歌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#南方：采茶、花灯"><span class="nav-number">3.1.2.</span> <span class="nav-text">南方：采茶、花灯</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、少数民族民间歌舞和乐舞"><span class="nav-number">3.2.</span> <span class="nav-text">二、少数民族民间歌舞和乐舞</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）维吾尔族舞蹈"><span class="nav-number">3.2.1.</span> <span class="nav-text">（一）维吾尔族舞蹈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-风格特点"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">1.风格特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-手鼓舞《摘葡萄》"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">2.手鼓舞《摘葡萄》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-木卡姆"><span class="nav-number">3.2.1.3.</span> <span class="nav-text">3.木卡姆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）藏族舞蹈"><span class="nav-number">3.2.2.</span> <span class="nav-text">（二）藏族舞蹈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-囊玛"><span class="nav-number">3.2.2.1.</span> <span class="nav-text">1.囊玛</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-堆谐"><span class="nav-number">3.2.2.2.</span> <span class="nav-text">2.堆谐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-弦子"><span class="nav-number">3.2.2.3.</span> <span class="nav-text">3.弦子</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、近现代歌舞作品"><span class="nav-number">3.3.</span> <span class="nav-text">三、近现代歌舞作品</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-说唱音乐"><span class="nav-number">4.</span> <span class="nav-text">第三章 说唱音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、说唱音乐表现形式"><span class="nav-number">4.1.</span> <span class="nav-text">一、说唱音乐表现形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、汉族说唱音乐分类"><span class="nav-number">4.2.</span> <span class="nav-text">二、汉族说唱音乐分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）鼓词类"><span class="nav-number">4.2.1.</span> <span class="nav-text">（一）鼓词类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）弹词类"><span class="nav-number">4.2.2.</span> <span class="nav-text">（二）弹词类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）道情类"><span class="nav-number">4.2.3.</span> <span class="nav-text">（三）道情类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）牌子曲类"><span class="nav-number">4.2.4.</span> <span class="nav-text">（四）牌子曲类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）琴书类"><span class="nav-number">4.2.5.</span> <span class="nav-text">（五）琴书类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、说唱音乐的唱腔结构"><span class="nav-number">4.3.</span> <span class="nav-text">三、说唱音乐的唱腔结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）板腔体（板式变化体）"><span class="nav-number">4.3.1.</span> <span class="nav-text">（一）板腔体（板式变化体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）联曲体（曲牌联缀体）"><span class="nav-number">4.3.2.</span> <span class="nav-text">（二）联曲体（曲牌联缀体）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）单曲体"><span class="nav-number">4.3.3.</span> <span class="nav-text">（三）单曲体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）主插体"><span class="nav-number">4.3.4.</span> <span class="nav-text">（四）主插体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、说唱音乐艺术特点"><span class="nav-number">4.4.</span> <span class="nav-text">四、说唱音乐艺术特点</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-戏曲音乐"><span class="nav-number">5.</span> <span class="nav-text">第四章 戏曲音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、戏曲的艺术特色"><span class="nav-number">5.1.</span> <span class="nav-text">一、戏曲的艺术特色</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）戏曲音乐的三大特征"><span class="nav-number">5.1.1.</span> <span class="nav-text">（一）戏曲音乐的三大特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-综合性"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">1.综合性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-虚拟性"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">2.虚拟性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-程式性"><span class="nav-number">5.1.1.3.</span> <span class="nav-text">3.程式性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）戏曲表演基本功"><span class="nav-number">5.1.2.</span> <span class="nav-text">（二）戏曲表演基本功</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、戏曲唱腔的结构形式"><span class="nav-number">5.2.</span> <span class="nav-text">二、戏曲唱腔的结构形式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）曲牌体戏曲声腔"><span class="nav-number">5.2.1.</span> <span class="nav-text">（一）曲牌体戏曲声腔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）板腔体戏曲声腔"><span class="nav-number">5.2.2.</span> <span class="nav-text">（二）板腔体戏曲声腔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、戏曲唱腔主要剧种"><span class="nav-number">5.3.</span> <span class="nav-text">三、戏曲唱腔主要剧种</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）京剧"><span class="nav-number">5.3.1.</span> <span class="nav-text">（一）京剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）评剧"><span class="nav-number">5.3.2.</span> <span class="nav-text">（二）评剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）河北梆子"><span class="nav-number">5.3.3.</span> <span class="nav-text">（三）河北梆子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）豫剧"><span class="nav-number">5.3.4.</span> <span class="nav-text">（四）豫剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）吕剧"><span class="nav-number">5.3.5.</span> <span class="nav-text">（五）吕剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）晋剧"><span class="nav-number">5.3.6.</span> <span class="nav-text">（六）晋剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（七）秦腔"><span class="nav-number">5.3.7.</span> <span class="nav-text">（七）秦腔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（八）越剧"><span class="nav-number">5.3.8.</span> <span class="nav-text">（八）越剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（九）沪剧"><span class="nav-number">5.3.9.</span> <span class="nav-text">（九）沪剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十）凤阳花鼓戏"><span class="nav-number">5.3.10.</span> <span class="nav-text">（十）凤阳花鼓戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十一）黄梅戏"><span class="nav-number">5.3.11.</span> <span class="nav-text">（十一）黄梅戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十二）汉剧"><span class="nav-number">5.3.12.</span> <span class="nav-text">（十二）汉剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十三）湖南花鼓戏"><span class="nav-number">5.3.13.</span> <span class="nav-text">（十三）湖南花鼓戏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十四）川剧"><span class="nav-number">5.3.14.</span> <span class="nav-text">（十四）川剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十五）闽剧"><span class="nav-number">5.3.15.</span> <span class="nav-text">（十五）闽剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（十六）粤剧"><span class="nav-number">5.3.16.</span> <span class="nav-text">（十六）粤剧</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-民族器乐"><span class="nav-number">6.</span> <span class="nav-text">第五章 民族器乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、独奏音乐"><span class="nav-number">6.1.</span> <span class="nav-text">一、独奏音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）汉族"><span class="nav-number">6.1.1.</span> <span class="nav-text">（一）汉族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-笛子"><span class="nav-number">6.1.1.1.</span> <span class="nav-text">1.笛子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-笙"><span class="nav-number">6.1.1.2.</span> <span class="nav-text">2.笙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唢呐"><span class="nav-number">6.1.1.3.</span> <span class="nav-text">3.唢呐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-二胡"><span class="nav-number">6.1.1.4.</span> <span class="nav-text">4.二胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-板胡"><span class="nav-number">6.1.1.5.</span> <span class="nav-text">5.板胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-京胡"><span class="nav-number">6.1.1.6.</span> <span class="nav-text">6.京胡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-琵琶"><span class="nav-number">6.1.1.7.</span> <span class="nav-text">7.琵琶</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-古琴"><span class="nav-number">6.1.1.8.</span> <span class="nav-text">8.古琴</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-古筝"><span class="nav-number">6.1.1.9.</span> <span class="nav-text">9.古筝</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）少数民族"><span class="nav-number">6.1.2.</span> <span class="nav-text">（二）少数民族</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-蒙古族"><span class="nav-number">6.1.2.1.</span> <span class="nav-text">1.蒙古族</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-维吾尔族"><span class="nav-number">6.1.2.2.</span> <span class="nav-text">2.维吾尔族</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）热瓦普"><span class="nav-number">6.1.2.2.1.</span> <span class="nav-text">（1）热瓦普</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）都塔尔"><span class="nav-number">6.1.2.2.2.</span> <span class="nav-text">（2）都塔尔</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（3）弹布尔"><span class="nav-number">6.1.2.2.3.</span> <span class="nav-text">（3）弹布尔</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-哈萨克族"><span class="nav-number">6.1.2.3.</span> <span class="nav-text">3.哈萨克族</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#冬不拉"><span class="nav-number">6.1.2.3.1.</span> <span class="nav-text">冬不拉</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-云南少数民族"><span class="nav-number">6.1.2.4.</span> <span class="nav-text">4.云南少数民族</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、合奏音乐"><span class="nav-number">6.2.</span> <span class="nav-text">二、合奏音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）丝竹乐"><span class="nav-number">6.2.1.</span> <span class="nav-text">（一）丝竹乐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-江南丝竹"><span class="nav-number">6.2.1.1.</span> <span class="nav-text">1.江南丝竹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-广东音乐"><span class="nav-number">6.2.1.2.</span> <span class="nav-text">2.广东音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-福建南曲"><span class="nav-number">6.2.1.3.</span> <span class="nav-text">3.福建南曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-民族管弦乐"><span class="nav-number">6.2.1.4.</span> <span class="nav-text">4.民族管弦乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）鼓吹乐"><span class="nav-number">6.2.2.</span> <span class="nav-text">（二）鼓吹乐</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-冀中管乐"><span class="nav-number">6.2.2.1.</span> <span class="nav-text">1.冀中管乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-山西八大套"><span class="nav-number">6.2.2.2.</span> <span class="nav-text">2.山西八大套</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-鲁西南鼓吹乐"><span class="nav-number">6.2.2.3.</span> <span class="nav-text">3.鲁西南鼓吹乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-辽南鼓吹"><span class="nav-number">6.2.2.4.</span> <span class="nav-text">4.辽南鼓吹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-绛州鼓乐"><span class="nav-number">6.2.2.5.</span> <span class="nav-text">5.绛州鼓乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-西安鼓乐"><span class="nav-number">6.2.2.6.</span> <span class="nav-text">6.西安鼓乐</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）弦索乐"><span class="nav-number">6.2.3.</span> <span class="nav-text">（三）弦索乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）清锣鼓"><span class="nav-number">6.2.4.</span> <span class="nav-text">（四）清锣鼓</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中国音乐非物质文化遗产名录"><span class="nav-number">7.</span> <span class="nav-text">中国音乐非物质文化遗产名录</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="CYIDA"
-      src="/images/avatar.png">
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">CYIDA</p>
   <div class="site-description" itemprop="description">爱尚音乐</div>
 </div>
@@ -931,7 +945,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="mailto:defy.cn@gmail.com" title="E-Mail → mailto:defy.cn@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
   </div>
 
@@ -943,7 +960,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="/https/www.0was.com" title="https&#x2F;&#x2F;www.0was.com">0was</a>
+          <a href="http://pan.rexau.com:8000/" title="http:&#x2F;&#x2F;pan.rexau.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
         </li>
     </ul>
   </div>
@@ -967,130 +984,18 @@
   &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CYIDA</span>
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
 
 
 
-  <script>
-  function leancloudSelector(url) {
-    url = encodeURI(url);
-    return document.getElementById(url).querySelector('.leancloud-visitors-count');
-  }
-  if (CONFIG.page.isPost) {
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.getAttribute('id'));
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-              leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .then(response => response.json())
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              })
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  } else {
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.getAttribute('id'));
-      });
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length === 0) {
-            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
-              element.innerText = 0;
-            });
-            return;
-          }
-          for (let item of results) {
-            let { url, time } = item;
-            leancloudSelector(url).innerText = time;
-          }
-          for (let url of entries) {
-            var element = leancloudSelector(url);
-            if (element.innerText == '') {
-              element.innerText = 0;
-            }
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  }
-
-  fetch('https://app-router.leancloud.cn/2/route?appId=')
-    .then(response => response.json())
-    .then(({ api_server }) => {
-      var Counter = (method, url, data) => {
-        return fetch(`https://${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : '',
-            'X-LC-Key'    : '',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
       </div>
@@ -1099,8 +1004,12 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -1127,11 +1036,28 @@
 
 
 
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
 
 
 
-
-  
 
   
 

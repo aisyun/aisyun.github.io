@@ -14,12 +14,10 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-fill-left.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="名词解释 名词解释模板 总：（时期、事物、地位等）  分：（内容、特点）  总：（意义、地位）  一、体裁类 1.艺术歌曲  * 艺术歌曲是一种产生并流行于欧洲的重要声乐体裁。  * 其特点表现为：1.以诗人的名作为歌词，文学性强；2.钢琴伴奏有着重要地位，与声乐交相呼应；3.演唱难度较高，艺术性强。  * 将艺术歌曲推向顶峰的作曲家是舒伯特，其代表作品有《菩提树》《野玫瑰》《魔王》  2.相和歌">
@@ -47,16 +45,6 @@
     isHome : false,
     isPost : true
   };
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入查看密码') !== ''){
-                alert('密码不正确,请询问主编大大！');
-                history.back();
-            }
-        }
-    })();
-</script>
 </script>
 
   <title>名词解释+简答+案例【粉笔】 | AisYun</title>
@@ -93,7 +81,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -162,8 +150,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -176,10 +165,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -208,7 +201,7 @@
     <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/03/10/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A+%E7%AE%80%E7%AD%94+%E6%A1%88%E4%BE%8B%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CYIDA">
       <meta itemprop="description" content="爱尚音乐">
     </span>
@@ -230,22 +223,15 @@
 
               <time title="创建时间：2020-03-10 19:15:11" itemprop="dateCreated datePublished" datetime="2020-03-10T19:15:11+08:00">2020-03-10</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-11 19:56:15" itemprop="dateModified" datetime="2020-03-11T19:56:15+08:00">2020-03-11</time>
+              </span>
 
           
-            <span id="/2020/03/10/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A+%E7%AE%80%E7%AD%94+%E6%A1%88%E4%BE%8B%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" class="post-meta-item leancloud_visitors" data-flag-title="名词解释+简答+案例【粉笔】" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
 
         </div>
       </header>
@@ -253,7 +239,6 @@
     
     
     
-	
     <div class="post-body" itemprop="articleBody">
 
       
@@ -544,6 +529,35 @@
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
 
@@ -553,12 +567,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/10/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6/" rel="prev" title="自动备份Hexo博客源文件">
-      <i class="fa fa-chevron-left"></i> 自动备份Hexo博客源文件
+    <a href="/2020/03/10/%E9%9F%B3%E4%B9%90%E6%95%99%E5%AD%A6%E7%90%86%E8%AE%BA-%E6%95%99%E5%AD%A6%E8%83%BD%E5%8A%9B/" rel="prev" title="音乐教学理论-教学能力">
+      <i class="fa fa-chevron-left"></i> 音乐教学理论-教学能力
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/10/%E9%9F%B3%E4%B9%90%E6%95%99%E5%AD%A6%E7%90%86%E8%AE%BA-%E6%95%99%E5%AD%A6%E8%83%BD%E5%8A%9B/" rel="next" title="音乐教学理论-教学能力">
-      音乐教学理论-教学能力 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/10/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6/" rel="next" title="自动备份Hexo博客源文件">
+      自动备份Hexo博客源文件 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -619,14 +633,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#名词解释"><span class="nav-text">名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释模板"><span class="nav-text">名词解释模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、体裁类"><span class="nav-text">一、体裁类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-艺术歌曲"><span class="nav-text">1.艺术歌曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-相和歌"><span class="nav-text">2.相和歌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-清唱剧"><span class="nav-text">3.清唱剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-复调音乐"><span class="nav-text">3.复调音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-交响诗"><span class="nav-text">4.交响诗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧"><span class="nav-text">4.歌剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-音乐剧"><span class="nav-text">5.音乐剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-奥尔加农"><span class="nav-text">6.奥尔加农</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-侗族大哥"><span class="nav-text">7.侗族大哥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-八音分类法"><span class="nav-text">8.八音分类法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-《诗经》"><span class="nav-text">9.《诗经》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-《乐记》"><span class="nav-text">10.《乐记》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-“三分损益法”"><span class="nav-text">11.“三分损益法”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-歌舞大曲"><span class="nav-text">12.歌舞大曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-昆山腔（昆曲）"><span class="nav-text">13.昆山腔（昆曲）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-福建南音（南曲）"><span class="nav-text">14.福建南音（南曲）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、作品类"><span class="nav-text">二、作品类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-《黄河大合唱》"><span class="nav-text">1.《黄河大合唱》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-《平均律钢琴曲集》"><span class="nav-text">2.《平均律钢琴曲集》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、人物类"><span class="nav-text">三、人物类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-萧友梅"><span class="nav-text">1.萧友梅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-莫扎特"><span class="nav-text">2.莫扎特</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-巴赫"><span class="nav-text">3.巴赫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-冼星海"><span class="nav-text">4.冼星海</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-贺渌汀"><span class="nav-text">5.贺渌汀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-黄自"><span class="nav-text">6.黄自</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-赵元任"><span class="nav-text">7.赵元任</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-聂耳"><span class="nav-text">8.聂耳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-刘天华"><span class="nav-text">9.刘天华</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#艺术特点"><span class="nav-text">艺术特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简述巴洛克时期的艺术特点。"><span class="nav-text">1.简述巴洛克时期的艺术特点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简述古典主义时期的音乐特点。"><span class="nav-text">2.简述古典主义时期的音乐特点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-简述浪漫主义时期的音乐特点。"><span class="nav-text">3.简述浪漫主义时期的音乐特点。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简答题"><span class="nav-text">简答题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、音乐史类"><span class="nav-text">一、音乐史类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简述贝多芬的艺术成就。"><span class="nav-text">1.简述贝多芬的艺术成就。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-艺术歌曲和群众歌曲的区别。"><span class="nav-text">2.艺术歌曲和群众歌曲的区别。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为什么有些音乐史书上将贝多芬列为古典主义作曲家，而有些学者则认为他开启了浪漫主义的先河呢？"><span class="nav-text">3.为什么有些音乐史书上将贝多芬列为古典主义作曲家，而有些学者则认为他开启了浪漫主义的先河呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-唐代有哪些音乐机构？它们担负着哪些职能？"><span class="nav-text">4.唐代有哪些音乐机构？它们担负着哪些职能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-元杂剧在剧本结构、演出形式与角色分工方面有哪些特点？"><span class="nav-text">5.元杂剧在剧本结构、演出形式与角色分工方面有哪些特点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-明清时期汉族主要的民间歌舞种类有哪些？"><span class="nav-text">6.明清时期汉族主要的民间歌舞种类有哪些？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、新课标类"><span class="nav-text">二、新课标类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-音乐课程总目标中，情感态度与价值观目标包括哪几个方面。"><span class="nav-text">1.音乐课程总目标中，情感态度与价值观目标包括哪几个方面。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-简要论述“以音乐审美为核心，以兴趣爱好为动力”教学理念。"><span class="nav-text">2.简要论述“以音乐审美为核心，以兴趣爱好为动力”教学理念。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-“弘扬民族音乐，理解音乐文化多样性”的理念。"><span class="nav-text">3.“弘扬民族音乐，理解音乐文化多样性”的理念。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-我国现行中小学音乐课程的内容特点是什么-？"><span class="nav-text">4.我国现行中小学音乐课程的内容特点是什么 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-简述在音乐教学中，“过程与方法”主要体现在哪几个方面？"><span class="nav-text">5.简述在音乐教学中，“过程与方法”主要体现在哪几个方面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-论述如何在音乐教学中实施识谱教学。"><span class="nav-text">6.论述如何在音乐教学中实施识谱教学。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析"><span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#【案例1】"><span class="nav-text">【案例1】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【案例2】"><span class="nav-text">【案例2】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【教材分析】"><span class="nav-text">【教材分析】</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#名词解释"><span class="nav-number">1.</span> <span class="nav-text">名词解释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#名词解释模板"><span class="nav-number">1.1.</span> <span class="nav-text">名词解释模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、体裁类"><span class="nav-number">1.2.</span> <span class="nav-text">一、体裁类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-艺术歌曲"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.艺术歌曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-相和歌"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.相和歌</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-清唱剧"><span class="nav-number">1.2.3.</span> <span class="nav-text">3.清唱剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-复调音乐"><span class="nav-number">1.2.4.</span> <span class="nav-text">3.复调音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-交响诗"><span class="nav-number">1.2.5.</span> <span class="nav-text">4.交响诗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧"><span class="nav-number">1.2.6.</span> <span class="nav-text">4.歌剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-音乐剧"><span class="nav-number">1.2.7.</span> <span class="nav-text">5.音乐剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-奥尔加农"><span class="nav-number">1.2.8.</span> <span class="nav-text">6.奥尔加农</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-侗族大哥"><span class="nav-number">1.2.9.</span> <span class="nav-text">7.侗族大哥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-八音分类法"><span class="nav-number">1.2.10.</span> <span class="nav-text">8.八音分类法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-《诗经》"><span class="nav-number">1.2.11.</span> <span class="nav-text">9.《诗经》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-《乐记》"><span class="nav-number">1.2.12.</span> <span class="nav-text">10.《乐记》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-“三分损益法”"><span class="nav-number">1.2.13.</span> <span class="nav-text">11.“三分损益法”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-歌舞大曲"><span class="nav-number">1.2.14.</span> <span class="nav-text">12.歌舞大曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-昆山腔（昆曲）"><span class="nav-number">1.2.15.</span> <span class="nav-text">13.昆山腔（昆曲）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#14-福建南音（南曲）"><span class="nav-number">1.2.16.</span> <span class="nav-text">14.福建南音（南曲）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、作品类"><span class="nav-number">1.3.</span> <span class="nav-text">二、作品类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-《黄河大合唱》"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.《黄河大合唱》</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-《平均律钢琴曲集》"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.《平均律钢琴曲集》</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、人物类"><span class="nav-number">1.4.</span> <span class="nav-text">三、人物类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-萧友梅"><span class="nav-number">1.4.1.</span> <span class="nav-text">1.萧友梅</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-莫扎特"><span class="nav-number">1.4.2.</span> <span class="nav-text">2.莫扎特</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-巴赫"><span class="nav-number">1.4.3.</span> <span class="nav-text">3.巴赫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-冼星海"><span class="nav-number">1.4.4.</span> <span class="nav-text">4.冼星海</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-贺渌汀"><span class="nav-number">1.4.5.</span> <span class="nav-text">5.贺渌汀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-黄自"><span class="nav-number">1.4.6.</span> <span class="nav-text">6.黄自</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-赵元任"><span class="nav-number">1.4.7.</span> <span class="nav-text">7.赵元任</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-聂耳"><span class="nav-number">1.4.8.</span> <span class="nav-text">8.聂耳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-刘天华"><span class="nav-number">1.4.9.</span> <span class="nav-text">9.刘天华</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#艺术特点"><span class="nav-number">2.</span> <span class="nav-text">艺术特点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简述巴洛克时期的艺术特点。"><span class="nav-number">2.1.</span> <span class="nav-text">1.简述巴洛克时期的艺术特点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-简述古典主义时期的音乐特点。"><span class="nav-number">2.2.</span> <span class="nav-text">2.简述古典主义时期的音乐特点。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-简述浪漫主义时期的音乐特点。"><span class="nav-number">2.3.</span> <span class="nav-text">3.简述浪漫主义时期的音乐特点。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#简答题"><span class="nav-number">3.</span> <span class="nav-text">简答题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、音乐史类"><span class="nav-number">3.1.</span> <span class="nav-text">一、音乐史类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简述贝多芬的艺术成就。"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.简述贝多芬的艺术成就。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-艺术歌曲和群众歌曲的区别。"><span class="nav-number">3.1.2.</span> <span class="nav-text">2.艺术歌曲和群众歌曲的区别。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-为什么有些音乐史书上将贝多芬列为古典主义作曲家，而有些学者则认为他开启了浪漫主义的先河呢？"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.为什么有些音乐史书上将贝多芬列为古典主义作曲家，而有些学者则认为他开启了浪漫主义的先河呢？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-唐代有哪些音乐机构？它们担负着哪些职能？"><span class="nav-number">3.1.4.</span> <span class="nav-text">4.唐代有哪些音乐机构？它们担负着哪些职能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-元杂剧在剧本结构、演出形式与角色分工方面有哪些特点？"><span class="nav-number">3.1.5.</span> <span class="nav-text">5.元杂剧在剧本结构、演出形式与角色分工方面有哪些特点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-明清时期汉族主要的民间歌舞种类有哪些？"><span class="nav-number">3.1.6.</span> <span class="nav-text">6.明清时期汉族主要的民间歌舞种类有哪些？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、新课标类"><span class="nav-number">3.2.</span> <span class="nav-text">二、新课标类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-音乐课程总目标中，情感态度与价值观目标包括哪几个方面。"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.音乐课程总目标中，情感态度与价值观目标包括哪几个方面。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-简要论述“以音乐审美为核心，以兴趣爱好为动力”教学理念。"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.简要论述“以音乐审美为核心，以兴趣爱好为动力”教学理念。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-“弘扬民族音乐，理解音乐文化多样性”的理念。"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.“弘扬民族音乐，理解音乐文化多样性”的理念。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-我国现行中小学音乐课程的内容特点是什么-？"><span class="nav-number">3.2.4.</span> <span class="nav-text">4.我国现行中小学音乐课程的内容特点是什么 ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-简述在音乐教学中，“过程与方法”主要体现在哪几个方面？"><span class="nav-number">3.2.5.</span> <span class="nav-text">5.简述在音乐教学中，“过程与方法”主要体现在哪几个方面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-论述如何在音乐教学中实施识谱教学。"><span class="nav-number">3.2.6.</span> <span class="nav-text">6.论述如何在音乐教学中实施识谱教学。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#案例分析"><span class="nav-number">4.</span> <span class="nav-text">案例分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#【案例1】"><span class="nav-number">4.1.</span> <span class="nav-text">【案例1】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【案例2】"><span class="nav-number">4.2.</span> <span class="nav-text">【案例2】</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#【教材分析】"><span class="nav-number">4.3.</span> <span class="nav-text">【教材分析】</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="CYIDA"
-      src="/images/avatar.png">
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">CYIDA</p>
   <div class="site-description" itemprop="description">爱尚音乐</div>
 </div>
@@ -643,7 +657,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="mailto:defy.cn@gmail.com" title="E-Mail → mailto:defy.cn@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
   </div>
 
@@ -655,7 +672,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="/https/www.0was.com" title="https&#x2F;&#x2F;www.0was.com">0was</a>
+          <a href="http://pan.rexau.com:8000/" title="http:&#x2F;&#x2F;pan.rexau.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
         </li>
     </ul>
   </div>
@@ -679,130 +696,18 @@
   &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CYIDA</span>
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
 
 
 
-  <script>
-  function leancloudSelector(url) {
-    url = encodeURI(url);
-    return document.getElementById(url).querySelector('.leancloud-visitors-count');
-  }
-  if (CONFIG.page.isPost) {
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.getAttribute('id'));
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-              leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .then(response => response.json())
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              })
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  } else {
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.getAttribute('id'));
-      });
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length === 0) {
-            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
-              element.innerText = 0;
-            });
-            return;
-          }
-          for (let item of results) {
-            let { url, time } = item;
-            leancloudSelector(url).innerText = time;
-          }
-          for (let url of entries) {
-            var element = leancloudSelector(url);
-            if (element.innerText == '') {
-              element.innerText = 0;
-            }
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  }
-
-  fetch('https://app-router.leancloud.cn/2/route?appId=')
-    .then(response => response.json())
-    .then(({ api_server }) => {
-      var Counter = (method, url, data) => {
-        return fetch(`https://${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : '',
-            'X-LC-Key'    : '',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
       </div>
@@ -811,8 +716,12 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -839,11 +748,28 @@
 
 
 
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
 
 
 
-
-  
 
   
 

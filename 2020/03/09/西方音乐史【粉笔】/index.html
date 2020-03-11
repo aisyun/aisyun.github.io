@@ -14,12 +14,10 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-fill-left.min.css">
-  <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="第一章 古希腊罗马时期 （一）古希腊音乐（前3200-前146年） Music 源于“Muse” 女神  1. 乐器  * 里拉琴  * 阿夫洛斯管：横吹乐器  2.三大悲剧  * 埃斯库罗斯：“悲剧之父”  * 索福克勒斯：“戏剧艺术的荷马”  * 欧里*庇得斯：“心理戏剧的鼻祖”  3.音乐理论研究  * 阿里斯多塞诺斯：四音音列  * 毕达歌拉斯：以理论方式说明和解释音乐现象  （二）古罗马">
@@ -41,7 +39,7 @@
 <meta property="og:image" content="http://image-update.test.upcdn.net/img/20190524002916.png">
 <meta property="og:image" content="http://image-update.test.upcdn.net/img/20190531164354.png">
 <meta property="article:published_time" content="2020-03-09T14:24:07.463Z">
-<meta property="article:modified_time" content="2020-03-11T11:07:50.039Z">
+<meta property="article:modified_time" content="2020-03-11T12:24:56.927Z">
 <meta property="article:author" content="CYIDA">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://image-update.test.upcdn.net/img/20190523133828.png">
@@ -56,16 +54,6 @@
     isHome : false,
     isPost : true
   };
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入查看密码') !== ''){
-                alert('密码不正确,请询问主编大大！');
-                history.back();
-            }
-        }
-    })();
-</script>
 </script>
 
   <title>西方音乐史【粉笔】 | AisYun</title>
@@ -102,7 +90,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container">
+  <div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -171,8 +159,9 @@
 
 </nav>
   <div class="site-search">
-    <div class="popup search-popup">
-    <div class="search-header">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
@@ -185,10 +174,14 @@
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result"></div>
-
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
-<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
 
   </div>
 </div>
@@ -217,7 +210,7 @@
     <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/03/09/%E8%A5%BF%E6%96%B9%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="CYIDA">
       <meta itemprop="description" content="爱尚音乐">
     </span>
@@ -239,22 +232,15 @@
 
               <time title="创建时间：2020-03-09 22:24:07" itemprop="dateCreated datePublished" datetime="2020-03-09T22:24:07+08:00">2020-03-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-11 20:24:56" itemprop="dateModified" datetime="2020-03-11T20:24:56+08:00">2020-03-11</time>
+              </span>
 
           
-            <span id="/2020/03/09/%E8%A5%BF%E6%96%B9%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" class="post-meta-item leancloud_visitors" data-flag-title="西方音乐史【粉笔】" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span id="busuanzi_value_page_pv"></span>
-            </span>
 
         </div>
       </header>
@@ -262,7 +248,6 @@
     
     
     
-	
     <div class="post-body" itemprop="articleBody">
 
       
@@ -647,7 +632,7 @@
 <h4 id="1-交响乐作品"><a href="#1-交响乐作品" class="headerlink" title="1.交响乐作品"></a>1.交响乐作品</h4><ul>
 <li>《bE大调第三“英雄”交响曲》，第三乐章把“小步舞曲”替换为“谐谑曲”</li>
 <li>《c小调第五“命运”交响曲》</li>
-<li>《F大调第六“田园”交响曲》</li>
+<li>《F大调第六“田园”交响曲》(标题交响)</li>
 <li>《d小调第九“合唱”交响曲》，首次在交响曲中加入“人声”</li>
 </ul>
 <h4 id="2-钢琴奏鸣曲"><a href="#2-钢琴奏鸣曲" class="headerlink" title="2.钢琴奏鸣曲"></a>2.钢琴奏鸣曲</h4><p>32首钢琴奏鸣曲：被誉为“新约全书”</p>
@@ -659,7 +644,8 @@
 </ul>
 <h4 id="3-其他作品"><a href="#3-其他作品" class="headerlink" title="3.其他作品"></a>3.其他作品</h4><p>（1）宗教音乐：《D大调庄严弥撒》</p>
 <p>（2）歌剧作品：唯一一部歌剧《费德里奥》</p>
-<p>（3）声乐套曲《致远方的爱人》</p>
+<p>（3）声乐套曲：《致远方的爱人》</p>
+<p>（4）弦乐四重奏：《#c小调弦乐四重奏》</p>
 <h2 id="四、主要乐器"><a href="#四、主要乐器" class="headerlink" title="四、主要乐器"></a>四、主要乐器</h2><p>1700年，第一台钢琴诞生。</p>
 <p>CP巴赫：</p>
 <ul>
@@ -1209,6 +1195,35 @@
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/atom.xml">
+                <span class="icon">
+                  <i class="fa fa-rss"></i>
+                </span>
+
+                <span class="label">RSS</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
 
@@ -1218,12 +1233,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/03/09/%E6%95%99%E8%82%B2%E5%AD%A6%E7%B2%BE%E8%AE%B2%E7%AC%94%E8%AE%B0%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="prev" title="教育学精讲笔记【粉笔】">
-      <i class="fa fa-chevron-left"></i> 教育学精讲笔记【粉笔】
+    <a href="/2020/03/10/listary%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="prev" title="listary的使用技巧">
+      <i class="fa fa-chevron-left"></i> listary的使用技巧
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/03/10/listary%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" rel="next" title="listary的使用技巧">
-      listary的使用技巧 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/09/%E6%95%99%E8%82%B2%E5%AD%A6%E7%B2%BE%E8%AE%B2%E7%AC%94%E8%AE%B0%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="next" title="教育学精讲笔记【粉笔】">
+      教育学精讲笔记【粉笔】 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -1284,14 +1299,14 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-古希腊罗马时期"><span class="nav-text">第一章 古希腊罗马时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）古希腊音乐（前3200-前146年）"><span class="nav-text">（一）古希腊音乐（前3200-前146年）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-乐器"><span class="nav-text">1. 乐器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-三大悲剧"><span class="nav-text">2.三大悲剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-音乐理论研究"><span class="nav-text">3.音乐理论研究</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）古罗马音乐（前146-公元476年）"><span class="nav-text">（二）古罗马音乐（前146-公元476年）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要乐器"><span class="nav-text">主要乐器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-中世纪时期（公元450-1450）"><span class="nav-text">第二章 中世纪时期（公元450-1450）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）中世纪时期音乐特征及代表形式"><span class="nav-text">（一）中世纪时期音乐特征及代表形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-教会音乐"><span class="nav-text">1.教会音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-格里高利圣咏"><span class="nav-text">2.格里高利圣咏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）音乐理论：记谱法的发展"><span class="nav-text">（二）音乐理论：记谱法的发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）复调音乐"><span class="nav-text">（三）复调音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）世俗音乐"><span class="nav-text">（四）世俗音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）中世纪的乐器"><span class="nav-text">（五）中世纪的乐器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-弦乐器"><span class="nav-text">1.弦乐器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-管乐器"><span class="nav-text">2.管乐器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-键盘乐器"><span class="nav-text">3.键盘乐器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）“新艺术”时期"><span class="nav-text">（六）“新艺术”时期</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-文艺复兴时期（14C-16C，1337-1563）"><span class="nav-text">第三章 文艺复兴时期（14C-16C，1337-1563）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）文艺复兴时期复调音乐的发展"><span class="nav-text">（一）文艺复兴时期复调音乐的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-勃艮第乐派（15世纪初）"><span class="nav-text">1.勃艮第乐派（15世纪初）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-佛兰德斯乐派（15世纪中后期）"><span class="nav-text">2.佛兰德斯乐派（15世纪中后期）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-罗马乐派（16世纪中叶）"><span class="nav-text">3.罗马乐派（16世纪中叶）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-威尼斯乐派（16世纪下半叶）"><span class="nav-text">4.威尼斯乐派（16世纪下半叶）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）马丁-路德宗教音乐改革"><span class="nav-text">（二）马丁*路德宗教音乐改革</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其它改革音乐家："><span class="nav-text">其它改革音乐家：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）重要乐器"><span class="nav-text">（三）重要乐器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-巴洛克时期"><span class="nav-text">第四章 巴洛克时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#音乐特点："><span class="nav-text">音乐特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、歌剧的起源与早期发展"><span class="nav-text">一、歌剧的起源与早期发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）歌剧的含义及来源"><span class="nav-text">（一）歌剧的含义及来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）意大利早期歌剧的发展及特征"><span class="nav-text">（二）意大利早期歌剧的发展及特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那不勒斯歌剧（正歌剧）"><span class="nav-text">那不勒斯歌剧（正歌剧）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#意大利歌剧（正歌剧）特点："><span class="nav-text">意大利歌剧（正歌剧）特点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）法国早期歌剧的形成与发展"><span class="nav-text">（三）法国早期歌剧的形成与发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）法国歌剧与意大利歌剧的区别"><span class="nav-text">（四）法国歌剧与意大利歌剧的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、大型声乐套曲"><span class="nav-text">二、大型声乐套曲</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-弥撒曲："><span class="nav-text">1.弥撒曲：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-康塔塔："><span class="nav-text">2.康塔塔：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-众赞歌："><span class="nav-text">3.众赞歌：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧："><span class="nav-text">4.歌剧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-清唱剧："><span class="nav-text">5.清唱剧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-受难乐："><span class="nav-text">6.受难乐：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、器乐体裁"><span class="nav-text">三、器乐体裁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-协奏曲"><span class="nav-text">1.协奏曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-前奏曲"><span class="nav-text">2.前奏曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幻想曲"><span class="nav-text">幻想曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奏鸣曲"><span class="nav-text">奏鸣曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘乐："><span class="nav-text">键盘乐：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、理论"><span class="nav-text">四、理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、巴洛克时期代表音乐家"><span class="nav-text">五、巴洛克时期代表音乐家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-蒙特-威尔第"><span class="nav-text">1.蒙特*威尔第</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-A-斯卡拉蒂"><span class="nav-text">2.A.斯卡拉蒂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-维瓦尔第"><span class="nav-text">3.维瓦尔第</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-巴赫"><span class="nav-text">4.巴赫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-亨德尔"><span class="nav-text">5.亨德尔</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-古典主义时期"><span class="nav-text">第五章 古典主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、古典主义时期音乐风格"><span class="nav-text">一、古典主义时期音乐风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、格鲁克歌剧改革"><span class="nav-text">二、格鲁克歌剧改革</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、古典主义乐派音乐家"><span class="nav-text">三、古典主义乐派音乐家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）海顿（奥）"><span class="nav-text">（一）海顿（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响曲："><span class="nav-text">1.交响曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-弦乐四重奏"><span class="nav-text">2.弦乐四重奏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-清唱剧"><span class="nav-text">3.清唱剧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）莫扎特（奥）"><span class="nav-text">（二）莫扎特（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-歌剧创作："><span class="nav-text">1.歌剧创作：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交响曲"><span class="nav-text">2.交响曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-协奏曲"><span class="nav-text">3.协奏曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-室内乐"><span class="nav-text">4.室内乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-其它体裁"><span class="nav-text">5.其它体裁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）贝多芬（德）"><span class="nav-text">（三）贝多芬（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响乐作品"><span class="nav-text">1.交响乐作品</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴奏鸣曲"><span class="nav-text">2.钢琴奏鸣曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-其他作品"><span class="nav-text">3.其他作品</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、主要乐器"><span class="nav-text">四、主要乐器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-浪漫主义时期"><span class="nav-text">第六章 浪漫主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、艺术特征"><span class="nav-text">一、艺术特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按国籍化分作曲家："><span class="nav-text">按国籍化分作曲家：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、浪漫早期"><span class="nav-text">二、浪漫早期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）舒伯特（奥）"><span class="nav-text">（一）舒伯特（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-艺术歌曲"><span class="nav-text">1.艺术歌曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴作品："><span class="nav-text">2.钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-交响曲和室内乐曲"><span class="nav-text">3.交响曲和室内乐曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#钢琴五重奏结构："><span class="nav-text">钢琴五重奏结构：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）帕格尼尼（意）"><span class="nav-text">（二）帕格尼尼（意）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）门德尔松（德）"><span class="nav-text">（三）门德尔松（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）上演巴赫清唱剧《马太受难乐》"><span class="nav-text">（1）上演巴赫清唱剧《马太受难乐》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）创办德国第一所音乐学院——莱比锡音乐学院，担任第一任院长。"><span class="nav-text">（2）创办德国第一所音乐学院——莱比锡音乐学院，担任第一任院长。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）首创小型钢琴体裁《无言歌》（无词歌）。"><span class="nav-text">（3）首创小型钢琴体裁《无言歌》（无词歌）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）交响曲和标题性序曲"><span class="nav-text">（4）交响曲和标题性序曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（5）艺术歌曲："><span class="nav-text">（5）艺术歌曲：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）舒曼（德）"><span class="nav-text">（四）舒曼（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）音乐评论："><span class="nav-text">（1）音乐评论：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）钢琴作品："><span class="nav-text">（2）钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）声乐作品："><span class="nav-text">（3）声乐作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）管弦乐作品"><span class="nav-text">（4）管弦乐作品</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）肖邦（波兰）"><span class="nav-text">（五）肖邦（波兰）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-吸收民间音乐进行创作"><span class="nav-text">1.吸收民间音乐进行创作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-多种钢琴体裁作品："><span class="nav-text">2.多种钢琴体裁作品：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、浪漫中期"><span class="nav-text">三、浪漫中期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）李斯特（匈）"><span class="nav-text">（一）李斯特（匈）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响诗："><span class="nav-text">1.交响诗：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴作品"><span class="nav-text">2.钢琴作品</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）柏辽兹（法）"><span class="nav-text">（二）柏辽兹（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标题音乐概念："><span class="nav-text">标题音乐概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响曲"><span class="nav-text">1.交响曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-歌剧"><span class="nav-text">2.歌剧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-理论方面（1842）"><span class="nav-text">3.理论方面（1842）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）勃拉姆斯（德）"><span class="nav-text">（三）勃拉姆斯（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-艺术歌曲："><span class="nav-text">1.艺术歌曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交响乐："><span class="nav-text">2.交响乐：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）约翰-施特劳斯父子（奥）"><span class="nav-text">（四）约翰*施特劳斯父子（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-老约翰-施特劳斯"><span class="nav-text">1.老约翰*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-小约翰-施特劳斯"><span class="nav-text">2.小约翰*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-约瑟夫-施特劳斯"><span class="nav-text">3.约瑟夫*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-爱德华-施特劳斯"><span class="nav-text">4.爱德华*施特劳斯</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、浪漫晚期"><span class="nav-text">四、浪漫晚期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）理查德-施特劳斯（德）"><span class="nav-text">（一）理查德*施特劳斯（德）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）马勒（奥）"><span class="nav-text">（二）马勒（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）圣-桑（法）"><span class="nav-text">（三）圣*桑（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#管弦组曲：《动物狂欢节》"><span class="nav-text">管弦组曲：《动物狂欢节》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#歌剧：《参孙与达理拉》"><span class="nav-text">歌剧：《参孙与达理拉》</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、浪漫歌剧"><span class="nav-text">五、浪漫歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）法国歌剧"><span class="nav-text">（一）法国歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-古诺"><span class="nav-text">1.古诺</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-比才"><span class="nav-text">2.比才</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）意大利歌剧"><span class="nav-text">（二）意大利歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-罗西尼"><span class="nav-text">1.罗西尼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-贝里尼"><span class="nav-text">2.贝里尼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唐尼采蒂"><span class="nav-text">3.唐尼采蒂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-威尔第"><span class="nav-text">4.威尔第</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-普契尼"><span class="nav-text">5.普契尼</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）德国歌剧"><span class="nav-text">（三）德国歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-韦伯"><span class="nav-text">1.韦伯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-瓦格纳"><span class="nav-text">2.瓦格纳</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、民族乐派"><span class="nav-text">六、民族乐派</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）俄罗斯"><span class="nav-text">（一）俄罗斯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格林卡"><span class="nav-text">1.格林卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-强力集团（五人团）"><span class="nav-text">2.强力集团（五人团）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-柴科夫斯基"><span class="nav-text">3.柴科夫斯基</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#芭蕾舞剧："><span class="nav-text">芭蕾舞剧：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#管弦乐："><span class="nav-text">管弦乐：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#歌剧："><span class="nav-text">歌剧：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#钢琴曲："><span class="nav-text">钢琴曲：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#弦乐四重奏："><span class="nav-text">弦乐四重奏：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）捷克"><span class="nav-text">（二）捷克</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-斯梅塔那"><span class="nav-text">1.斯梅塔那</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-德沃夏克"><span class="nav-text">2.德沃夏克</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）挪威和芬兰"><span class="nav-text">（三）挪威和芬兰</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格里格（挪）"><span class="nav-text">1.格里格（挪）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-西贝柳斯（芬）"><span class="nav-text">2.西贝柳斯（芬）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-印象主义时期"><span class="nav-text">第七章 印象主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#【音乐特点】："><span class="nav-text">【音乐特点】：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）德彪西（法）"><span class="nav-text">（一）德彪西（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-钢琴作品："><span class="nav-text">1.钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-管弦乐："><span class="nav-text">2.管弦乐：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-交响素描："><span class="nav-text">3.交响素描：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#《大海》"><span class="nav-text">《大海》</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧：-1"><span class="nav-text">4.歌剧：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）拉威尔（法）"><span class="nav-text">（二）拉威尔（法）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-20世纪的音乐"><span class="nav-text">第八章 20世纪的音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、表现主义音乐“新维也纳乐派”"><span class="nav-text">一、表现主义音乐“新维也纳乐派”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-勋伯格（奥）"><span class="nav-text">1.勋伯格（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-贝尔格（奥）"><span class="nav-text">2.贝尔格（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-韦伯恩（奥）"><span class="nav-text">3.韦伯恩（奥）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、新古典主义音乐"><span class="nav-text">一、新古典主义音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）斯特拉文斯基（美）"><span class="nav-text">（一）斯特拉文斯基（美）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）欣德米特（德）"><span class="nav-text">（二）欣德米特（德）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）法国六人团："><span class="nav-text">（三）法国六人团：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、民族主义音乐"><span class="nav-text">三、民族主义音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、微分音音和噪音音乐"><span class="nav-text">四、微分音音和噪音音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、序列音乐和偶然音乐"><span class="nav-text">五、序列音乐和偶然音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、电子音乐"><span class="nav-text">六、电子音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、爵士乐"><span class="nav-text">七、爵士乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、其它风格作曲家"><span class="nav-text">八、其它风格作曲家</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、音乐剧"><span class="nav-text">九、音乐剧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-“快–慢–快”代表人物："><span class="nav-text">1.“快–慢–快”代表人物：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-《四季》："><span class="nav-text">2.《四季》：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-有于《春》的体裁："><span class="nav-text">3.有于《春》的体裁：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-三大《安魂曲》"><span class="nav-text">4.三大《安魂曲》</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-古希腊罗马时期"><span class="nav-number">1.</span> <span class="nav-text">第一章 古希腊罗马时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）古希腊音乐（前3200-前146年）"><span class="nav-number">1.1.</span> <span class="nav-text">（一）古希腊音乐（前3200-前146年）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-乐器"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 乐器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-三大悲剧"><span class="nav-number">1.1.2.</span> <span class="nav-text">2.三大悲剧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-音乐理论研究"><span class="nav-number">1.1.3.</span> <span class="nav-text">3.音乐理论研究</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）古罗马音乐（前146-公元476年）"><span class="nav-number">1.2.</span> <span class="nav-text">（二）古罗马音乐（前146-公元476年）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主要乐器"><span class="nav-number">1.2.1.</span> <span class="nav-text">主要乐器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二章-中世纪时期（公元450-1450）"><span class="nav-number">2.</span> <span class="nav-text">第二章 中世纪时期（公元450-1450）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）中世纪时期音乐特征及代表形式"><span class="nav-number">2.0.1.</span> <span class="nav-text">（一）中世纪时期音乐特征及代表形式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-教会音乐"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">1.教会音乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-格里高利圣咏"><span class="nav-number">2.0.1.2.</span> <span class="nav-text">2.格里高利圣咏</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）音乐理论：记谱法的发展"><span class="nav-number">2.0.2.</span> <span class="nav-text">（二）音乐理论：记谱法的发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）复调音乐"><span class="nav-number">2.0.3.</span> <span class="nav-text">（三）复调音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）世俗音乐"><span class="nav-number">2.0.4.</span> <span class="nav-text">（四）世俗音乐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）中世纪的乐器"><span class="nav-number">2.0.5.</span> <span class="nav-text">（五）中世纪的乐器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-弦乐器"><span class="nav-number">2.0.5.1.</span> <span class="nav-text">1.弦乐器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-管乐器"><span class="nav-number">2.0.5.2.</span> <span class="nav-text">2.管乐器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-键盘乐器"><span class="nav-number">2.0.5.3.</span> <span class="nav-text">3.键盘乐器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（六）“新艺术”时期"><span class="nav-number">2.0.6.</span> <span class="nav-text">（六）“新艺术”时期</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-文艺复兴时期（14C-16C，1337-1563）"><span class="nav-number">3.</span> <span class="nav-text">第三章 文艺复兴时期（14C-16C，1337-1563）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）文艺复兴时期复调音乐的发展"><span class="nav-number">3.1.</span> <span class="nav-text">（一）文艺复兴时期复调音乐的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-勃艮第乐派（15世纪初）"><span class="nav-number">3.1.1.</span> <span class="nav-text">1.勃艮第乐派（15世纪初）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-佛兰德斯乐派（15世纪中后期）"><span class="nav-number">3.1.2.</span> <span class="nav-text">2.佛兰德斯乐派（15世纪中后期）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-罗马乐派（16世纪中叶）"><span class="nav-number">3.1.3.</span> <span class="nav-text">3.罗马乐派（16世纪中叶）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-威尼斯乐派（16世纪下半叶）"><span class="nav-number">3.1.4.</span> <span class="nav-text">4.威尼斯乐派（16世纪下半叶）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）马丁-路德宗教音乐改革"><span class="nav-number">3.2.</span> <span class="nav-text">（二）马丁*路德宗教音乐改革</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#其它改革音乐家："><span class="nav-number">3.2.0.1.</span> <span class="nav-text">其它改革音乐家：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）重要乐器"><span class="nav-number">3.3.</span> <span class="nav-text">（三）重要乐器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-巴洛克时期"><span class="nav-number">4.</span> <span class="nav-text">第四章 巴洛克时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#音乐特点："><span class="nav-number">4.1.</span> <span class="nav-text">音乐特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、歌剧的起源与早期发展"><span class="nav-number">4.2.</span> <span class="nav-text">一、歌剧的起源与早期发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）歌剧的含义及来源"><span class="nav-number">4.2.1.</span> <span class="nav-text">（一）歌剧的含义及来源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）意大利早期歌剧的发展及特征"><span class="nav-number">4.2.2.</span> <span class="nav-text">（二）意大利早期歌剧的发展及特征</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#那不勒斯歌剧（正歌剧）"><span class="nav-number">4.2.2.1.</span> <span class="nav-text">那不勒斯歌剧（正歌剧）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#意大利歌剧（正歌剧）特点："><span class="nav-number">4.2.2.2.</span> <span class="nav-text">意大利歌剧（正歌剧）特点：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）法国早期歌剧的形成与发展"><span class="nav-number">4.2.3.</span> <span class="nav-text">（三）法国早期歌剧的形成与发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）法国歌剧与意大利歌剧的区别"><span class="nav-number">4.2.4.</span> <span class="nav-text">（四）法国歌剧与意大利歌剧的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、大型声乐套曲"><span class="nav-number">4.3.</span> <span class="nav-text">二、大型声乐套曲</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-弥撒曲："><span class="nav-number">4.3.1.</span> <span class="nav-text">1.弥撒曲：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-康塔塔："><span class="nav-number">4.3.2.</span> <span class="nav-text">2.康塔塔：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-众赞歌："><span class="nav-number">4.3.3.</span> <span class="nav-text">3.众赞歌：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧："><span class="nav-number">4.3.4.</span> <span class="nav-text">4.歌剧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-清唱剧："><span class="nav-number">4.3.5.</span> <span class="nav-text">5.清唱剧：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-受难乐："><span class="nav-number">4.3.6.</span> <span class="nav-text">6.受难乐：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、器乐体裁"><span class="nav-number">4.4.</span> <span class="nav-text">三、器乐体裁</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-协奏曲"><span class="nav-number">4.4.1.</span> <span class="nav-text">1.协奏曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-前奏曲"><span class="nav-number">4.4.2.</span> <span class="nav-text">2.前奏曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#幻想曲"><span class="nav-number">4.4.3.</span> <span class="nav-text">幻想曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奏鸣曲"><span class="nav-number">4.4.4.</span> <span class="nav-text">奏鸣曲</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#键盘乐："><span class="nav-number">4.4.5.</span> <span class="nav-text">键盘乐：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、理论"><span class="nav-number">4.5.</span> <span class="nav-text">四、理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、巴洛克时期代表音乐家"><span class="nav-number">4.6.</span> <span class="nav-text">五、巴洛克时期代表音乐家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-蒙特-威尔第"><span class="nav-number">4.6.1.</span> <span class="nav-text">1.蒙特*威尔第</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-A-斯卡拉蒂"><span class="nav-number">4.6.2.</span> <span class="nav-text">2.A.斯卡拉蒂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-维瓦尔第"><span class="nav-number">4.6.3.</span> <span class="nav-text">3.维瓦尔第</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-巴赫"><span class="nav-number">4.6.4.</span> <span class="nav-text">4.巴赫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-亨德尔"><span class="nav-number">4.6.5.</span> <span class="nav-text">5.亨德尔</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第五章-古典主义时期"><span class="nav-number">5.</span> <span class="nav-text">第五章 古典主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、古典主义时期音乐风格"><span class="nav-number">5.1.</span> <span class="nav-text">一、古典主义时期音乐风格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、格鲁克歌剧改革"><span class="nav-number">5.2.</span> <span class="nav-text">二、格鲁克歌剧改革</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、古典主义乐派音乐家"><span class="nav-number">5.3.</span> <span class="nav-text">三、古典主义乐派音乐家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）海顿（奥）"><span class="nav-number">5.3.1.</span> <span class="nav-text">（一）海顿（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响曲："><span class="nav-number">5.3.1.1.</span> <span class="nav-text">1.交响曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-弦乐四重奏"><span class="nav-number">5.3.1.2.</span> <span class="nav-text">2.弦乐四重奏</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-清唱剧"><span class="nav-number">5.3.1.3.</span> <span class="nav-text">3.清唱剧</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）莫扎特（奥）"><span class="nav-number">5.3.2.</span> <span class="nav-text">（二）莫扎特（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-歌剧创作："><span class="nav-number">5.3.2.1.</span> <span class="nav-text">1.歌剧创作：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交响曲"><span class="nav-number">5.3.2.2.</span> <span class="nav-text">2.交响曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-协奏曲"><span class="nav-number">5.3.2.3.</span> <span class="nav-text">3.协奏曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-室内乐"><span class="nav-number">5.3.2.4.</span> <span class="nav-text">4.室内乐</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-其它体裁"><span class="nav-number">5.3.2.5.</span> <span class="nav-text">5.其它体裁</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）贝多芬（德）"><span class="nav-number">5.3.3.</span> <span class="nav-text">（三）贝多芬（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响乐作品"><span class="nav-number">5.3.3.1.</span> <span class="nav-text">1.交响乐作品</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴奏鸣曲"><span class="nav-number">5.3.3.2.</span> <span class="nav-text">2.钢琴奏鸣曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-其他作品"><span class="nav-number">5.3.3.3.</span> <span class="nav-text">3.其他作品</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、主要乐器"><span class="nav-number">5.4.</span> <span class="nav-text">四、主要乐器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第六章-浪漫主义时期"><span class="nav-number">6.</span> <span class="nav-text">第六章 浪漫主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、艺术特征"><span class="nav-number">6.1.</span> <span class="nav-text">一、艺术特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#按国籍化分作曲家："><span class="nav-number">6.2.</span> <span class="nav-text">按国籍化分作曲家：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、浪漫早期"><span class="nav-number">6.3.</span> <span class="nav-text">二、浪漫早期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）舒伯特（奥）"><span class="nav-number">6.3.1.</span> <span class="nav-text">（一）舒伯特（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-艺术歌曲"><span class="nav-number">6.3.1.1.</span> <span class="nav-text">1.艺术歌曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴作品："><span class="nav-number">6.3.1.2.</span> <span class="nav-text">2.钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-交响曲和室内乐曲"><span class="nav-number">6.3.1.3.</span> <span class="nav-text">3.交响曲和室内乐曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#钢琴五重奏结构："><span class="nav-number">6.3.1.4.</span> <span class="nav-text">钢琴五重奏结构：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）帕格尼尼（意）"><span class="nav-number">6.3.2.</span> <span class="nav-text">（二）帕格尼尼（意）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）门德尔松（德）"><span class="nav-number">6.3.3.</span> <span class="nav-text">（三）门德尔松（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）上演巴赫清唱剧《马太受难乐》"><span class="nav-number">6.3.3.1.</span> <span class="nav-text">（1）上演巴赫清唱剧《马太受难乐》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）创办德国第一所音乐学院——莱比锡音乐学院，担任第一任院长。"><span class="nav-number">6.3.3.2.</span> <span class="nav-text">（2）创办德国第一所音乐学院——莱比锡音乐学院，担任第一任院长。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）首创小型钢琴体裁《无言歌》（无词歌）。"><span class="nav-number">6.3.3.3.</span> <span class="nav-text">（3）首创小型钢琴体裁《无言歌》（无词歌）。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）交响曲和标题性序曲"><span class="nav-number">6.3.3.4.</span> <span class="nav-text">（4）交响曲和标题性序曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（5）艺术歌曲："><span class="nav-number">6.3.3.5.</span> <span class="nav-text">（5）艺术歌曲：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）舒曼（德）"><span class="nav-number">6.3.4.</span> <span class="nav-text">（四）舒曼（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）音乐评论："><span class="nav-number">6.3.4.1.</span> <span class="nav-text">（1）音乐评论：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）钢琴作品："><span class="nav-number">6.3.4.2.</span> <span class="nav-text">（2）钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）声乐作品："><span class="nav-number">6.3.4.3.</span> <span class="nav-text">（3）声乐作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）管弦乐作品"><span class="nav-number">6.3.4.4.</span> <span class="nav-text">（4）管弦乐作品</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（五）肖邦（波兰）"><span class="nav-number">6.3.5.</span> <span class="nav-text">（五）肖邦（波兰）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-吸收民间音乐进行创作"><span class="nav-number">6.3.5.1.</span> <span class="nav-text">1.吸收民间音乐进行创作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-多种钢琴体裁作品："><span class="nav-number">6.3.5.2.</span> <span class="nav-text">2.多种钢琴体裁作品：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、浪漫中期"><span class="nav-number">6.4.</span> <span class="nav-text">三、浪漫中期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）李斯特（匈）"><span class="nav-number">6.4.1.</span> <span class="nav-text">（一）李斯特（匈）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响诗："><span class="nav-number">6.4.1.1.</span> <span class="nav-text">1.交响诗：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-钢琴作品"><span class="nav-number">6.4.1.2.</span> <span class="nav-text">2.钢琴作品</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）柏辽兹（法）"><span class="nav-number">6.4.2.</span> <span class="nav-text">（二）柏辽兹（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标题音乐概念："><span class="nav-number">6.4.2.1.</span> <span class="nav-text">标题音乐概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-交响曲"><span class="nav-number">6.4.2.2.</span> <span class="nav-text">1.交响曲</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-歌剧"><span class="nav-number">6.4.2.3.</span> <span class="nav-text">2.歌剧</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-理论方面（1842）"><span class="nav-number">6.4.2.4.</span> <span class="nav-text">3.理论方面（1842）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）勃拉姆斯（德）"><span class="nav-number">6.4.3.</span> <span class="nav-text">（三）勃拉姆斯（德）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-艺术歌曲："><span class="nav-number">6.4.3.1.</span> <span class="nav-text">1.艺术歌曲：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-交响乐："><span class="nav-number">6.4.3.2.</span> <span class="nav-text">2.交响乐：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）约翰-施特劳斯父子（奥）"><span class="nav-number">6.4.4.</span> <span class="nav-text">（四）约翰*施特劳斯父子（奥）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-老约翰-施特劳斯"><span class="nav-number">6.4.4.1.</span> <span class="nav-text">1.老约翰*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-小约翰-施特劳斯"><span class="nav-number">6.4.4.2.</span> <span class="nav-text">2.小约翰*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-约瑟夫-施特劳斯"><span class="nav-number">6.4.4.3.</span> <span class="nav-text">3.约瑟夫*施特劳斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-爱德华-施特劳斯"><span class="nav-number">6.4.4.4.</span> <span class="nav-text">4.爱德华*施特劳斯</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、浪漫晚期"><span class="nav-number">6.5.</span> <span class="nav-text">四、浪漫晚期</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）理查德-施特劳斯（德）"><span class="nav-number">6.5.1.</span> <span class="nav-text">（一）理查德*施特劳斯（德）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）马勒（奥）"><span class="nav-number">6.5.2.</span> <span class="nav-text">（二）马勒（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）圣-桑（法）"><span class="nav-number">6.5.3.</span> <span class="nav-text">（三）圣*桑（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#管弦组曲：《动物狂欢节》"><span class="nav-number">6.5.3.1.</span> <span class="nav-text">管弦组曲：《动物狂欢节》</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#歌剧：《参孙与达理拉》"><span class="nav-number">6.5.3.2.</span> <span class="nav-text">歌剧：《参孙与达理拉》</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、浪漫歌剧"><span class="nav-number">6.6.</span> <span class="nav-text">五、浪漫歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）法国歌剧"><span class="nav-number">6.6.1.</span> <span class="nav-text">（一）法国歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-古诺"><span class="nav-number">6.6.1.1.</span> <span class="nav-text">1.古诺</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-比才"><span class="nav-number">6.6.1.2.</span> <span class="nav-text">2.比才</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）意大利歌剧"><span class="nav-number">6.6.2.</span> <span class="nav-text">（二）意大利歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-罗西尼"><span class="nav-number">6.6.2.1.</span> <span class="nav-text">1.罗西尼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-贝里尼"><span class="nav-number">6.6.2.2.</span> <span class="nav-text">2.贝里尼</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-唐尼采蒂"><span class="nav-number">6.6.2.3.</span> <span class="nav-text">3.唐尼采蒂</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-威尔第"><span class="nav-number">6.6.2.4.</span> <span class="nav-text">4.威尔第</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-普契尼"><span class="nav-number">6.6.2.5.</span> <span class="nav-text">5.普契尼</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）德国歌剧"><span class="nav-number">6.6.3.</span> <span class="nav-text">（三）德国歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-韦伯"><span class="nav-number">6.6.3.1.</span> <span class="nav-text">1.韦伯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-瓦格纳"><span class="nav-number">6.6.3.2.</span> <span class="nav-text">2.瓦格纳</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、民族乐派"><span class="nav-number">6.7.</span> <span class="nav-text">六、民族乐派</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）俄罗斯"><span class="nav-number">6.7.1.</span> <span class="nav-text">（一）俄罗斯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格林卡"><span class="nav-number">6.7.1.1.</span> <span class="nav-text">1.格林卡</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-强力集团（五人团）"><span class="nav-number">6.7.1.2.</span> <span class="nav-text">2.强力集团（五人团）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-柴科夫斯基"><span class="nav-number">6.7.1.3.</span> <span class="nav-text">3.柴科夫斯基</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#芭蕾舞剧："><span class="nav-number">6.7.1.3.1.</span> <span class="nav-text">芭蕾舞剧：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#管弦乐："><span class="nav-number">6.7.1.3.2.</span> <span class="nav-text">管弦乐：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#歌剧："><span class="nav-number">6.7.1.3.3.</span> <span class="nav-text">歌剧：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#钢琴曲："><span class="nav-number">6.7.1.3.4.</span> <span class="nav-text">钢琴曲：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#弦乐四重奏："><span class="nav-number">6.7.1.3.5.</span> <span class="nav-text">弦乐四重奏：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）捷克"><span class="nav-number">6.7.2.</span> <span class="nav-text">（二）捷克</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-斯梅塔那"><span class="nav-number">6.7.2.1.</span> <span class="nav-text">1.斯梅塔那</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-德沃夏克"><span class="nav-number">6.7.2.2.</span> <span class="nav-text">2.德沃夏克</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）挪威和芬兰"><span class="nav-number">6.7.3.</span> <span class="nav-text">（三）挪威和芬兰</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-格里格（挪）"><span class="nav-number">6.7.3.1.</span> <span class="nav-text">1.格里格（挪）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-西贝柳斯（芬）"><span class="nav-number">6.7.3.2.</span> <span class="nav-text">2.西贝柳斯（芬）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第七章-印象主义时期"><span class="nav-number">7.</span> <span class="nav-text">第七章 印象主义时期</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#【音乐特点】："><span class="nav-number">7.1.</span> <span class="nav-text">【音乐特点】：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）德彪西（法）"><span class="nav-number">7.2.</span> <span class="nav-text">（一）德彪西（法）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-钢琴作品："><span class="nav-number">7.2.0.1.</span> <span class="nav-text">1.钢琴作品：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-管弦乐："><span class="nav-number">7.2.0.2.</span> <span class="nav-text">2.管弦乐：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-交响素描："><span class="nav-number">7.2.0.3.</span> <span class="nav-text">3.交响素描：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#《大海》"><span class="nav-number">7.2.0.3.1.</span> <span class="nav-text">《大海》</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-歌剧：-1"><span class="nav-number">7.2.1.</span> <span class="nav-text">4.歌剧：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）拉威尔（法）"><span class="nav-number">7.3.</span> <span class="nav-text">（二）拉威尔（法）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第八章-20世纪的音乐"><span class="nav-number">8.</span> <span class="nav-text">第八章 20世纪的音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、表现主义音乐“新维也纳乐派”"><span class="nav-number">8.1.</span> <span class="nav-text">一、表现主义音乐“新维也纳乐派”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-勋伯格（奥）"><span class="nav-number">8.1.1.</span> <span class="nav-text">1.勋伯格（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-贝尔格（奥）"><span class="nav-number">8.1.2.</span> <span class="nav-text">2.贝尔格（奥）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-韦伯恩（奥）"><span class="nav-number">8.1.3.</span> <span class="nav-text">3.韦伯恩（奥）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、新古典主义音乐"><span class="nav-number">8.2.</span> <span class="nav-text">一、新古典主义音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）斯特拉文斯基（美）"><span class="nav-number">8.2.1.</span> <span class="nav-text">（一）斯特拉文斯基（美）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）欣德米特（德）"><span class="nav-number">8.2.2.</span> <span class="nav-text">（二）欣德米特（德）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）法国六人团："><span class="nav-number">8.2.3.</span> <span class="nav-text">（三）法国六人团：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、民族主义音乐"><span class="nav-number">8.3.</span> <span class="nav-text">三、民族主义音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、微分音音和噪音音乐"><span class="nav-number">8.4.</span> <span class="nav-text">四、微分音音和噪音音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、序列音乐和偶然音乐"><span class="nav-number">8.5.</span> <span class="nav-text">五、序列音乐和偶然音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六、电子音乐"><span class="nav-number">8.6.</span> <span class="nav-text">六、电子音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、爵士乐"><span class="nav-number">8.7.</span> <span class="nav-text">七、爵士乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、其它风格作曲家"><span class="nav-number">8.8.</span> <span class="nav-text">八、其它风格作曲家</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、音乐剧"><span class="nav-number">8.9.</span> <span class="nav-text">九、音乐剧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">9.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-“快–慢–快”代表人物："><span class="nav-number">9.1.</span> <span class="nav-text">1.“快–慢–快”代表人物：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-《四季》："><span class="nav-number">9.2.</span> <span class="nav-text">2.《四季》：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-有于《春》的体裁："><span class="nav-number">9.3.</span> <span class="nav-text">3.有于《春》的体裁：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-三大《安魂曲》"><span class="nav-number">9.4.</span> <span class="nav-text">4.三大《安魂曲》</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="CYIDA"
-      src="/images/avatar.png">
+      src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">CYIDA</p>
   <div class="site-description" itemprop="description">爱尚音乐</div>
 </div>
@@ -1308,7 +1323,10 @@
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="mailto:defy.cn@gmail.com" title="E-Mail → mailto:defy.cn@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
       </span>
   </div>
 
@@ -1320,7 +1338,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="/https/www.0was.com" title="https&#x2F;&#x2F;www.0was.com">0was</a>
+          <a href="http://pan.rexau.com:8000/" title="http:&#x2F;&#x2F;pan.rexau.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
         </li>
     </ul>
   </div>
@@ -1344,130 +1362,18 @@
   &copy; 
   <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">CYIDA</span>
 </div>
 
         
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
 
 
 
 
 
 
-  <script>
-  function leancloudSelector(url) {
-    url = encodeURI(url);
-    return document.getElementById(url).querySelector('.leancloud-visitors-count');
-  }
-  if (CONFIG.page.isPost) {
-    function addCount(Counter) {
-      var visitors = document.querySelector('.leancloud_visitors');
-      var url = decodeURI(visitors.getAttribute('id'));
-      var title = visitors.dataset.flagTitle;
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length > 0) {
-            var counter = results[0];
-              leancloudSelector(url).innerText = counter.time + 1;
-            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
-              .then(response => response.json())
-              .catch(error => {
-                console.error('Failed to save visitor count', error);
-              })
-          } else {
-              Counter('post', '/classes/Counter', { title, url, time: 1 })
-                .then(response => response.json())
-                .then(() => {
-                  leancloudSelector(url).innerText = 1;
-                })
-                .catch(error => {
-                  console.error('Failed to create', error);
-                });
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  } else {
-    function showTime(Counter) {
-      var visitors = document.querySelectorAll('.leancloud_visitors');
-      var entries = [...visitors].map(element => {
-        return decodeURI(element.getAttribute('id'));
-      });
-
-      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
-        .then(response => response.json())
-        .then(({ results }) => {
-          if (results.length === 0) {
-            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
-              element.innerText = 0;
-            });
-            return;
-          }
-          for (let item of results) {
-            let { url, time } = item;
-            leancloudSelector(url).innerText = time;
-          }
-          for (let url of entries) {
-            var element = leancloudSelector(url);
-            if (element.innerText == '') {
-              element.innerText = 0;
-            }
-          }
-        })
-        .catch(error => {
-          console.error('LeanCloud Counter Error', error);
-        });
-    }
-  }
-
-  fetch('https://app-router.leancloud.cn/2/route?appId=')
-    .then(response => response.json())
-    .then(({ api_server }) => {
-      var Counter = (method, url, data) => {
-        return fetch(`https://${api_server}/1.1${url}`, {
-          method,
-          headers: {
-            'X-LC-Id'     : '',
-            'X-LC-Key'    : '',
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data)
-        });
-      };
-      if (CONFIG.page.isPost) {
-        if (CONFIG.hostname !== location.hostname) return;
-        addCount(Counter);
-      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
 
 
       </div>
@@ -1476,8 +1382,12 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -1504,11 +1414,28 @@
 
 
 
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
 
 
 
-
-  
 
   
 
