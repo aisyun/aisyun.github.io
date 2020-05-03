@@ -1057,7 +1057,8 @@
 <li>具有”三首弯，慢蹲快起的起伏步“特点是傣族舞蹈。</li>
 <li>乐曲《杜鹃圆舞曲》是一首巴扬独奏。</li>
 <li>《国际歌》是一首合唱。</li>
-<li></li>
+<li>回旋曲式反复出现的部分称为叠部。</li>
+<li>近代的室内乐通常是指少数演奏者演奏的重奏曲，其特点是每件乐器各担任一个声部，通常采用奏鸣曲的结构形式。</li>
 </ol>
 <h2 id="二、中国音乐史"><a href="#二、中国音乐史" class="headerlink" title="二、中国音乐史"></a>二、中国音乐史</h2><ol>
 <li>中国民族音乐基本上由宫廷音乐、人文音乐、宗教音乐、民间音乐四部分构成。</li>
@@ -1154,7 +1155,7 @@
 <li>三段体的一个部分分别称为呈示、中段、再现段。</li>
 <li>《春江花月夜》是一首典雅优美的抒情性古曲，全曲共分为十段：江楼钟鼓、月上东山、风回曲水、花影层叠、水云深际、渔歌唱晚、洄澜拍岸、桡鸣远濑、欸乃归舟和尾声。</li>
 <li>首演我国第一部新歌剧《白毛女》主角喜儿的是郭兰英。</li>
-<li></li>
+<li>《新法密律》的计算成果最早见于《律历融通》。</li>
 </ol>
 <h2 id="三、西方音乐史"><a href="#三、西方音乐史" class="headerlink" title="三、西方音乐史"></a>三、西方音乐史</h2><ol>
 <li>柏拉图和亚里士多德等哲学家的音乐思想奠定了音乐美学发展的基础。</li>
@@ -1254,6 +1255,7 @@
 <li>帕修斯是芬兰民族乐派的创始人，被称为“芬兰歌剧之父”。</li>
 <li>文艺复兴时期的法国最发达的声乐体裁是歌谣曲。</li>
 <li>萨克斯属于管乐器中的木管乐器。</li>
+<li>安德森被誉为”半古典主义作曲家“。</li>
 </ol>
 <h2 id="四、教材教法"><a href="#四、教材教法" class="headerlink" title="四、教材教法"></a>四、教材教法</h2><ol>
 <li>音乐课程具有的价值：审美价值；文化传承价值；创造性发展价值；社会交往价值。</li>
@@ -1361,6 +1363,9 @@
 <li>音乐教学模式包括：认知模式、情感模式、行为模式。</li>
 <li>音乐课程评价的基本原则是导向性原则、科学性原则、整体性原则、可操作性原则。</li>
 <li>教师专业标准的四个基本理念是：师德为先、学生为本、能力为重、终身学习。</li>
+<li>德育与音乐教育相互渗透。</li>
+<li>音乐是实践性和操作性很强的学科，尤其是其表现领域更体现出一种技能特点。</li>
+<li>音乐是空间的艺术、时间的艺术、情感的艺术。</li>
 </ol>
 <h1 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h1><ol>
 <li>三分损</li>
@@ -3009,117 +3014,6 @@
 </body></html>]]></content>
   </entry>
   <entry>
-    <title>Blog/自动备份Hexo博客源文件</title>
-    <url>/2020/05/02/Blog/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<html><head></head><body><h1 id="自动备份Hexo博客源文件"><a href="#自动备份Hexo博客源文件" class="headerlink" title="自动备份Hexo博客源文件"></a>自动备份Hexo博客源文件</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>自从接触了Hexo+NexT之后，发现离不开了，以后有能力的时候一定重新架构一下，使得更加个性化，最大程度的满足我们对于软件的需求，大家都知道，如果写东西在本地的话，最怕的应该就是更换电脑，还要重新搭建博客了，所以备份对于我们来说特别重要！备份博客就是本篇博客文章的主旨了，一定要攻下这座城堡。<br>我曾经看过Git备份Hexo博客源文件的方式，这种方式虽然能够备份Hexo博客的源文件，但是对于我这种懒人，每次更新博文都需要输入两三行重复的Git命令真是一件麻烦的事情。况且指不定哪天就搞忘push到github上了。你说是不是，所以这篇文章出现了……</p>
-<h1 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h1><p>通过监听Hexo的事件来完成自动执行Git命令进行自动备份，查阅<a href="https://hexo.io/zh-cn/api/events.html" target="_blank" rel="noopener">Hexo文档</a>，找到了Hexo的主要事件，见下表：</p>
-<table>
-<thead>
-<tr>
-<th align="center">事件名</th>
-<th align="center">事件发生时间</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">deployBefore</td>
-<td align="center">在部署完成前发布</td>
-</tr>
-<tr>
-<td align="center">deployAfter</td>
-<td align="center">在部署成功后发布</td>
-</tr>
-<tr>
-<td align="center">exit</td>
-<td align="center">在 Hexo 结束前发布</td>
-</tr>
-<tr>
-<td align="center">generateBefore</td>
-<td align="center">在静态文件生成前发布</td>
-</tr>
-<tr>
-<td align="center">generateAfter</td>
-<td align="center">在静态文件生成后发布</td>
-</tr>
-<tr>
-<td align="center">new</td>
-<td align="center">在文章文件建立后发布</td>
-</tr>
-</tbody></table>
-<p>于是我们就可以通过监听Hexo的<code>deployAfter</code>事件，待上传完成之后自动运行Git备份命令，从而达到自动备份的目的。</p>
-<h1 id="三、实现"><a href="#三、实现" class="headerlink" title="三、实现"></a>三、实现</h1><h2 id="1-将Hexo目录加入Git仓库"><a href="#1-将Hexo目录加入Git仓库" class="headerlink" title="1.将Hexo目录加入Git仓库"></a>1.将Hexo目录加入Git仓库</h2><p>首先需要在Github创建一个新的repository,名字与本地Hexo文件夹同名即可。然后进入本地Hexo文件夹，按顺序执行以下命令：</p>
-<pre><code>git init
-git remote add origin git@github.com:yourname/hexo.git
-git pull origin master</code></pre><p>再每次执行hexo generate命令时，public/、.deploy、<em>.log文件夹会重写更新，因此需要在.gitignore文件（如果没有，手动创建一个）中写入public/、.deploy、</em>.log以忽略这几个目录，加快备份的速度。</p>
-<p>然后再顺序执行以下命令，将文件推送到Github：</p>
-<pre><code>git add .
-git commit -m "备份hexo源码文件"
-git push origin master</code></pre><p>这三行命令便是手动推送本地文件到Github的命令,我们接下来要做的是让NodeJS监听到Hexo的deployAfter事件后自动执行上述命令。</p>
-<p>这三行命令便是手动推送本地文件到Github的命令,我们接下来要做的是让NodeJS监听到Hexo的deployAfter事件后自动执行上述命令。<br>————————————————</p>
-<h2 id="2-安装shelljs模块"><a href="#2-安装shelljs模块" class="headerlink" title="2.安装shelljs模块"></a>2.安装<code>shelljs</code>模块</h2><p>要实现这个自动备份功能，需要依赖NodeJs的一个shelljs模块,该模块重新包装了child_process,调用系统命令更加的方便。（其实就是因为我懒( ╯▽╰)）该模块需要安装后使用。</p>
-<p>在命令中键入以下命令，完成shelljs模块的安装：</p>
-<p>复制</p>
-<pre><code>npm install --save shelljs</code></pre><h2 id="3-编写自动备份脚本"><a href="#3-编写自动备份脚本" class="headerlink" title="3.编写自动备份脚本"></a>3.编写自动备份脚本</h2><p><code>shelljs</code>模块安装完成后，在<code>Hexo</code>根目录的<code>scripts</code>文件夹下新建一个js文件，文件名随意取(我的文件名为:<code>auto_backup.js</code>)。如果没有<code>scripts</code>目录，请新建一个。</p>
-<p>然后在脚本中，写入以下内容：</p>
-<p>复制</p>
-<pre><code>require('shelljs/global');
-try {
-    hexo.on('deployAfter', function() {//当deploy完成后执行备份
-        run();
-    });
-
-} catch (e) {
-    console.log("产生了一个错误啊<(￣3￣)> !，错误详情为：" + e.toString());
-}
-function run() {
-    if (!which('git')) {
-        echo('Sorry, this script requires git');
-        exit(1);
-    } else {
-        echo("======================Auto Backup Begin===========================");
-        cd('E:/work/myblog');    //此处修改为Hexo根目录路径
-        if (exec('git add --all').code !== 0) {
-            echo('Error: Git add failed');
-            exit(1);
-        }
-        if (exec('git commit -am "blog auto backup script\'s commit"').code !== 0) {
-            echo('Error: Git commit failed');
-            exit(1);
-        }
-        if (exec('git push origin master').code !== 0) {
-            echo('Error: Git push failed');
-            exit(1);
-        }
-        echo("==================Auto Backup Complete============================")
-    }
-}</code></pre><ul>
-<li>其中，需要修改第16行的E:/work/myblog路径为Hexo的根目录路径。（脚本中的路径为博主的Hexo路径）</li>
-<li>如果你的Git远程仓库名称不为origin的话，还需要修改第25行执行的push命令，修改成自己的远程仓库名和相应的分支名。</li>
-</ul>
-<h2 id="4-测试结果"><a href="#4-测试结果" class="headerlink" title="4.测试结果"></a>4.测试结果</h2><p>保存脚本并退出，然后执行<code>hexo d</code>命令，在常规结果执行出来后，将会得到类似以下结果:</p>
-<p><a href="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409215918.png" target="_blank" rel="noopener"><img alt="img" data-src="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409215918.png" class="lazyload"></a></p>
-<p>这样子就表明成功上传啦，每次更新博文并deploy到服务器上之后，备份就自动启动并完成备份啦~</p>
-<p>查看github镜像库，如下图所示，得到了想要的东西：</p>
-<p><a href="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409220342.png" target="_blank" rel="noopener"><img alt="img" data-src="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409220342.png" class="lazyload"></a></p>
-<p>测试成功！</p>
-<p>很开心，以后就可以自动备份Hexo博客源文件托管在Github上啦，嘿嘿嘿！</p>
-<h1 id="四、懒癌患者的小福利"><a href="#四、懒癌患者的小福利" class="headerlink" title="四、懒癌患者的小福利"></a>四、懒癌患者的小福利</h1><p>在hexo中，我们常常使用hexo new命令来新建文章。然鹅，当我们的文章较多时，我们往往需要在成堆的文章中找到刚刚生成的文件，然后使用Markdown编辑器打开。作为一名懒癌患者怎么可能让自己如此受累。</p>
-<p>于是，我找到了Hexo作者给出的解决办法</p>
-<p>和上面类似，在scripts文件夹中创建一个js文件，添加以下代码：</p>
-<pre><code>var spawn = require('child_process').exec;
-
-// Hexo 2.x 用户复制这段
-hexo.on('new', function(path){
-  spawn('start  "markdown编辑器绝对路径.exe" ' + path);
-});
-
-// Hexo 3 用户复制这段
-hexo.on('new', function(data){
-  spawn('start  "markdown编辑器绝对路径.exe" ' + data.path);
-});</code></pre><p>保存并退出脚本之后，在命令行中键入：</p>
-<p>hexo new “auto open editor test”<br>是不是就顺利的自动打开了自动生成的md文件啦~</p>
-</body></html>]]></content>
-  </entry>
-  <entry>
     <title>Blog/listary的使用技巧</title>
     <url>/2020/05/02/Blog/listary%E7%9A%84%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
     <content><![CDATA[<html><head></head><body><h1 id="listary的使用技巧"><a href="#listary的使用技巧" class="headerlink" title="listary的使用技巧"></a>listary的使用技巧</h1><p>Listary是一款强大的windows搜索软件，灵活运用其搜索功能提升不少工作效率，减去繁重的操作步骤，下面就给大家带来listary使用教程以及listary的使用技巧！</p>
@@ -3398,6 +3292,117 @@ hexo.on('new', function(data){
 <p>yd | 有道 | <a href="https://www.youdao.com/w/eng/{query}/#keyfrom=dict2.index" target="_blank" rel="noopener">https://www.youdao.com/w/eng/{query}/#keyfrom=dict2.index</a></p>
 <p><a href="http://www.xitongtiandi.net/d/file/news/microsoft/2019-12-05/1e01ea8c00b172504619b185472660fb.png" data-fancybox="group" data-caption="26.png" class="fancybox"><img alt="26.png" title="26.png" data-src="http://www.xitongtiandi.net/d/file/news/microsoft/2019-12-05/1e01ea8c00b172504619b185472660fb.png" class="lazyload"></a></p>
 <p>▲批量添加关键字</p>
+</body></html>]]></content>
+  </entry>
+  <entry>
+    <title>Blog/自动备份Hexo博客源文件</title>
+    <url>/2020/05/02/Blog/%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BDHexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<html><head></head><body><h1 id="自动备份Hexo博客源文件"><a href="#自动备份Hexo博客源文件" class="headerlink" title="自动备份Hexo博客源文件"></a>自动备份Hexo博客源文件</h1><h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>自从接触了Hexo+NexT之后，发现离不开了，以后有能力的时候一定重新架构一下，使得更加个性化，最大程度的满足我们对于软件的需求，大家都知道，如果写东西在本地的话，最怕的应该就是更换电脑，还要重新搭建博客了，所以备份对于我们来说特别重要！备份博客就是本篇博客文章的主旨了，一定要攻下这座城堡。<br>我曾经看过Git备份Hexo博客源文件的方式，这种方式虽然能够备份Hexo博客的源文件，但是对于我这种懒人，每次更新博文都需要输入两三行重复的Git命令真是一件麻烦的事情。况且指不定哪天就搞忘push到github上了。你说是不是，所以这篇文章出现了……</p>
+<h1 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h1><p>通过监听Hexo的事件来完成自动执行Git命令进行自动备份，查阅<a href="https://hexo.io/zh-cn/api/events.html" target="_blank" rel="noopener">Hexo文档</a>，找到了Hexo的主要事件，见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">事件名</th>
+<th align="center">事件发生时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">deployBefore</td>
+<td align="center">在部署完成前发布</td>
+</tr>
+<tr>
+<td align="center">deployAfter</td>
+<td align="center">在部署成功后发布</td>
+</tr>
+<tr>
+<td align="center">exit</td>
+<td align="center">在 Hexo 结束前发布</td>
+</tr>
+<tr>
+<td align="center">generateBefore</td>
+<td align="center">在静态文件生成前发布</td>
+</tr>
+<tr>
+<td align="center">generateAfter</td>
+<td align="center">在静态文件生成后发布</td>
+</tr>
+<tr>
+<td align="center">new</td>
+<td align="center">在文章文件建立后发布</td>
+</tr>
+</tbody></table>
+<p>于是我们就可以通过监听Hexo的<code>deployAfter</code>事件，待上传完成之后自动运行Git备份命令，从而达到自动备份的目的。</p>
+<h1 id="三、实现"><a href="#三、实现" class="headerlink" title="三、实现"></a>三、实现</h1><h2 id="1-将Hexo目录加入Git仓库"><a href="#1-将Hexo目录加入Git仓库" class="headerlink" title="1.将Hexo目录加入Git仓库"></a>1.将Hexo目录加入Git仓库</h2><p>首先需要在Github创建一个新的repository,名字与本地Hexo文件夹同名即可。然后进入本地Hexo文件夹，按顺序执行以下命令：</p>
+<pre><code>git init
+git remote add origin git@github.com:yourname/hexo.git
+git pull origin master</code></pre><p>再每次执行hexo generate命令时，public/、.deploy、<em>.log文件夹会重写更新，因此需要在.gitignore文件（如果没有，手动创建一个）中写入public/、.deploy、</em>.log以忽略这几个目录，加快备份的速度。</p>
+<p>然后再顺序执行以下命令，将文件推送到Github：</p>
+<pre><code>git add .
+git commit -m "备份hexo源码文件"
+git push origin master</code></pre><p>这三行命令便是手动推送本地文件到Github的命令,我们接下来要做的是让NodeJS监听到Hexo的deployAfter事件后自动执行上述命令。</p>
+<p>这三行命令便是手动推送本地文件到Github的命令,我们接下来要做的是让NodeJS监听到Hexo的deployAfter事件后自动执行上述命令。<br>————————————————</p>
+<h2 id="2-安装shelljs模块"><a href="#2-安装shelljs模块" class="headerlink" title="2.安装shelljs模块"></a>2.安装<code>shelljs</code>模块</h2><p>要实现这个自动备份功能，需要依赖NodeJs的一个shelljs模块,该模块重新包装了child_process,调用系统命令更加的方便。（其实就是因为我懒( ╯▽╰)）该模块需要安装后使用。</p>
+<p>在命令中键入以下命令，完成shelljs模块的安装：</p>
+<p>复制</p>
+<pre><code>npm install --save shelljs</code></pre><h2 id="3-编写自动备份脚本"><a href="#3-编写自动备份脚本" class="headerlink" title="3.编写自动备份脚本"></a>3.编写自动备份脚本</h2><p><code>shelljs</code>模块安装完成后，在<code>Hexo</code>根目录的<code>scripts</code>文件夹下新建一个js文件，文件名随意取(我的文件名为:<code>auto_backup.js</code>)。如果没有<code>scripts</code>目录，请新建一个。</p>
+<p>然后在脚本中，写入以下内容：</p>
+<p>复制</p>
+<pre><code>require('shelljs/global');
+try {
+    hexo.on('deployAfter', function() {//当deploy完成后执行备份
+        run();
+    });
+
+} catch (e) {
+    console.log("产生了一个错误啊<(￣3￣)> !，错误详情为：" + e.toString());
+}
+function run() {
+    if (!which('git')) {
+        echo('Sorry, this script requires git');
+        exit(1);
+    } else {
+        echo("======================Auto Backup Begin===========================");
+        cd('E:/work/myblog');    //此处修改为Hexo根目录路径
+        if (exec('git add --all').code !== 0) {
+            echo('Error: Git add failed');
+            exit(1);
+        }
+        if (exec('git commit -am "blog auto backup script\'s commit"').code !== 0) {
+            echo('Error: Git commit failed');
+            exit(1);
+        }
+        if (exec('git push origin master').code !== 0) {
+            echo('Error: Git push failed');
+            exit(1);
+        }
+        echo("==================Auto Backup Complete============================")
+    }
+}</code></pre><ul>
+<li>其中，需要修改第16行的E:/work/myblog路径为Hexo的根目录路径。（脚本中的路径为博主的Hexo路径）</li>
+<li>如果你的Git远程仓库名称不为origin的话，还需要修改第25行执行的push命令，修改成自己的远程仓库名和相应的分支名。</li>
+</ul>
+<h2 id="4-测试结果"><a href="#4-测试结果" class="headerlink" title="4.测试结果"></a>4.测试结果</h2><p>保存脚本并退出，然后执行<code>hexo d</code>命令，在常规结果执行出来后，将会得到类似以下结果:</p>
+<p><a href="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409215918.png" target="_blank" rel="noopener"><img alt="img" data-src="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409215918.png" class="lazyload"></a></p>
+<p>这样子就表明成功上传啦，每次更新博文并deploy到服务器上之后，备份就自动启动并完成备份啦~</p>
+<p>查看github镜像库，如下图所示，得到了想要的东西：</p>
+<p><a href="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409220342.png" target="_blank" rel="noopener"><img alt="img" data-src="https://raw.githubusercontent.com/wugenqiang/picGo/master/pictures/20190409220342.png" class="lazyload"></a></p>
+<p>测试成功！</p>
+<p>很开心，以后就可以自动备份Hexo博客源文件托管在Github上啦，嘿嘿嘿！</p>
+<h1 id="四、懒癌患者的小福利"><a href="#四、懒癌患者的小福利" class="headerlink" title="四、懒癌患者的小福利"></a>四、懒癌患者的小福利</h1><p>在hexo中，我们常常使用hexo new命令来新建文章。然鹅，当我们的文章较多时，我们往往需要在成堆的文章中找到刚刚生成的文件，然后使用Markdown编辑器打开。作为一名懒癌患者怎么可能让自己如此受累。</p>
+<p>于是，我找到了Hexo作者给出的解决办法</p>
+<p>和上面类似，在scripts文件夹中创建一个js文件，添加以下代码：</p>
+<pre><code>var spawn = require('child_process').exec;
+
+// Hexo 2.x 用户复制这段
+hexo.on('new', function(path){
+  spawn('start  "markdown编辑器绝对路径.exe" ' + path);
+});
+
+// Hexo 3 用户复制这段
+hexo.on('new', function(data){
+  spawn('start  "markdown编辑器绝对路径.exe" ' + data.path);
+});</code></pre><p>保存并退出脚本之后，在命令行中键入：</p>
+<p>hexo new “auto open editor test”<br>是不是就顺利的自动打开了自动生成的md文件啦~</p>
 </body></html>]]></content>
   </entry>
   <entry>
@@ -4066,6 +4071,526 @@ hexo.on('new', function(data){
 </body></html>]]></content>
   </entry>
   <entry>
+    <title>中国近现代音乐史【粉笔】</title>
+    <url>/2020/05/02/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/</url>
+    <content><![CDATA[<html><head></head><body><h1 id="中国近现代音乐史"><a href="#中国近现代音乐史" class="headerlink" title="中国近现代音乐史"></a>中国近现代音乐史</h1><h1 id="一、鸦片战争以来中国传统音乐的发展"><a href="#一、鸦片战争以来中国传统音乐的发展" class="headerlink" title="一、鸦片战争以来中国传统音乐的发展"></a>一、鸦片战争以来中国传统音乐的发展</h1><h2 id="（一）民歌"><a href="#（一）民歌" class="headerlink" title="（一）民歌"></a>（一）民歌</h2><a href="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom:75%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png" class="lazyload"></a>
+
+<h2 id="（二）说唱音乐"><a href="#（二）说唱音乐" class="headerlink" title="（二）说唱音乐"></a>（二）说唱音乐</h2><p>1.京韵大鼓</p>
+<p>由河北木板大鼓与平津清音子弟书合流而成，后吸收北京方言，在三弦基础上，增加了四胡和琵琶形成。</p>
+<p>代表人物：</p>
+<ul>
+<li>白云鹏</li>
+<li>刘宝全：鼓王</li>
+<li>骆玉笙：林冲很丑要重生：《林冲发配》《丑末寅初》《重整河山待后生》</li>
+</ul>
+<p>2.苏州弹词</p>
+<ul>
+<li>陈调、俞调、马调</li>
+<li>代表作品：《白蛇传》《玉晴蜓》《描金风》《珍珠塔》</li>
+<li>代表人物：朱素兰</li>
+</ul>
+<h2 id="（三）戏曲音乐"><a href="#（三）戏曲音乐" class="headerlink" title="（三）戏曲音乐"></a>（三）戏曲音乐</h2><h3 id="1-四大名旦："><a href="#1-四大名旦：" class="headerlink" title="1.四大名旦："></a>1.四大名旦：</h3><ul>
+<li>梅兰方：<ul>
+<li>代表作品：《贵妃醉酒》《霸王别姬》（选段《看大王在帐中和衣睡稳》）、《洛神》《木兰从军》</li>
+<li>创造<strong>雍容华贵</strong>的新腔，被称“梅派”</li>
+<li>创立“花衫”</li>
+<li>在伴奏音乐加入二胡、月琴。</li>
+<li>赴美国、苏联演出，为传统艺术和音乐赢得了国际声誉。</li>
+<li>中国“梅派”与苏联斯坦尼斯拉夫斯基、德国的布莱希特 并称“世界三大艺术表演体系”。</li>
+</ul>
+</li>
+<li>程砚秋：<ul>
+<li><strong>以腔就字</strong>，声、情、美、永</li>
+<li>筹建了“中国戏曲音乐院”</li>
+<li>代表作品：《荒山泪》《春闺梦》</li>
+</ul>
+</li>
+<li>荀慧生：<ul>
+<li><strong>念白</strong>韵律美，唱腔俏丽多姿，动作美、媚、脆。</li>
+<li>代表剧目：《玉堂春》《太英节烈》</li>
+</ul>
+</li>
+<li>尚小云：<ul>
+<li>“第一童伶”</li>
+<li>正旦、<strong>刀马旦</strong>，唱腔以刚劲著称，字正腔圆。</li>
+<li>代表剧目：《二进宫》<strong>《昭君出塞》</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-前四大须生："><a href="#2-前四大须生：" class="headerlink" title="2.前四大须生："></a>2.前四大须生：</h3><ul>
+<li><p><strong>余</strong>叔岩、<strong>言</strong>菊朋、<strong>高</strong>庆奎、<strong>马</strong>连良</p>
+</li>
+<li><p>后四在须生：马连良、杨宝森、潭富英、奚啸伯。</p>
+</li>
+</ul>
+<h3 id="3-老生三鼎甲："><a href="#3-老生三鼎甲：" class="headerlink" title="3.老生三鼎甲："></a>3.老生三鼎甲：</h3><p>张二奎、程长庚、余三胜</p>
+<h2 id="（四）民族器乐"><a href="#（四）民族器乐" class="headerlink" title="（四）民族器乐"></a>（四）民族器乐</h2><p><a href="http://image-update.test.upcdn.net/img/20190520205010.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://image-update.test.upcdn.net/img/20190520205010.png" class="lazyload"></a></p>
+<p>《百鸟朝凤》——任同祥</p>
+<h1 id="二、西洋音乐传入与学堂乐歌的发展"><a href="#二、西洋音乐传入与学堂乐歌的发展" class="headerlink" title="二、西洋音乐传入与学堂乐歌的发展"></a>二、西洋音乐传入与学堂乐歌的发展</h1><p><a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png" data-fancybox="group" data-caption="image-20200314191441365" class="fancybox"><img alt="image-20200314191441365" title="image-20200314191441365" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png" class="lazyload"></a></p>
+<h2 id="（一）学堂乐歌"><a href="#（一）学堂乐歌" class="headerlink" title="（一）学堂乐歌"></a>（一）学堂乐歌</h2><p><strong>1.定义：</strong></p>
+<p>学堂乐歌是我国19世纪末随着<strong>新式学堂</strong>的建立而兴起的歌唱文化，一般指开设的<strong>音乐课</strong>或为学堂歌唱而编创的歌曲。</p>
+<p><strong>2.内容：</strong></p>
+<ul>
+<li>“富国强兵”“抵御外辱”</li>
+<li>推翻帝制，建立民主共和的新政</li>
+<li>进行国民教育的军歌</li>
+<li>妇女解放、男女平等。</li>
+<li>提倡新文化、反对旧文化；提倡新风气，反对旧习俗；宣传科学文明，反对封建迷信。</li>
+</ul>
+<p><strong>3.曲调特点及来源：</strong></p>
+<p>（1）曲调特点：旧曲填新词</p>
+<p>（2）曲调来源：</p>
+<ul>
+<li>欧美、日本的曲调；</li>
+<li>中国民歌；</li>
+<li>自主创作。</li>
+</ul>
+<p><strong>4.社会意义</strong></p>
+<p>（1）集体歌咏形式得以传播；</p>
+<p>（2）歌曲体裁对后世影响很多</p>
+<p>（3）普及简谱，介绍线谱和西方音乐知识；</p>
+<p>（4）培养音乐人才；</p>
+<p>（5）启蒙意义:中国近代民主主义音乐文化的开端。</p>
+<a id="more"></a>
+
+<p><strong>5.历史意义</strong></p>
+<ul>
+<li>促进欧洲<strong>音乐文化</strong>的传入，</li>
+<li>促进欧洲<strong>音乐技能</strong>的传播</li>
+<li>促进中国“新音乐”的发展</li>
+<li>促进“军革群”体裁的发展</li>
+<li>培养了第一批现代作曲家</li>
+</ul>
+<p>“四促一培”</p>
+<h2 id="（二）代表人物"><a href="#（二）代表人物" class="headerlink" title="（二）代表人物"></a>（二）代表人物</h2><h3 id="1-沈心工"><a href="#1-沈心工" class="headerlink" title="1.沈心工"></a>1.沈心工</h3><ul>
+<li>“学堂乐歌之父”</li>
+<li>最早针对中小学生返学前儿童特点编写音乐教科书</li>
+<li>填词歌曲：《体操——兵操》（《男儿第一志气高》），第一部学堂乐歌。</li>
+<li>创作歌曲：《黄河》</li>
+</ul>
+<h3 id="2-李叔同"><a href="#2-李叔同" class="headerlink" title="2.李叔同"></a>2.李叔同</h3><ul>
+<li>“弘一法师”</li>
+<li>创办中国第一份音乐期刊<strong>《音乐小杂志》</strong></li>
+<li>第一个话剧团体“春柳社”</li>
+<li>最早向中国介绍贝多芬</li>
+<li>代表作品：<ul>
+<li>填词歌曲：《送别》《祖国歌》（根据传统乐曲《老六版》改编填词）</li>
+<li>创作歌曲：<strong>《春游》</strong>（中国第一部三声合唱）《留别》</li>
+</ul>
+</li>
+</ul>
+<p>【补充说明】</p>
+<p>《送别》曲调来源：</p>
+<p>1）十九世纪美国音乐家J・P・奥德威《梦见家和母亲》</p>
+<p>2）歌曲到日本后，犬童球溪创作《旅愁》</p>
+<h3 id="3-曾志忞"><a href="#3-曾志忞" class="headerlink" title="3.曾志忞"></a>3.曾志忞</h3><ul>
+<li>组织“亚雅音乐会”，创办“上海贫儿院音乐部”</li>
+<li>编印《教育唱歌集》</li>
+<li>出版了《乐理大意》《乐典教科书》（最早的一本较完备的系统介绍西方音乐体系的乐理教科书）</li>
+</ul>
+<h1 id="三、20世纪20年代的音乐"><a href="#三、20世纪20年代的音乐" class="headerlink" title="三、20世纪20年代的音乐"></a>三、20世纪20年代的音乐</h1><h2 id="（一）音乐教育的发展"><a href="#（一）音乐教育的发展" class="headerlink" title="（一）音乐教育的发展"></a>（一）音乐教育的发展</h2><p>早期音乐教学：</p>
+<ul>
+<li><p>北京大学音乐传习所：前身1916年蔡元培建立的北大音乐团</p>
+<ul>
+<li>1919年改名音乐研究会</li>
+<li>1922年，萧友梅改名北京大学附设音乐传习所。</li>
+</ul>
+</li>
+<li><p>上海国立音乐院：</p>
+<p>1）1927年建立，蔡元培任校长，萧友梅任教务主任</p>
+<p>2）是我国第一所独立高等专科音乐学院。</p>
+<p>3）标志着中国专业音乐教育进入了新阶段。</p>
+<p>4）1929更名“国立音乐专科学院”，萧友梅校长，黄自教务主任。</p>
+<p>5）上海音乐学院的前身。</p>
+</li>
+</ul>
+<h2 id="（二）萧友梅"><a href="#（二）萧友梅" class="headerlink" title="（二）萧友梅"></a>（二）萧友梅</h2><a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png" data-fancybox="group" data-caption="image-20200314213443480" class="fancybox"><img alt="image-20200314213443480" style="zoom: 33%;" title="image-20200314213443480" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png" class="lazyload"></a>
+
+<p>“中国近代音乐教育的宗师”</p>
+<p>1.音乐教育：</p>
+<ul>
+<li>1927年建立上海国立音乐院，1929年更名“国立音乐专科学校”</li>
+</ul>
+<p>2.音乐创作</p>
+<p>改变“选曲填词”的创 作音乐家</p>
+<ul>
+<li>声乐作品：《五四纪念爱国歌》、独唱歌曲《问》、大型声乐套曲《春江花月夜》</li>
+<li>器乐作品：我国第一部管弦乐曲《新霓裳羽衣舞》、第一部大提琴曲《秋思》</li>
+</ul>
+<p>3.音乐理论《和声学》《普通乐学》《中西音乐的比较研究》</p>
+<h2 id="（三）赵元任"><a href="#（三）赵元任" class="headerlink" title="（三）赵元任"></a>（三）赵元任</h2><ul>
+<li><p>“语言学之父”、“中国的舒伯特”</p>
+</li>
+<li><p>为中国民间歌曲配写钢琴伴奏第一人</p>
+</li>
+<li><p>代表作品：</p>
+<p>（1）合唱<strong>《海韵》</strong>（徐志摩词）清唱剧式</p>
+<p>（2）抒情艺术歌曲《教我如何不想他》（刘半农词）</p>
+<p>（3）<strong>反封建：《卖布谣》</strong></p>
+</li>
+</ul>
+<h2 id="（四）黎锦晖"><a href="#（四）黎锦晖" class="headerlink" title="（四）黎锦晖"></a>（四）黎锦晖</h2><p>关键词：儿童音乐</p>
+<ul>
+<li>创办儿童读物《小朋友》</li>
+<li><strong>1927创办第一所“中华歌舞专科学院”</strong></li>
+<li>首创儿童歌舞剧体裁，中国流行歌曲的创作第一人</li>
+</ul>
+<p>代表作品：</p>
+<p>（1）儿童歌舞剧《小小画家》</p>
+<p>（2）儿童歌舞表演剧《可怜的秋香》</p>
+<p>（3）流行歌曲《桃花江》《毛毛雨》《特别快车》</p>
+<h2 id="（五）王光祈"><a href="#（五）王光祈" class="headerlink" title="（五）王光祈"></a>（五）王光祈</h2><p>关键词：比较音乐学</p>
+<ul>
+<li>向外国介绍中国音乐《论中国古典歌剧》《东方民族之音乐》</li>
+<li>向中国介绍外国音乐《欧洲音乐进化论》</li>
+<li>中西方音乐的比较研究《东西乐制之研究》</li>
+<li><strong>世界三大乐系统：欧洲乐系、波斯——阿拉伯乐系、中国乐系。</strong></li>
+</ul>
+<h2 id="（六）华彦钧"><a href="#（六）华彦钧" class="headerlink" title="（六）华彦钧"></a>（六）华彦钧</h2><p>关键词：“民间艺人”，又名阿炳</p>
+<p>代表作品：</p>
+<ul>
+<li>二胡曲《二泉映月》《听松》《寒春风曲》</li>
+<li>琵琶曲《大浪淘沙》《昭君出塞》《龙船》</li>
+</ul>
+<h2 id="（七）刘天华"><a href="#（七）刘天华" class="headerlink" title="（七）刘天华"></a>（七）刘天华</h2><p>关键词：教授</p>
+<p>中国20世纪20年代作曲家、国乐改进家，中国二胡学派的奠基人。</p>
+<p><strong>【对二胡创作的改良】：</strong></p>
+<ul>
+<li>音乐音调、曲式结构有鲜明的民族特点；</li>
+<li>吸收了西洋音乐要素，二胡富有鲜明的标题性，吸收西洋乐器演奏方法，将小提琴的跳弓、颤弓、换把等技法移植到二胡上。</li>
+<li>第一次把二胡音乐搬上独奏舞台。</li>
+</ul>
+<p><strong>【十首二胡曲】：</strong></p>
+<p>《良宵》《月夜》《苦闷之讴》《独弦操》《病中吟》（复三部）《烛影摇红》《光明行》《悲歌》《空山鸟语》《闲居吟》</p>
+<p>挽联：“良月苦独病，烛光悲空闲”</p>
+<p><strong>【三首琵琶曲】：</strong></p>
+<p>《歌舞引》《虚赖》《改进操》</p>
+<h1 id="四、20世纪30年代音乐"><a href="#四、20世纪30年代音乐" class="headerlink" title="四、20世纪30年代音乐"></a>四、20世纪30年代音乐</h1><p><strong>左翼音乐运动与救亡歌咏运动</strong></p>
+<p>阎述诗《五月的鲜花》</p>
+<h2 id="（一）青主"><a href="#（一）青主" class="headerlink" title="（一）青主"></a>（一）青主</h2><p>关键词：音乐美学、艺术歌曲</p>
+<p>1.音乐美学论著：《乐话》《音乐通论》</p>
+<p>2.艺术歌曲：</p>
+<ul>
+<li><strong>《大江东去》</strong>为苏东坡《念奴娇*赤壁怀古》谱写</li>
+<li>《我住长江头》</li>
+</ul>
+<h2 id="（二）黄自"><a href="#（二）黄自" class="headerlink" title="（二）黄自"></a>（二）黄自</h2><p>关键词：音乐教育，艺术歌曲，清唱剧</p>
+<p>是我国20世纪30年代著名作曲家、音乐教育家。</p>
+<p>音乐创作：</p>
+<p>（1）合唱：<strong>《抗敌歌》</strong>（词：韦瀚章）<strong>《旗正飘飘》</strong></p>
+<p>（2）我国第一部清唱剧<strong>《长恨歌》</strong>，韦瀚章根据白居易同名诗选取歌词。第三乐章《渔阳 鼙pi鼓动地来》、第八《山在虚无缥缈间》、第十《此恨绵绵无绝期》</p>
+<p>（3）艺术歌曲《南乡子》《点绛唇》《花非花》《春思曲》《思乡》<strong>《玫瑰三愿》</strong></p>
+<p>（4）儿童歌曲《西风的话》《踏雪寻梅》</p>
+<p>（5）管弦乐作品《怀旧》:交响序曲，我国第一部真正意义上的交响曲。</p>
+<a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png" data-fancybox="group" data-caption="image-20200314225042823" class="fancybox"><img alt="image-20200314225042823" style="zoom:50%;" title="image-20200314225042823" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png" data-fancybox="group" data-caption="image-20200314231110831" class="fancybox"><img alt="image-20200314231110831" style="zoom:50%;" title="image-20200314231110831" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png" class="lazyload"></a>
+
+
+
+<h2 id="（三）聂耳"><a href="#（三）聂耳" class="headerlink" title="（三）聂耳"></a>（三）聂耳</h2><p>关键词：群众歌曲、抒情歌曲、民乐合奏</p>
+<p>“无产阶级革命音乐的开路先锋”</p>
+<p>音音乐创作：</p>
+<p>（1）群众歌曲：</p>
+<ul>
+<li>《自卫歌》、《打长江》</li>
+<li>《前进歌》《大路歌》《义勇军进行曲》（选自电影《风云儿女》）《码头工人》《毕业歌》（选自电影《桃李劫》）《开路先锋》<ul>
+<li>记忆：“前路一工业先锋”</li>
+</ul>
+</li>
+</ul>
+<p>（2）抒情歌曲：</p>
+<ul>
+<li>《铁蹄下的歌女》选自电影《风云儿女》</li>
+<li>《塞外村女》、《梅娘曲》、《飞花歌》</li>
+</ul>
+<p>（3）儿童歌曲：《卖报歌》（安娥词）</p>
+<p>（4）民间器乐曲：</p>
+<ul>
+<li>《金蛇狂舞》（根据乐曲《倒八板》整理）</li>
+<li>《翠湖春晓》、《昭君出塞》</li>
+</ul>
+<p>拓展：《卖报歌》《码头工人》选自舞台剧《扬子江暴风雨》</p>
+<h2 id="（四）冼星海"><a href="#（四）冼星海" class="headerlink" title="（四）冼星海"></a>（四）冼星海</h2><p>“人民音乐家”</p>
+<p>代表作品：</p>
+<p>（1）创作歌曲：《救国军歌》《夜半 歌声》《太行山上》</p>
+<p>（2）劳动歌曲：《搬夫曲》《拉犁歌》（职业歌曲）</p>
+<p>（3）儿童歌曲：《只怕不抵搞》《谁来跟我玩》</p>
+<p>（4）合唱作品：《黄河大合唱》《生产运动大合唱》（《二月里来》《酸枣刺儿》）、《牺盟大合唱》《九一八大合唱》</p>
+<p>（5）最后一部作品：《中国狂想曲》</p>
+<p><strong>《黄河大合唱》：</strong>（光未然 词）</p>
+<ol>
+<li><p>《黄河船夫曲》：混声四部合唱，劳动号子体裁。</p>
+</li>
+<li><p>《黄河颂》：男声独唱</p>
+</li>
+<li><p>《黄河之水天上来》：配乐诗朗诵</p>
+</li>
+<li><p>《黄水谣》：女声二部合唱，出现转折</p>
+</li>
+<li><p>《河边对口曲》：男生对唱、轮唱</p>
+</li>
+<li><p>《黄河怨》：女高音独唱</p>
+</li>
+<li><p>《保卫黄河》：齐唱、轮唱</p>
+</li>
+<li><p>《怒吼吧！黄河》：混声合唱</p>
+</li>
+</ol>
+<p>口诀：夫颂天谣对怨吼，不去保卫妻没有</p>
+<ul>
+<li><strong>新考点：</strong>钢琴协奏曲《黄河》<ul>
+<li>《黄河船夫曲》《黄河颂》《黄河愤》《保卫黄河》</li>
+</ul>
+</li>
+</ul>
+<h2 id="（五）贺绿汀"><a href="#（五）贺绿汀" class="headerlink" title="（五）贺绿汀"></a>（五）贺绿汀</h2><p>1934 年创作钢琴曲《牧童短笛》和《摇篮曲》分别获齐尔品举办的“征求中国音乐风格的钢琴曲”的一等奖和名誉二等奖。</p>
+<p>他的作品与 20 世纪中国人民的生活与斗争紧密相连，具有鲜明的时代特征和深厚的群众基础，真实地反映了人民的生活和思想感情。</p>
+<p>代表作品：</p>
+<ul>
+<li>群众歌曲：《游击队歌》《嘉陵江上》</li>
+<li>钢琴独奏：《牧童短笛》（复调对位法）《摇篮曲》</li>
+<li>管弦乐曲：《森吉德玛》《晚会》</li>
+<li>电影歌曲《春天里》《天涯歌女》《四季歌》《秋水伊人》</li>
+<li>合唱作品：《垦春泥》《新中国的青年》</li>
+</ul>
+<h2 id="（六）江文也"><a href="#（六）江文也" class="headerlink" title="（六）江文也"></a>（六）江文也</h2><p>代表作品：</p>
+<ul>
+<li>管弦乐：《台湾舞曲》《孔庙大晟乐章》《北京点点》</li>
+<li>交响诗：《汩罗沉流》</li>
+<li>钢琴曲：《乡土节令诗》</li>
+</ul>
+<h2 id="（七）其他音乐家"><a href="#（七）其他音乐家" class="headerlink" title="（七）其他音乐家"></a>（七）其他音乐家</h2><p>刘雪庵：《红豆词》《长城谣》《枫桥夜泊》，作词《踏雪寻梅》</p>
+<p>陈田鹤：《采桑曲》《牧歌》《在那遥远的地方》</p>
+<p>张曙：《洪波曲》《日落西山》</p>
+<p>任光：《渔光曲》《打回老家去》民乐《彩云追月》</p>
+<p>麦新：《大刀进行曲》《马儿真正好》</p>
+<p>吕骥：《自由神》《抗日军政大学校歌》</p>
+<p>张寒晖：《松花江上》</p>
+<ul>
+<li>流亡三部曲：张寒晖《松花江上》、刘雪庵《流亡曲》《复仇曲》</li>
+</ul>
+<h1 id="五、20世纪40年代音乐"><a href="#五、20世纪40年代音乐" class="headerlink" title="五、20世纪40年代音乐"></a>五、20世纪40年代音乐</h1><h2 id="（一）重要作曲家"><a href="#（一）重要作曲家" class="headerlink" title="（一）重要作曲家"></a>（一）重要作曲家</h2><h3 id="1-马思聪"><a href="#1-马思聪" class="headerlink" title="1.马思聪"></a>1.马思聪</h3><p>第一代小提琴家</p>
+<p>代表作品：《摇篮曲》《内蒙组曲》《西藏音诗》《牧歌》《山林之歌》</p>
+<p>《内蒙组曲》（《绥远组曲》）：</p>
+<ul>
+<li>《史诗》：吸收民歌《跑马溜溜的山上》</li>
+<li>《思乡曲》：吸收《城墙上跑马》</li>
+<li>《塞外舞曲》：吸收《叫大娘》</li>
+</ul>
+<a href="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom:50%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png" class="lazyload"></a>
+
+<h3 id="2-谭小麟："><a href="#2-谭小麟：" class="headerlink" title="2.谭小麟："></a>2.谭小麟：</h3><p>《弦乐三重奏》1945年获杰克逊奖，第一首在国际上获奖的管弦乐。</p>
+<h3 id="3-丁善德："><a href="#3-丁善德：" class="headerlink" title="3.丁善德："></a>3.丁善德：</h3><p>第一个灌制唱片钢琴家</p>
+<p>《新中国交响组曲》</p>
+<p>《长征交响曲》我国第一部以中国工农红军为题材的大型管弦乐作品。</p>
+<h2 id="（二）秧歌剧及歌剧的发展"><a href="#（二）秧歌剧及歌剧的发展" class="headerlink" title="（二）秧歌剧及歌剧的发展"></a>（二）秧歌剧及歌剧的发展</h2><h3 id="1-秧歌剧："><a href="#1-秧歌剧：" class="headerlink" title="1.秧歌剧："></a>1.秧歌剧：</h3><p>将戏剧、音乐、舞蹈融为一体的广场歌舞剧。歌舞戏</p>
+<p>安波《兄妹开荒》</p>
+<h4 id="马可："><a href="#马可：" class="headerlink" title="马可："></a>马可：</h4><ul>
+<li>群众歌曲：《南泥湾》《咱们工人有力量》</li>
+<li>管弦乐作品：《陕北组曲》</li>
+<li>秧歌剧：《夫妻识字》《牛永贵负伤》</li>
+<li>歌剧：《小二黑结婚》《白毛女》</li>
+</ul>
+<blockquote>
+<p>名词解释马可：</p>
+<p>马可是我国20世纪40年代群众音乐作曲家代表，他一生致力于群众歌曲、管弦乐以及秧歌剧等体裁的创作。（1）群众歌曲：《南泥湾》《咱们工人有力量》等；（2)管弦乐作品：《陕北组曲》最为著名；(3)创作秧歌剧：《夫妻识字》以及《牛永贵负伤》等。</p>
+</blockquote>
+<h3 id="2-歌剧（新歌剧）"><a href="#2-歌剧（新歌剧）" class="headerlink" title="2.歌剧（新歌剧）"></a>2.歌剧（新歌剧）</h3><h4 id="1-《白毛女》："><a href="#1-《白毛女》：" class="headerlink" title="1.《白毛女》："></a>1.《白毛女》：</h4><ul>
+<li>1945年创作，贺敬之编剧，马可作曲。</li>
+<li>作品通过“旧社会使人变成鬼，新社会使鬼变成人”的传奇故事情节，深刻反映了农民的苦难生活，表现了他们推翻旧世界的决心。</li>
+<li>吸收了河北民歌《小白菜》的音调，创作了大量优秀选段如：《北风吹》《扎红头绳》《恨似高山仇似海》《我要活》《太阳出来啦》《杨白劳》《十里风雪》。</li>
+<li>中国歌剧史上里程碑式的杰作，标志着中国第一部新歌剧的诞生。</li>
+<li>首演者是王昆</li>
+</ul>
+<h1 id="中国当代音乐"><a href="#中国当代音乐" class="headerlink" title="中国当代音乐"></a>中国当代音乐</h1><h2 id="一、声乐作品"><a href="#一、声乐作品" class="headerlink" title="一、声乐作品"></a>一、声乐作品</h2><h3 id="（一）独唱歌曲"><a href="#（一）独唱歌曲" class="headerlink" title="（一）独唱歌曲"></a>（一）独唱歌曲</h3><h5 id="1-王-莘："><a href="#1-王-莘：" class="headerlink" title="1.王 莘："></a>1.王 莘：</h5><p>《歌唱祖国》</p>
+<h5 id="2-郑律成："><a href="#2-郑律成：" class="headerlink" title="2.郑律成："></a>2.郑律成：</h5><p>《我们多么幸福》《采伐歌》《长征路上》《星星歌》《中国人民解放军军歌》（原名《八路军进行曲》）《延安颂》《延水谣》</p>
+<h5 id="3-马思聪："><a href="#3-马思聪：" class="headerlink" title="3.马思聪："></a>3.马思聪：</h5><p>代表作品：《中国少年儿童队队歌》《新疆狂想曲》《山歌》《春天舞曲》</p>
+<a href="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png" data-fancybox="group" data-caption="image-20200315112746957" class="fancybox"><img alt="image-20200315112746957" style="zoom: 80%;" title="image-20200315112746957" data-src="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png" class="lazyload"></a>
+
+<h5 id="4-刘-炽："><a href="#4-刘-炽：" class="headerlink" title="4.刘 炽："></a>4.刘 炽：</h5><p>代表作品：《让我们荡起又桨》《祖国颂》《我的祖国》（乔羽作词）《新疆好》《英雄赞歌》《牧羊姑娘》</p>
+<p>（1）《让我们荡起双桨》1955，电影《祖国的花朵》插曲957年国庆节》主题歌曲</p>
+<p>（3）《我的祖国》电影《上甘岭》（1956年），单二部曲式</p>
+<h5 id="5-麦丁："><a href="#5-麦丁：" class="headerlink" title="5.麦丁："></a>5.麦丁：</h5><p>代表作品：《远方的客人请你留下来》，彝族、撒尼族</p>
+<h5 id="6-美丽其格："><a href="#6-美丽其格：" class="headerlink" title="6.美丽其格："></a>6.美丽其格：</h5><p>代表作品：《草原上升起不落的太阳》</p>
+<h5 id="7-李劫夫："><a href="#7-李劫夫：" class="headerlink" title="7.李劫夫："></a>7.李劫夫：</h5><p>代表作品：《我们走在大路上》《歌唱二小放牛郎》（叙事歌曲）</p>
+<h5 id="8-吕其明"><a href="#8-吕其明" class="headerlink" title="8.吕其明"></a>8.吕其明</h5><ul>
+<li>《谁不说俺家乡好》电影《红日》插曲，1961年</li>
+<li>《红旗颂》交响诗，1965年，融入了《东方红》和《义勇军进行曲》</li>
+</ul>
+<h5 id="9-施光南"><a href="#9-施光南" class="headerlink" title="9.施光南"></a>9.施光南</h5><ul>
+<li>《打起手鼓唱起歌》《祝酒歌》（粉碎四人帮，韩伟词）《吐鲁番的葡萄熟了》（瞿琮词）《在希望的田野上》（程晓光词）《紫藤花》《一抹夕阳》（选自歌剧《伤逝》）《假如你要认识我》《月光下的凤尾竹》</li>
+</ul>
+<h5 id="10-谷建芬"><a href="#10-谷建芬" class="headerlink" title="10.谷建芬"></a>10.谷建芬</h5><ul>
+<li>《我的小路》《那就是我》《绿叶对根的情意》《思念》《独光里的妈妈》《歌声与微笑》《年轻的朋友来相会》《妈妈的吻》《菜蘑菇的小姑娘》《今天是你的生日》《清唱我们踏上小道》</li>
+</ul>
+<h5 id="11-徐沛东"><a href="#11-徐沛东" class="headerlink" title="11.徐沛东"></a>11.徐沛东</h5><ul>
+<li>《亚洲雄风》《爱我中华》《得民心者得天下》（电视剧《雍正王朝）《大地飞歌》《我像雪花天上来》《梅花引》《种太阳》《乡音乡情》《篱笆墙的影子》</li>
+</ul>
+<a href="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom: 80%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png" class="lazyload"></a>
+
+<h5 id="12-王酩"><a href="#12-王酩" class="headerlink" title="12.王酩"></a>12.王酩</h5><ul>
+<li>《妹妹找哥泪花流》《难忘今宵》（乔羽词）《绒花》《边疆的泉水清又纯》</li>
+</ul>
+<h5 id="13-瞿希贤"><a href="#13-瞿希贤" class="headerlink" title="13.瞿希贤"></a>13.瞿希贤</h5><ul>
+<li>《听妈妈讲那过去的事情》《全世界人民一条心》</li>
+</ul>
+<h5 id="14-郑秋枫"><a href="#14-郑秋枫" class="headerlink" title="14.郑秋枫"></a>14.郑秋枫</h5><ul>
+<li>《我爱你中国》（瞿琮词）选自电影《海外赤子》</li>
+</ul>
+<h5 id="15-其他作曲家独唱作品"><a href="#15-其他作曲家独唱作品" class="headerlink" title="15.其他作曲家独唱作品"></a>15.其他作曲家独唱作品</h5><ul>
+<li>李群：《快乐的节日》</li>
+<li>朱践耳：《唱支山歌给党听》</li>
+<li>娄生茂：《学习雷锋好榜样》</li>
+<li>王永泉：《打靶归来》</li>
+<li>羊鸣：《我爱祖国的蓝天》</li>
+<li>傅庚辰：《红星照我去战斗》（电影《闪闪的红星》插曲）</li>
+<li>印青：《走进新时代》（蒋开如词）《天路》《西部放歌》《走向复兴》</li>
+<li>《苗岭的早晨》：1974白诚仁创作，1975陈刚改编</li>
+<li>王立平：《大海啊，故乡》《枉凝眉》</li>
+</ul>
+<h3 id="（二）合唱歌曲"><a href="#（二）合唱歌曲" class="headerlink" title="（二）合唱歌曲"></a>（二）合唱歌曲</h3><ol>
+<li>《半个月亮爬上来》，王洛宾译配</li>
+<li>《长征大合唱》——时乐濛曲，陈其通词</li>
+<li>《长江之歌》——王建民<ul>
+<li>电视纪录片《话说长江》主题歌</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">《长征交响曲》</th>
+<th align="center">《长征大合唱》</th>
+<th align="center">《长征组歌》</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">体裁</td>
+<td align="center">交响曲</td>
+<td align="center">合唱</td>
+<td align="center">声乐套曲</td>
+</tr>
+<tr>
+<td align="center">作者</td>
+<td align="center">丁善德</td>
+<td align="center">时乐蒙</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">重要内容</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1.告别；2.突破封锁线；3.遵义会议的光辉；4.《四渡赤水出奇兵》；5.飞越大渡河；6.过雪山草地；7.到吴起镇；8.祝提；9报喜；10.大会师</td>
+</tr>
+</tbody></table>
+<p>口诀：告破遵义出奇兵，飞越草地到乌镇</p>
+<p>横批：喜祝会师</p>
+<h2 id="二、器乐作品"><a href="#二、器乐作品" class="headerlink" title="二、器乐作品"></a>二、器乐作品</h2><h3 id="（一）独奏作品"><a href="#（一）独奏作品" class="headerlink" title="（一）独奏作品"></a>（一）独奏作品</h3><ol>
+<li><h5 id="笛子曲"><a href="#笛子曲" class="headerlink" title="笛子曲"></a>笛子曲</h5><p>代表作品：</p>
+<ul>
+<li>《喜相逢》（冯子存）、</li>
+<li>《鹧鸪飞》（陆春龄根据湖南民间乐曲）、</li>
+<li>《三五七》（赵松庭根据婺剧唱腔）、</li>
+<li>《牧民新歌》（简广易、王志伟曲）、</li>
+<li>《扬鞭催马运粮忙》（魏显忠曲）、</li>
+<li>《帕米尔的春天》（刘富荣曲）</li>
+</ul>
+</li>
+<li><h5 id="唢呐曲"><a href="#唢呐曲" class="headerlink" title="唢呐曲"></a>唢呐曲</h5><p>代表作品：《百鸟朝凤》（任同祥）</p>
+</li>
+<li><h5 id="双管独奏曲"><a href="#双管独奏曲" class="headerlink" title="双管独奏曲"></a>双管独奏曲</h5><ul>
+<li>《江河水》，原名《江儿水》</li>
+</ul>
+</li>
+<li><h5 id="三弦独奏曲"><a href="#三弦独奏曲" class="headerlink" title="三弦独奏曲"></a>三弦独奏曲</h5><ul>
+<li>《十八板》（李乙）</li>
+</ul>
+</li>
+<li><h5 id="二胡曲"><a href="#二胡曲" class="headerlink" title="二胡曲"></a>二胡曲</h5><ul>
+<li>《奔驰在千里草原》（王国潼、李秀琪曲）、《草原新牧民》（刘长福曲）、《兰花花叙事曲》（关铭）、《第一二胡狂想曲》（王建民曲）</li>
+</ul>
+</li>
+<li><h5 id="琵琶协奏曲"><a href="#琵琶协奏曲" class="headerlink" title="琵琶协奏曲"></a>琵琶协奏曲</h5><ul>
+<li>《草原小姐妹》（吴祖强、王燕樵、刘德海曲）</li>
+</ul>
+</li>
+</ol>
+<h3 id="（二）合奏作品"><a href="#（二）合奏作品" class="headerlink" title="（二）合奏作品"></a>（二）合奏作品</h3><table>
+<thead>
+<tr>
+<th align="center">民乐合奏曲</th>
+<th align="center">作者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">《春江花月夜》根据琵琶《夕阳簫鼓》改编</td>
+<td align="center">秦鹏章、罗忠镕</td>
+</tr>
+<tr>
+<td align="center">《陕北组曲》</td>
+<td align="center">马可曲</td>
+</tr>
+<tr>
+<td align="center">《大寨红花遍地开》</td>
+<td align="center">许镜清曲</td>
+</tr>
+<tr>
+<td align="center">《丰收锣鼓》</td>
+<td align="center">彭修文</td>
+</tr>
+<tr>
+<td align="center">《喜洋洋》</td>
+<td align="center">刘明沅作曲</td>
+</tr>
+<tr>
+<td align="center">《北京喜讯到边寨》</td>
+<td align="center">郑路、马洪业曲</td>
+</tr>
+<tr>
+<td align="center">《瑶族舞曲》</td>
+<td align="center">刘铁山、茅沅曲</td>
+</tr>
+<tr>
+<td align="center">《春节序曲》</td>
+<td align="center">李焕之曲</td>
+</tr>
+</tbody></table>
+<h5 id="2-西洋器乐"><a href="#2-西洋器乐" class="headerlink" title="2.西洋器乐"></a>2.西洋器乐</h5><p>（1）《风<em>雅</em>颂》</p>
+<p>谭盾弦乐四重奏《风<em>雅</em>颂》以《诗经》的三大部类为标题。运用中国瑶族民歌以及古琴曲《梅花三弄》为音乐素材。</p>
+<p>（2）《梁山伯与祝英台》</p>
+<p>何占豪、陈钢小提琴协奏曲，俞丽拿首演。作品吸收了越剧的音调特色。</p>
+<h2 id="三、戏曲、曲节音乐"><a href="#三、戏曲、曲节音乐" class="headerlink" title="三、戏曲、曲节音乐"></a>三、戏曲、曲节音乐</h2><h3 id="（一）八大革命样板戏"><a href="#（一）八大革命样板戏" class="headerlink" title="（一）八大革命样板戏"></a>（一）八大革命样板戏</h3><p>1.五部“革命现代京剧”：《智取威虎山》《红灯记》《沙家浜》《海港》《奇袭白虎团》</p>
+<p>2.两部“革命舞剧”：《白毛女》《红色娘子军》</p>
+<p>3.一部“革命交响乐”：《沙家浜》</p>
+<h4 id="《智取威虎山》："><a href="#《智取威虎山》：" class="headerlink" title="《智取威虎山》："></a>《智取威虎山》：</h4><p>唱段《甘洒热血写春秋》</p>
+<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png" class="lazyload"></a></p>
+<h4 id="《红灯记》："><a href="#《红灯记》：" class="headerlink" title="《红灯记》："></a>《红灯记》：</h4><p>唱段《都有一颗红亮的心》</p>
+<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png" class="lazyload"></a></p>
+<h3 id="（二）曲艺作品："><a href="#（二）曲艺作品：" class="headerlink" title="（二）曲艺作品："></a>（二）曲艺作品：</h3><p>苏州弹词《山山水水奇深情》、梅花大鼓《二泉映月》、骆玉笙《和氏璧》</p>
+<h3 id="（三）其他剧种"><a href="#（三）其他剧种" class="headerlink" title="（三）其他剧种"></a>（三）其他剧种</h3><p>昆剧《李慧娘》、越剧《红楼梦》《文成公主》《西厢记》</p>
+<h2 id="四、歌剧和舞剧"><a href="#四、歌剧和舞剧" class="headerlink" title="四、歌剧和舞剧"></a>四、歌剧和舞剧</h2><h3 id="（一）歌剧"><a href="#（一）歌剧" class="headerlink" title="（一）歌剧"></a>（一）歌剧</h3><h5 id="1-《刘胡兰》"><a href="#1-《刘胡兰》" class="headerlink" title="1.《刘胡兰》"></a>1.《刘胡兰》</h5><p>以山西民歌为基调，吸取山西梆子。</p>
+<p>选段《一道道水来一道道山》《数九寒天下大雪》</p>
+<h5 id="2-《小二黑结婚》"><a href="#2-《小二黑结婚》" class="headerlink" title="2.《小二黑结婚》"></a>2.《小二黑结婚》</h5><p>选段《清粼粼的水来蓝莹莹的天》</p>
+<h5 id="3-《洪湖赤卫队》"><a href="#3-《洪湖赤卫队》" class="headerlink" title="3.《洪湖赤卫队》"></a>3.《洪湖赤卫队》</h5><p>张敬安、欧阳谦叔作曲</p>
+<p>选段《看天下劳苦人民都解放》《洪湖水浪打浪》《这一仗打得真漂亮》《放下三棒鼓，扛起红樱枪》</p>
+<h5 id="4-《江姐》"><a href="#4-《江姐》" class="headerlink" title="4.《江姐》"></a>4.《江姐》</h5><p>选段：《红梅赞》《绣红旗》《五洲人民齐欢笑》</p>
+<h5 id="5-《伤逝》"><a href="#5-《伤逝》" class="headerlink" title="5.《伤逝》"></a>5.《伤逝》</h5><p>施光楠</p>
+<ul>
+<li>唱段：《一抹夕阳》《风萧瑟》《不幸的人生》《紫藤花》</li>
+</ul>
+<h3 id="（二）舞剧"><a href="#（二）舞剧" class="headerlink" title="（二）舞剧"></a>（二）舞剧</h3><p>1950年的《和平鸽》拉开了中国舞剧新时期的序幕。</p>
+<p>1957年《宝莲灯》当代第一部具有典型意义的大型民族舞剧。</p>
+<p>代表作品：</p>
+<p>《鱼美人》《红色娘子军》（吴祖强和杜鸣心曲）《白毛女》、民族舞剧《丝路花雨》（韩中才、呼延、焦凯曲）《文成公主》（石夫曲）《阿诗玛》（万里、黄田曲）《森吉德玛》（王竹林、桑洁、玛希曲）等</p>
+<h5 id="1-芭蕾舞剧《红色娘子军》"><a href="#1-芭蕾舞剧《红色娘子军》" class="headerlink" title="1.芭蕾舞剧《红色娘子军》"></a>1.芭蕾舞剧《红色娘子军》</h5><p>选段：《快乐的女战士》</p>
+<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png" class="lazyload"></a></p>
+<h5 id="2-芭蕾舞剧《鱼美人》"><a href="#2-芭蕾舞剧《鱼美人》" class="headerlink" title="2.芭蕾舞剧《鱼美人》"></a>2.芭蕾舞剧《鱼美人》</h5><p>选段：《水草舞》、《珊瑚舞》</p>
+<h5 id="3-民族舞剧《丝路花雨》"><a href="#3-民族舞剧《丝路花雨》" class="headerlink" title="3.民族舞剧《丝路花雨》"></a>3.民族舞剧《丝路花雨》</h5><p>以丝绸之路和敦煌壁画为素材，中国民族舞剧的典范。选段《反弹琵琶》</p>
+</body></html>]]></content>
+  </entry>
+  <entry>
     <title>中国民族民间音乐【粉笔】</title>
     <url>/2020/05/02/%E4%B8%AD%E5%9B%BD%E6%B0%91%E6%97%8F%E6%B0%91%E9%97%B4%E9%9F%B3%E4%B9%90%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/</url>
     <content><![CDATA[<html><head></head><body><h1 id="中国民族民间音乐"><a href="#中国民族民间音乐" class="headerlink" title="中国民族民间音乐"></a>中国民族民间音乐</h1><p><strong>【民间音乐分类】：</strong>民间歌曲、民间舞蹈、说唱音乐、戏曲音乐、民间器乐。</p>
@@ -4701,844 +5226,6 @@ hexo.on('new', function(data){
 <td align="center"></td>
 </tr>
 </tbody></table>
-</body></html>]]></content>
-  </entry>
-  <entry>
-    <title>中国近现代音乐史【粉笔】</title>
-    <url>/2020/05/02/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/</url>
-    <content><![CDATA[<html><head></head><body><h1 id="中国近现代音乐史"><a href="#中国近现代音乐史" class="headerlink" title="中国近现代音乐史"></a>中国近现代音乐史</h1><h1 id="一、鸦片战争以来中国传统音乐的发展"><a href="#一、鸦片战争以来中国传统音乐的发展" class="headerlink" title="一、鸦片战争以来中国传统音乐的发展"></a>一、鸦片战争以来中国传统音乐的发展</h1><h2 id="（一）民歌"><a href="#（一）民歌" class="headerlink" title="（一）民歌"></a>（一）民歌</h2><a href="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom:75%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png" class="lazyload"></a>
-
-<h2 id="（二）说唱音乐"><a href="#（二）说唱音乐" class="headerlink" title="（二）说唱音乐"></a>（二）说唱音乐</h2><p>1.京韵大鼓</p>
-<p>由河北木板大鼓与平津清音子弟书合流而成，后吸收北京方言，在三弦基础上，增加了四胡和琵琶形成。</p>
-<p>代表人物：</p>
-<ul>
-<li>白云鹏</li>
-<li>刘宝全：鼓王</li>
-<li>骆玉笙：林冲很丑要重生：《林冲发配》《丑末寅初》《重整河山待后生》</li>
-</ul>
-<p>2.苏州弹词</p>
-<ul>
-<li>陈调、俞调、马调</li>
-<li>代表作品：《白蛇传》《玉晴蜓》《描金风》《珍珠塔》</li>
-<li>代表人物：朱素兰</li>
-</ul>
-<h2 id="（三）戏曲音乐"><a href="#（三）戏曲音乐" class="headerlink" title="（三）戏曲音乐"></a>（三）戏曲音乐</h2><h3 id="1-四大名旦："><a href="#1-四大名旦：" class="headerlink" title="1.四大名旦："></a>1.四大名旦：</h3><ul>
-<li>梅兰方：<ul>
-<li>代表作品：《贵妃醉酒》《霸王别姬》（选段《看大王在帐中和衣睡稳》）、《洛神》《木兰从军》</li>
-<li>创造<strong>雍容华贵</strong>的新腔，被称“梅派”</li>
-<li>创立“花衫”</li>
-<li>在伴奏音乐加入二胡、月琴。</li>
-<li>赴美国、苏联演出，为传统艺术和音乐赢得了国际声誉。</li>
-<li>中国“梅派”与苏联斯坦尼斯拉夫斯基、德国的布莱希特 并称“世界三大艺术表演体系”。</li>
-</ul>
-</li>
-<li>程砚秋：<ul>
-<li><strong>以腔就字</strong>，声、情、美、永</li>
-<li>筹建了“中国戏曲音乐院”</li>
-<li>代表作品：《荒山泪》《春闺梦》</li>
-</ul>
-</li>
-<li>荀慧生：<ul>
-<li><strong>念白</strong>韵律美，唱腔俏丽多姿，动作美、媚、脆。</li>
-<li>代表剧目：《玉堂春》《太英节烈》</li>
-</ul>
-</li>
-<li>尚小云：<ul>
-<li>“第一童伶”</li>
-<li>正旦、<strong>刀马旦</strong>，唱腔以刚劲著称，字正腔圆。</li>
-<li>代表剧目：《二进宫》<strong>《昭君出塞》</strong></li>
-</ul>
-</li>
-</ul>
-<h3 id="2-前四大须生："><a href="#2-前四大须生：" class="headerlink" title="2.前四大须生："></a>2.前四大须生：</h3><ul>
-<li><p><strong>余</strong>叔岩、<strong>言</strong>菊朋、<strong>高</strong>庆奎、<strong>马</strong>连良</p>
-</li>
-<li><p>后四在须生：马连良、杨宝森、潭富英、奚啸伯。</p>
-</li>
-</ul>
-<h3 id="3-老生三鼎甲："><a href="#3-老生三鼎甲：" class="headerlink" title="3.老生三鼎甲："></a>3.老生三鼎甲：</h3><p>张二奎、程长庚、余三胜</p>
-<h2 id="（四）民族器乐"><a href="#（四）民族器乐" class="headerlink" title="（四）民族器乐"></a>（四）民族器乐</h2><p><a href="http://image-update.test.upcdn.net/img/20190520205010.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://image-update.test.upcdn.net/img/20190520205010.png" class="lazyload"></a></p>
-<p>《百鸟朝凤》——任同祥</p>
-<h1 id="二、西洋音乐传入与学堂乐歌的发展"><a href="#二、西洋音乐传入与学堂乐歌的发展" class="headerlink" title="二、西洋音乐传入与学堂乐歌的发展"></a>二、西洋音乐传入与学堂乐歌的发展</h1><p><a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png" data-fancybox="group" data-caption="image-20200314191441365" class="fancybox"><img alt="image-20200314191441365" title="image-20200314191441365" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png" class="lazyload"></a></p>
-<h2 id="（一）学堂乐歌"><a href="#（一）学堂乐歌" class="headerlink" title="（一）学堂乐歌"></a>（一）学堂乐歌</h2><p><strong>1.定义：</strong></p>
-<p>学堂乐歌是我国19世纪末随着<strong>新式学堂</strong>的建立而兴起的歌唱文化，一般指开设的<strong>音乐课</strong>或为学堂歌唱而编创的歌曲。</p>
-<p><strong>2.内容：</strong></p>
-<ul>
-<li>“富国强兵”“抵御外辱”</li>
-<li>推翻帝制，建立民主共和的新政</li>
-<li>进行国民教育的军歌</li>
-<li>妇女解放、男女平等。</li>
-<li>提倡新文化、反对旧文化；提倡新风气，反对旧习俗；宣传科学文明，反对封建迷信。</li>
-</ul>
-<p><strong>3.曲调特点及来源：</strong></p>
-<p>（1）曲调特点：旧曲填新词</p>
-<p>（2）曲调来源：</p>
-<ul>
-<li>欧美、日本的曲调；</li>
-<li>中国民歌；</li>
-<li>自主创作。</li>
-</ul>
-<p><strong>4.社会意义</strong></p>
-<p>（1）集体歌咏形式得以传播；</p>
-<p>（2）歌曲体裁对后世影响很多</p>
-<p>（3）普及简谱，介绍线谱和西方音乐知识；</p>
-<p>（4）培养音乐人才；</p>
-<p>（5）启蒙意义:中国近代民主主义音乐文化的开端。</p>
-<a id="more"></a>
-
-<p><strong>5.历史意义</strong></p>
-<ul>
-<li>促进欧洲<strong>音乐文化</strong>的传入，</li>
-<li>促进欧洲<strong>音乐技能</strong>的传播</li>
-<li>促进中国“新音乐”的发展</li>
-<li>促进“军革群”体裁的发展</li>
-<li>培养了第一批现代作曲家</li>
-</ul>
-<p>“四促一培”</p>
-<h2 id="（二）代表人物"><a href="#（二）代表人物" class="headerlink" title="（二）代表人物"></a>（二）代表人物</h2><h3 id="1-沈心工"><a href="#1-沈心工" class="headerlink" title="1.沈心工"></a>1.沈心工</h3><ul>
-<li>“学堂乐歌之父”</li>
-<li>最早针对中小学生返学前儿童特点编写音乐教科书</li>
-<li>填词歌曲：《体操——兵操》（《男儿第一志气高》），第一部学堂乐歌。</li>
-<li>创作歌曲：《黄河》</li>
-</ul>
-<h3 id="2-李叔同"><a href="#2-李叔同" class="headerlink" title="2.李叔同"></a>2.李叔同</h3><ul>
-<li>“弘一法师”</li>
-<li>创办中国第一份音乐期刊<strong>《音乐小杂志》</strong></li>
-<li>第一个话剧团体“春柳社”</li>
-<li>最早向中国介绍贝多芬</li>
-<li>代表作品：<ul>
-<li>填词歌曲：《送别》《祖国歌》（根据传统乐曲《老六版》改编填词）</li>
-<li>创作歌曲：<strong>《春游》</strong>（中国第一部三声合唱）《留别》</li>
-</ul>
-</li>
-</ul>
-<p>【补充说明】</p>
-<p>《送别》曲调来源：</p>
-<p>1）十九世纪美国音乐家J・P・奥德威《梦见家和母亲》</p>
-<p>2）歌曲到日本后，犬童球溪创作《旅愁》</p>
-<h3 id="3-曾志忞"><a href="#3-曾志忞" class="headerlink" title="3.曾志忞"></a>3.曾志忞</h3><ul>
-<li>组织“亚雅音乐会”，创办“上海贫儿院音乐部”</li>
-<li>编印《教育唱歌集》</li>
-<li>出版了《乐理大意》《乐典教科书》（最早的一本较完备的系统介绍西方音乐体系的乐理教科书）</li>
-</ul>
-<h1 id="三、20世纪20年代的音乐"><a href="#三、20世纪20年代的音乐" class="headerlink" title="三、20世纪20年代的音乐"></a>三、20世纪20年代的音乐</h1><h2 id="（一）音乐教育的发展"><a href="#（一）音乐教育的发展" class="headerlink" title="（一）音乐教育的发展"></a>（一）音乐教育的发展</h2><p>早期音乐教学：</p>
-<ul>
-<li><p>北京大学音乐传习所：前身1916年蔡元培建立的北大音乐团</p>
-<ul>
-<li>1919年改名音乐研究会</li>
-<li>1922年，萧友梅改名北京大学附设音乐传习所。</li>
-</ul>
-</li>
-<li><p>上海国立音乐院：</p>
-<p>1）1927年建立，蔡元培任校长，萧友梅任教务主任</p>
-<p>2）是我国第一所独立高等专科音乐学院。</p>
-<p>3）标志着中国专业音乐教育进入了新阶段。</p>
-<p>4）1929更名“国立音乐专科学院”，萧友梅校长，黄自教务主任。</p>
-<p>5）上海音乐学院的前身。</p>
-</li>
-</ul>
-<h2 id="（二）萧友梅"><a href="#（二）萧友梅" class="headerlink" title="（二）萧友梅"></a>（二）萧友梅</h2><a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png" data-fancybox="group" data-caption="image-20200314213443480" class="fancybox"><img alt="image-20200314213443480" style="zoom: 33%;" title="image-20200314213443480" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png" class="lazyload"></a>
-
-<p>“中国近代音乐教育的宗师”</p>
-<p>1.音乐教育：</p>
-<ul>
-<li>1927年建立上海国立音乐院，1929年更名“国立音乐专科学校”</li>
-</ul>
-<p>2.音乐创作</p>
-<p>改变“选曲填词”的创 作音乐家</p>
-<ul>
-<li>声乐作品：《五四纪念爱国歌》、独唱歌曲《问》、大型声乐套曲《春江花月夜》</li>
-<li>器乐作品：我国第一部管弦乐曲《新霓裳羽衣舞》、第一部大提琴曲《秋思》</li>
-</ul>
-<p>3.音乐理论《和声学》《普通乐学》《中西音乐的比较研究》</p>
-<h2 id="（三）赵元任"><a href="#（三）赵元任" class="headerlink" title="（三）赵元任"></a>（三）赵元任</h2><ul>
-<li><p>“语言学之父”、“中国的舒伯特”</p>
-</li>
-<li><p>为中国民间歌曲配写钢琴伴奏第一人</p>
-</li>
-<li><p>代表作品：</p>
-<p>（1）合唱<strong>《海韵》</strong>（徐志摩词）清唱剧式</p>
-<p>（2）抒情艺术歌曲《教我如何不想他》（刘半农词）</p>
-<p>（3）<strong>反封建：《卖布谣》</strong></p>
-</li>
-</ul>
-<h2 id="（四）黎锦晖"><a href="#（四）黎锦晖" class="headerlink" title="（四）黎锦晖"></a>（四）黎锦晖</h2><p>关键词：儿童音乐</p>
-<ul>
-<li>创办儿童读物《小朋友》</li>
-<li><strong>1927创办第一所“中华歌舞专科学院”</strong></li>
-<li>首创儿童歌舞剧体裁，中国流行歌曲的创作第一人</li>
-</ul>
-<p>代表作品：</p>
-<p>（1）儿童歌舞剧《小小画家》</p>
-<p>（2）儿童歌舞表演剧《可怜的秋香》</p>
-<p>（3）流行歌曲《桃花江》《毛毛雨》《特别快车》</p>
-<h2 id="（五）王光祈"><a href="#（五）王光祈" class="headerlink" title="（五）王光祈"></a>（五）王光祈</h2><p>关键词：比较音乐学</p>
-<ul>
-<li>向外国介绍中国音乐《论中国古典歌剧》《东方民族之音乐》</li>
-<li>向中国介绍外国音乐《欧洲音乐进化论》</li>
-<li>中西方音乐的比较研究《东西乐制之研究》</li>
-<li><strong>世界三大乐系统：欧洲乐系、波斯——阿拉伯乐系、中国乐系。</strong></li>
-</ul>
-<h2 id="（六）华彦钧"><a href="#（六）华彦钧" class="headerlink" title="（六）华彦钧"></a>（六）华彦钧</h2><p>关键词：“民间艺人”，又名阿炳</p>
-<p>代表作品：</p>
-<ul>
-<li>二胡曲《二泉映月》《听松》《寒春风曲》</li>
-<li>琵琶曲《大浪淘沙》《昭君出塞》《龙船》</li>
-</ul>
-<h2 id="（七）刘天华"><a href="#（七）刘天华" class="headerlink" title="（七）刘天华"></a>（七）刘天华</h2><p>关键词：教授</p>
-<p>中国20世纪20年代作曲家、国乐改进家，中国二胡学派的奠基人。</p>
-<p><strong>【对二胡创作的改良】：</strong></p>
-<ul>
-<li>音乐音调、曲式结构有鲜明的民族特点；</li>
-<li>吸收了西洋音乐要素，二胡富有鲜明的标题性，吸收西洋乐器演奏方法，将小提琴的跳弓、颤弓、换把等技法移植到二胡上。</li>
-<li>第一次把二胡音乐搬上独奏舞台。</li>
-</ul>
-<p><strong>【十首二胡曲】：</strong></p>
-<p>《良宵》《月夜》《苦闷之讴》《独弦操》《病中吟》（复三部）《烛影摇红》《光明行》《悲歌》《空山鸟语》《闲居吟》</p>
-<p>挽联：“良月苦独病，烛光悲空闲”</p>
-<p><strong>【三首琵琶曲】：</strong></p>
-<p>《歌舞引》《虚赖》《改进操》</p>
-<h1 id="四、20世纪30年代音乐"><a href="#四、20世纪30年代音乐" class="headerlink" title="四、20世纪30年代音乐"></a>四、20世纪30年代音乐</h1><p><strong>左翼音乐运动与救亡歌咏运动</strong></p>
-<p>阎述诗《五月的鲜花》</p>
-<h2 id="（一）青主"><a href="#（一）青主" class="headerlink" title="（一）青主"></a>（一）青主</h2><p>关键词：音乐美学、艺术歌曲</p>
-<p>1.音乐美学论著：《乐话》《音乐通论》</p>
-<p>2.艺术歌曲：</p>
-<ul>
-<li><strong>《大江东去》</strong>为苏东坡《念奴娇*赤壁怀古》谱写</li>
-<li>《我住长江头》</li>
-</ul>
-<h2 id="（二）黄自"><a href="#（二）黄自" class="headerlink" title="（二）黄自"></a>（二）黄自</h2><p>关键词：音乐教育，艺术歌曲，清唱剧</p>
-<p>是我国20世纪30年代著名作曲家、音乐教育家。</p>
-<p>音乐创作：</p>
-<p>（1）合唱：<strong>《抗敌歌》</strong>（词：韦瀚章）<strong>《旗正飘飘》</strong></p>
-<p>（2）我国第一部清唱剧<strong>《长恨歌》</strong>，韦瀚章根据白居易同名诗选取歌词。第三乐章《渔阳 鼙pi鼓动地来》、第八《山在虚无缥缈间》、第十《此恨绵绵无绝期》</p>
-<p>（3）艺术歌曲《南乡子》《点绛唇》《花非花》《春思曲》《思乡》<strong>《玫瑰三愿》</strong></p>
-<p>（4）儿童歌曲《西风的话》《踏雪寻梅》</p>
-<p>（5）管弦乐作品《怀旧》:交响序曲，我国第一部真正意义上的交响曲。</p>
-<a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png" data-fancybox="group" data-caption="image-20200314225042823" class="fancybox"><img alt="image-20200314225042823" style="zoom:50%;" title="image-20200314225042823" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png" data-fancybox="group" data-caption="image-20200314231110831" class="fancybox"><img alt="image-20200314231110831" style="zoom:50%;" title="image-20200314231110831" data-src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png" class="lazyload"></a>
-
-
-
-<h2 id="（三）聂耳"><a href="#（三）聂耳" class="headerlink" title="（三）聂耳"></a>（三）聂耳</h2><p>关键词：群众歌曲、抒情歌曲、民乐合奏</p>
-<p>“无产阶级革命音乐的开路先锋”</p>
-<p>音音乐创作：</p>
-<p>（1）群众歌曲：</p>
-<ul>
-<li>《自卫歌》、《打长江》</li>
-<li>《前进歌》《大路歌》《义勇军进行曲》（选自电影《风云儿女》）《码头工人》《毕业歌》（选自电影《桃李劫》）《开路先锋》<ul>
-<li>记忆：“前路一工业先锋”</li>
-</ul>
-</li>
-</ul>
-<p>（2）抒情歌曲：</p>
-<ul>
-<li>《铁蹄下的歌女》选自电影《风云儿女》</li>
-<li>《塞外村女》、《梅娘曲》、《飞花歌》</li>
-</ul>
-<p>（3）儿童歌曲：《卖报歌》（安娥词）</p>
-<p>（4）民间器乐曲：</p>
-<ul>
-<li>《金蛇狂舞》（根据乐曲《倒八板》整理）</li>
-<li>《翠湖春晓》、《昭君出塞》</li>
-</ul>
-<p>拓展：《卖报歌》《码头工人》选自舞台剧《扬子江暴风雨》</p>
-<h2 id="（四）冼星海"><a href="#（四）冼星海" class="headerlink" title="（四）冼星海"></a>（四）冼星海</h2><p>“人民音乐家”</p>
-<p>代表作品：</p>
-<p>（1）创作歌曲：《救国军歌》《夜半 歌声》《太行山上》</p>
-<p>（2）劳动歌曲：《搬夫曲》《拉犁歌》（职业歌曲）</p>
-<p>（3）儿童歌曲：《只怕不抵搞》《谁来跟我玩》</p>
-<p>（4）合唱作品：《黄河大合唱》《生产运动大合唱》（《二月里来》《酸枣刺儿》）、《牺盟大合唱》《九一八大合唱》</p>
-<p>（5）最后一部作品：《中国狂想曲》</p>
-<p><strong>《黄河大合唱》：</strong>（光未然 词）</p>
-<ol>
-<li><p>《黄河船夫曲》：混声四部合唱，劳动号子体裁。</p>
-</li>
-<li><p>《黄河颂》：男声独唱</p>
-</li>
-<li><p>《黄河之水天上来》：配乐诗朗诵</p>
-</li>
-<li><p>《黄水谣》：女声二部合唱，出现转折</p>
-</li>
-<li><p>《河边对口曲》：男生对唱、轮唱</p>
-</li>
-<li><p>《黄河怨》：女高音独唱</p>
-</li>
-<li><p>《保卫黄河》：齐唱、轮唱</p>
-</li>
-<li><p>《怒吼吧！黄河》：混声合唱</p>
-</li>
-</ol>
-<p>口诀：夫颂天谣对怨吼，不去保卫妻没有</p>
-<ul>
-<li><strong>新考点：</strong>钢琴协奏曲《黄河》<ul>
-<li>《黄河船夫曲》《黄河颂》《黄河愤》《保卫黄河》</li>
-</ul>
-</li>
-</ul>
-<h2 id="（五）贺绿汀"><a href="#（五）贺绿汀" class="headerlink" title="（五）贺绿汀"></a>（五）贺绿汀</h2><p>1934 年创作钢琴曲《牧童短笛》和《摇篮曲》分别获齐尔品举办的“征求中国音乐风格的钢琴曲”的一等奖和名誉二等奖。</p>
-<p>他的作品与 20 世纪中国人民的生活与斗争紧密相连，具有鲜明的时代特征和深厚的群众基础，真实地反映了人民的生活和思想感情。</p>
-<p>代表作品：</p>
-<ul>
-<li>群众歌曲：《游击队歌》《嘉陵江上》</li>
-<li>钢琴独奏：《牧童短笛》（复调对位法）《摇篮曲》</li>
-<li>管弦乐曲：《森吉德玛》《晚会》</li>
-<li>电影歌曲《春天里》《天涯歌女》《四季歌》《秋水伊人》</li>
-<li>合唱作品：《垦春泥》《新中国的青年》</li>
-</ul>
-<h2 id="（六）江文也"><a href="#（六）江文也" class="headerlink" title="（六）江文也"></a>（六）江文也</h2><p>代表作品：</p>
-<ul>
-<li>管弦乐：《台湾舞曲》《孔庙大晟乐章》《北京点点》</li>
-<li>交响诗：《汩罗沉流》</li>
-<li>钢琴曲：《乡土节令诗》</li>
-</ul>
-<h2 id="（七）其他音乐家"><a href="#（七）其他音乐家" class="headerlink" title="（七）其他音乐家"></a>（七）其他音乐家</h2><p>刘雪庵：《红豆词》《长城谣》《枫桥夜泊》，作词《踏雪寻梅》</p>
-<p>陈田鹤：《采桑曲》《牧歌》《在那遥远的地方》</p>
-<p>张曙：《洪波曲》《日落西山》</p>
-<p>任光：《渔光曲》《打回老家去》民乐《彩云追月》</p>
-<p>麦新：《大刀进行曲》《马儿真正好》</p>
-<p>吕骥：《自由神》《抗日军政大学校歌》</p>
-<p>张寒晖：《松花江上》</p>
-<ul>
-<li>流亡三部曲：张寒晖《松花江上》、刘雪庵《流亡曲》《复仇曲》</li>
-</ul>
-<h1 id="五、20世纪40年代音乐"><a href="#五、20世纪40年代音乐" class="headerlink" title="五、20世纪40年代音乐"></a>五、20世纪40年代音乐</h1><h2 id="（一）重要作曲家"><a href="#（一）重要作曲家" class="headerlink" title="（一）重要作曲家"></a>（一）重要作曲家</h2><h3 id="1-马思聪"><a href="#1-马思聪" class="headerlink" title="1.马思聪"></a>1.马思聪</h3><p>第一代小提琴家</p>
-<p>代表作品：《摇篮曲》《内蒙组曲》《西藏音诗》《牧歌》《山林之歌》</p>
-<p>《内蒙组曲》（《绥远组曲》）：</p>
-<ul>
-<li>《史诗》：吸收民歌《跑马溜溜的山上》</li>
-<li>《思乡曲》：吸收《城墙上跑马》</li>
-<li>《塞外舞曲》：吸收《叫大娘》</li>
-</ul>
-<a href="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom:50%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png" class="lazyload"></a>
-
-<h3 id="2-谭小麟："><a href="#2-谭小麟：" class="headerlink" title="2.谭小麟："></a>2.谭小麟：</h3><p>《弦乐三重奏》1945年获杰克逊奖，第一首在国际上获奖的管弦乐。</p>
-<h3 id="3-丁善德："><a href="#3-丁善德：" class="headerlink" title="3.丁善德："></a>3.丁善德：</h3><p>第一个灌制唱片钢琴家</p>
-<p>《新中国交响组曲》</p>
-<p>《长征交响曲》我国第一部以中国工农红军为题材的大型管弦乐作品。</p>
-<h2 id="（二）秧歌剧及歌剧的发展"><a href="#（二）秧歌剧及歌剧的发展" class="headerlink" title="（二）秧歌剧及歌剧的发展"></a>（二）秧歌剧及歌剧的发展</h2><h3 id="1-秧歌剧："><a href="#1-秧歌剧：" class="headerlink" title="1.秧歌剧："></a>1.秧歌剧：</h3><p>将戏剧、音乐、舞蹈融为一体的广场歌舞剧。歌舞戏</p>
-<p>安波《兄妹开荒》</p>
-<h4 id="马可："><a href="#马可：" class="headerlink" title="马可："></a>马可：</h4><ul>
-<li>群众歌曲：《南泥湾》《咱们工人有力量》</li>
-<li>管弦乐作品：《陕北组曲》</li>
-<li>秧歌剧：《夫妻识字》《牛永贵负伤》</li>
-<li>歌剧：《小二黑结婚》《白毛女》</li>
-</ul>
-<blockquote>
-<p>名词解释马可：</p>
-<p>马可是我国20世纪40年代群众音乐作曲家代表，他一生致力于群众歌曲、管弦乐以及秧歌剧等体裁的创作。（1）群众歌曲：《南泥湾》《咱们工人有力量》等；（2)管弦乐作品：《陕北组曲》最为著名；(3)创作秧歌剧：《夫妻识字》以及《牛永贵负伤》等。</p>
-</blockquote>
-<h3 id="2-歌剧（新歌剧）"><a href="#2-歌剧（新歌剧）" class="headerlink" title="2.歌剧（新歌剧）"></a>2.歌剧（新歌剧）</h3><h4 id="1-《白毛女》："><a href="#1-《白毛女》：" class="headerlink" title="1.《白毛女》："></a>1.《白毛女》：</h4><ul>
-<li>1945年创作，贺敬之编剧，马可作曲。</li>
-<li>作品通过“旧社会使人变成鬼，新社会使鬼变成人”的传奇故事情节，深刻反映了农民的苦难生活，表现了他们推翻旧世界的决心。</li>
-<li>吸收了河北民歌《小白菜》的音调，创作了大量优秀选段如：《北风吹》《扎红头绳》《恨似高山仇似海》《我要活》《太阳出来啦》《杨白劳》《十里风雪》。</li>
-<li>中国歌剧史上里程碑式的杰作，标志着中国第一部新歌剧的诞生。</li>
-<li>首演者是王昆</li>
-</ul>
-<h1 id="中国当代音乐"><a href="#中国当代音乐" class="headerlink" title="中国当代音乐"></a>中国当代音乐</h1><h2 id="一、声乐作品"><a href="#一、声乐作品" class="headerlink" title="一、声乐作品"></a>一、声乐作品</h2><h3 id="（一）独唱歌曲"><a href="#（一）独唱歌曲" class="headerlink" title="（一）独唱歌曲"></a>（一）独唱歌曲</h3><h5 id="1-王-莘："><a href="#1-王-莘：" class="headerlink" title="1.王 莘："></a>1.王 莘：</h5><p>《歌唱祖国》</p>
-<h5 id="2-郑律成："><a href="#2-郑律成：" class="headerlink" title="2.郑律成："></a>2.郑律成：</h5><p>《我们多么幸福》《采伐歌》《长征路上》《星星歌》《中国人民解放军军歌》（原名《八路军进行曲》）《延安颂》《延水谣》</p>
-<h5 id="3-马思聪："><a href="#3-马思聪：" class="headerlink" title="3.马思聪："></a>3.马思聪：</h5><p>代表作品：《中国少年儿童队队歌》《新疆狂想曲》《山歌》《春天舞曲》</p>
-<a href="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png" data-fancybox="group" data-caption="image-20200315112746957" class="fancybox"><img alt="image-20200315112746957" style="zoom: 80%;" title="image-20200315112746957" data-src="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png" class="lazyload"></a>
-
-<h5 id="4-刘-炽："><a href="#4-刘-炽：" class="headerlink" title="4.刘 炽："></a>4.刘 炽：</h5><p>代表作品：《让我们荡起又桨》《祖国颂》《我的祖国》（乔羽作词）《新疆好》《英雄赞歌》《牧羊姑娘》</p>
-<p>（1）《让我们荡起双桨》1955，电影《祖国的花朵》插曲957年国庆节》主题歌曲</p>
-<p>（3）《我的祖国》电影《上甘岭》（1956年），单二部曲式</p>
-<h5 id="5-麦丁："><a href="#5-麦丁：" class="headerlink" title="5.麦丁："></a>5.麦丁：</h5><p>代表作品：《远方的客人请你留下来》，彝族、撒尼族</p>
-<h5 id="6-美丽其格："><a href="#6-美丽其格：" class="headerlink" title="6.美丽其格："></a>6.美丽其格：</h5><p>代表作品：《草原上升起不落的太阳》</p>
-<h5 id="7-李劫夫："><a href="#7-李劫夫：" class="headerlink" title="7.李劫夫："></a>7.李劫夫：</h5><p>代表作品：《我们走在大路上》《歌唱二小放牛郎》（叙事歌曲）</p>
-<h5 id="8-吕其明"><a href="#8-吕其明" class="headerlink" title="8.吕其明"></a>8.吕其明</h5><ul>
-<li>《谁不说俺家乡好》电影《红日》插曲，1961年</li>
-<li>《红旗颂》交响诗，1965年，融入了《东方红》和《义勇军进行曲》</li>
-</ul>
-<h5 id="9-施光南"><a href="#9-施光南" class="headerlink" title="9.施光南"></a>9.施光南</h5><ul>
-<li>《打起手鼓唱起歌》《祝酒歌》（粉碎四人帮，韩伟词）《吐鲁番的葡萄熟了》（瞿琮词）《在希望的田野上》（程晓光词）《紫藤花》《一抹夕阳》（选自歌剧《伤逝》）《假如你要认识我》《月光下的凤尾竹》</li>
-</ul>
-<h5 id="10-谷建芬"><a href="#10-谷建芬" class="headerlink" title="10.谷建芬"></a>10.谷建芬</h5><ul>
-<li>《我的小路》《那就是我》《绿叶对根的情意》《思念》《独光里的妈妈》《歌声与微笑》《年轻的朋友来相会》《妈妈的吻》《菜蘑菇的小姑娘》《今天是你的生日》《清唱我们踏上小道》</li>
-</ul>
-<h5 id="11-徐沛东"><a href="#11-徐沛东" class="headerlink" title="11.徐沛东"></a>11.徐沛东</h5><ul>
-<li>《亚洲雄风》《爱我中华》《得民心者得天下》（电视剧《雍正王朝）《大地飞歌》《我像雪花天上来》《梅花引》《种太阳》《乡音乡情》《篱笆墙的影子》</li>
-</ul>
-<a href="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" style="zoom: 80%;" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png" class="lazyload"></a>
-
-<h5 id="12-王酩"><a href="#12-王酩" class="headerlink" title="12.王酩"></a>12.王酩</h5><ul>
-<li>《妹妹找哥泪花流》《难忘今宵》（乔羽词）《绒花》《边疆的泉水清又纯》</li>
-</ul>
-<h5 id="13-瞿希贤"><a href="#13-瞿希贤" class="headerlink" title="13.瞿希贤"></a>13.瞿希贤</h5><ul>
-<li>《听妈妈讲那过去的事情》《全世界人民一条心》</li>
-</ul>
-<h5 id="14-郑秋枫"><a href="#14-郑秋枫" class="headerlink" title="14.郑秋枫"></a>14.郑秋枫</h5><ul>
-<li>《我爱你中国》（瞿琮词）选自电影《海外赤子》</li>
-</ul>
-<h5 id="15-其他作曲家独唱作品"><a href="#15-其他作曲家独唱作品" class="headerlink" title="15.其他作曲家独唱作品"></a>15.其他作曲家独唱作品</h5><ul>
-<li>李群：《快乐的节日》</li>
-<li>朱践耳：《唱支山歌给党听》</li>
-<li>娄生茂：《学习雷锋好榜样》</li>
-<li>王永泉：《打靶归来》</li>
-<li>羊鸣：《我爱祖国的蓝天》</li>
-<li>傅庚辰：《红星照我去战斗》（电影《闪闪的红星》插曲）</li>
-<li>印青：《走进新时代》（蒋开如词）《天路》《西部放歌》《走向复兴》</li>
-<li>《苗岭的早晨》：1974白诚仁创作，1975陈刚改编</li>
-<li>王立平：《大海啊，故乡》《枉凝眉》</li>
-</ul>
-<h3 id="（二）合唱歌曲"><a href="#（二）合唱歌曲" class="headerlink" title="（二）合唱歌曲"></a>（二）合唱歌曲</h3><ol>
-<li>《半个月亮爬上来》，王洛宾译配</li>
-<li>《长征大合唱》——时乐濛曲，陈其通词</li>
-<li>《长江之歌》——王建民<ul>
-<li>电视纪录片《话说长江》主题歌</li>
-</ul>
-</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">《长征交响曲》</th>
-<th align="center">《长征大合唱》</th>
-<th align="center">《长征组歌》</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">体裁</td>
-<td align="center">交响曲</td>
-<td align="center">合唱</td>
-<td align="center">声乐套曲</td>
-</tr>
-<tr>
-<td align="center">作者</td>
-<td align="center">丁善德</td>
-<td align="center">时乐蒙</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">重要内容</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">1.告别；2.突破封锁线；3.遵义会议的光辉；4.《四渡赤水出奇兵》；5.飞越大渡河；6.过雪山草地；7.到吴起镇；8.祝提；9报喜；10.大会师</td>
-</tr>
-</tbody></table>
-<p>口诀：告破遵义出奇兵，飞越草地到乌镇</p>
-<p>横批：喜祝会师</p>
-<h2 id="二、器乐作品"><a href="#二、器乐作品" class="headerlink" title="二、器乐作品"></a>二、器乐作品</h2><h3 id="（一）独奏作品"><a href="#（一）独奏作品" class="headerlink" title="（一）独奏作品"></a>（一）独奏作品</h3><ol>
-<li><h5 id="笛子曲"><a href="#笛子曲" class="headerlink" title="笛子曲"></a>笛子曲</h5><p>代表作品：</p>
-<ul>
-<li>《喜相逢》（冯子存）、</li>
-<li>《鹧鸪飞》（陆春龄根据湖南民间乐曲）、</li>
-<li>《三五七》（赵松庭根据婺剧唱腔）、</li>
-<li>《牧民新歌》（简广易、王志伟曲）、</li>
-<li>《扬鞭催马运粮忙》（魏显忠曲）、</li>
-<li>《帕米尔的春天》（刘富荣曲）</li>
-</ul>
-</li>
-<li><h5 id="唢呐曲"><a href="#唢呐曲" class="headerlink" title="唢呐曲"></a>唢呐曲</h5><p>代表作品：《百鸟朝凤》（任同祥）</p>
-</li>
-<li><h5 id="双管独奏曲"><a href="#双管独奏曲" class="headerlink" title="双管独奏曲"></a>双管独奏曲</h5><ul>
-<li>《江河水》，原名《江儿水》</li>
-</ul>
-</li>
-<li><h5 id="三弦独奏曲"><a href="#三弦独奏曲" class="headerlink" title="三弦独奏曲"></a>三弦独奏曲</h5><ul>
-<li>《十八板》（李乙）</li>
-</ul>
-</li>
-<li><h5 id="二胡曲"><a href="#二胡曲" class="headerlink" title="二胡曲"></a>二胡曲</h5><ul>
-<li>《奔驰在千里草原》（王国潼、李秀琪曲）、《草原新牧民》（刘长福曲）、《兰花花叙事曲》（关铭）、《第一二胡狂想曲》（王建民曲）</li>
-</ul>
-</li>
-<li><h5 id="琵琶协奏曲"><a href="#琵琶协奏曲" class="headerlink" title="琵琶协奏曲"></a>琵琶协奏曲</h5><ul>
-<li>《草原小姐妹》（吴祖强、王燕樵、刘德海曲）</li>
-</ul>
-</li>
-</ol>
-<h3 id="（二）合奏作品"><a href="#（二）合奏作品" class="headerlink" title="（二）合奏作品"></a>（二）合奏作品</h3><table>
-<thead>
-<tr>
-<th align="center">民乐合奏曲</th>
-<th align="center">作者</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">《春江花月夜》根据琵琶《夕阳簫鼓》改编</td>
-<td align="center">秦鹏章、罗忠镕</td>
-</tr>
-<tr>
-<td align="center">《陕北组曲》</td>
-<td align="center">马可曲</td>
-</tr>
-<tr>
-<td align="center">《大寨红花遍地开》</td>
-<td align="center">许镜清曲</td>
-</tr>
-<tr>
-<td align="center">《丰收锣鼓》</td>
-<td align="center">彭修文</td>
-</tr>
-<tr>
-<td align="center">《喜洋洋》</td>
-<td align="center">刘明沅作曲</td>
-</tr>
-<tr>
-<td align="center">《北京喜讯到边寨》</td>
-<td align="center">郑路、马洪业曲</td>
-</tr>
-<tr>
-<td align="center">《瑶族舞曲》</td>
-<td align="center">刘铁山、茅沅曲</td>
-</tr>
-<tr>
-<td align="center">《春节序曲》</td>
-<td align="center">李焕之曲</td>
-</tr>
-</tbody></table>
-<h5 id="2-西洋器乐"><a href="#2-西洋器乐" class="headerlink" title="2.西洋器乐"></a>2.西洋器乐</h5><p>（1）《风<em>雅</em>颂》</p>
-<p>谭盾弦乐四重奏《风<em>雅</em>颂》以《诗经》的三大部类为标题。运用中国瑶族民歌以及古琴曲《梅花三弄》为音乐素材。</p>
-<p>（2）《梁山伯与祝英台》</p>
-<p>何占豪、陈钢小提琴协奏曲，俞丽拿首演。作品吸收了越剧的音调特色。</p>
-<h2 id="三、戏曲、曲节音乐"><a href="#三、戏曲、曲节音乐" class="headerlink" title="三、戏曲、曲节音乐"></a>三、戏曲、曲节音乐</h2><h3 id="（一）八大革命样板戏"><a href="#（一）八大革命样板戏" class="headerlink" title="（一）八大革命样板戏"></a>（一）八大革命样板戏</h3><p>1.五部“革命现代京剧”：《智取威虎山》《红灯记》《沙家浜》《海港》《奇袭白虎团》</p>
-<p>2.两部“革命舞剧”：《白毛女》《红色娘子军》</p>
-<p>3.一部“革命交响乐”：《沙家浜》</p>
-<h4 id="《智取威虎山》："><a href="#《智取威虎山》：" class="headerlink" title="《智取威虎山》："></a>《智取威虎山》：</h4><p>唱段《甘洒热血写春秋》</p>
-<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png" class="lazyload"></a></p>
-<h4 id="《红灯记》："><a href="#《红灯记》：" class="headerlink" title="《红灯记》："></a>《红灯记》：</h4><p>唱段《都有一颗红亮的心》</p>
-<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png" class="lazyload"></a></p>
-<h3 id="（二）曲艺作品："><a href="#（二）曲艺作品：" class="headerlink" title="（二）曲艺作品："></a>（二）曲艺作品：</h3><p>苏州弹词《山山水水奇深情》、梅花大鼓《二泉映月》、骆玉笙《和氏璧》</p>
-<h3 id="（三）其他剧种"><a href="#（三）其他剧种" class="headerlink" title="（三）其他剧种"></a>（三）其他剧种</h3><p>昆剧《李慧娘》、越剧《红楼梦》《文成公主》《西厢记》</p>
-<h2 id="四、歌剧和舞剧"><a href="#四、歌剧和舞剧" class="headerlink" title="四、歌剧和舞剧"></a>四、歌剧和舞剧</h2><h3 id="（一）歌剧"><a href="#（一）歌剧" class="headerlink" title="（一）歌剧"></a>（一）歌剧</h3><h5 id="1-《刘胡兰》"><a href="#1-《刘胡兰》" class="headerlink" title="1.《刘胡兰》"></a>1.《刘胡兰》</h5><p>以山西民歌为基调，吸取山西梆子。</p>
-<p>选段《一道道水来一道道山》《数九寒天下大雪》</p>
-<h5 id="2-《小二黑结婚》"><a href="#2-《小二黑结婚》" class="headerlink" title="2.《小二黑结婚》"></a>2.《小二黑结婚》</h5><p>选段《清粼粼的水来蓝莹莹的天》</p>
-<h5 id="3-《洪湖赤卫队》"><a href="#3-《洪湖赤卫队》" class="headerlink" title="3.《洪湖赤卫队》"></a>3.《洪湖赤卫队》</h5><p>张敬安、欧阳谦叔作曲</p>
-<p>选段《看天下劳苦人民都解放》《洪湖水浪打浪》《这一仗打得真漂亮》《放下三棒鼓，扛起红樱枪》</p>
-<h5 id="4-《江姐》"><a href="#4-《江姐》" class="headerlink" title="4.《江姐》"></a>4.《江姐》</h5><p>选段：《红梅赞》《绣红旗》《五洲人民齐欢笑》</p>
-<h5 id="5-《伤逝》"><a href="#5-《伤逝》" class="headerlink" title="5.《伤逝》"></a>5.《伤逝》</h5><p>施光楠</p>
-<ul>
-<li>唱段：《一抹夕阳》《风萧瑟》《不幸的人生》《紫藤花》</li>
-</ul>
-<h3 id="（二）舞剧"><a href="#（二）舞剧" class="headerlink" title="（二）舞剧"></a>（二）舞剧</h3><p>1950年的《和平鸽》拉开了中国舞剧新时期的序幕。</p>
-<p>1957年《宝莲灯》当代第一部具有典型意义的大型民族舞剧。</p>
-<p>代表作品：</p>
-<p>《鱼美人》《红色娘子军》（吴祖强和杜鸣心曲）《白毛女》、民族舞剧《丝路花雨》（韩中才、呼延、焦凯曲）《文成公主》（石夫曲）《阿诗玛》（万里、黄田曲）《森吉德玛》（王竹林、桑洁、玛希曲）等</p>
-<h5 id="1-芭蕾舞剧《红色娘子军》"><a href="#1-芭蕾舞剧《红色娘子军》" class="headerlink" title="1.芭蕾舞剧《红色娘子军》"></a>1.芭蕾舞剧《红色娘子军》</h5><p>选段：《快乐的女战士》</p>
-<p><a href="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png" class="lazyload"></a></p>
-<h5 id="2-芭蕾舞剧《鱼美人》"><a href="#2-芭蕾舞剧《鱼美人》" class="headerlink" title="2.芭蕾舞剧《鱼美人》"></a>2.芭蕾舞剧《鱼美人》</h5><p>选段：《水草舞》、《珊瑚舞》</p>
-<h5 id="3-民族舞剧《丝路花雨》"><a href="#3-民族舞剧《丝路花雨》" class="headerlink" title="3.民族舞剧《丝路花雨》"></a>3.民族舞剧《丝路花雨》</h5><p>以丝绸之路和敦煌壁画为素材，中国民族舞剧的典范。选段《反弹琵琶》</p>
-</body></html>]]></content>
-  </entry>
-  <entry>
-    <title>音乐主观简答归纳</title>
-    <url>/2020/05/02/%E9%9F%B3%E4%B9%90%E4%B8%BB%E8%A7%82%E7%AE%80%E7%AD%94%E5%BD%92%E7%BA%B3/</url>
-    <content><![CDATA[<html><head></head><body><h2 id="音乐课堂如何解决xx教学重难点？"><a href="#音乐课堂如何解决xx教学重难点？" class="headerlink" title="音乐课堂如何解决xx教学重难点？"></a>音乐课堂如何解决xx教学重难点？</h2><ol>
-<li>设置清晰合理的教学环节。</li>
-<li>多元化教学方法相结合。</li>
-<li>特殊知识解决：人文知识</li>
-</ol>
-</body></html>]]></content>
-  </entry>
-  <entry>
-    <title>音乐教学设计【粉笔】</title>
-    <url>/2020/05/02/%E9%9F%B3%E4%B9%90%E6%95%99%E5%AD%A6%E8%AE%BE%E8%AE%A1%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/</url>
-    <content><![CDATA[<html><head></head><body><h1 id="教案设计结构"><a href="#教案设计结构" class="headerlink" title="教案设计结构"></a>教案设计结构</h1><h3 id="一、教学目标"><a href="#一、教学目标" class="headerlink" title="一、教学目标"></a>一、教学目标</h3><ol>
-<li>情感、态度与价值观</li>
-<li>过程与方法</li>
-<li>知识与技能</li>
-</ol>
-<h3 id="二、教学重点难点"><a href="#二、教学重点难点" class="headerlink" title="二、教学重点难点"></a>二、教学重点难点</h3><ol>
-<li>教学重点</li>
-<li>教学难点</li>
-</ol>
-<h3 id="三、教学准备"><a href="#三、教学准备" class="headerlink" title="三、教学准备"></a>三、教学准备</h3><p>钢琴 多媒体</p>
-<h3 id="四、教学过程"><a href="#四、教学过程" class="headerlink" title="四、教学过程"></a>四、教学过程</h3><ol>
-<li>课堂导入</li>
-<li>初步感知</li>
-<li>探究学习</li>
-<li>巩固延伸</li>
-<li>小结作业</li>
-</ol>
-<h3 id="五、板书设计"><a href="#五、板书设计" class="headerlink" title="五、板书设计"></a>五、板书设计</h3><h1 id="第一部分-歌唱课"><a href="#第一部分-歌唱课" class="headerlink" title="第一部分 歌唱课"></a>第一部分 歌唱课</h1><h3 id="一、教学目标模板"><a href="#一、教学目标模板" class="headerlink" title="一、教学目标模板"></a>一、教学目标模板</h3><h4 id="1-情感、态度与价值观"><a href="#1-情感、态度与价值观" class="headerlink" title="1.情感、态度与价值观"></a>1.情感、态度与价值观</h4><p>（学生能够）感受<strong>__**</strong><strong><strong>_（体裁）音乐美，体会</strong></strong><strong>**__</strong>（情感），<strong>__**</strong><strong>****</strong>**（以下三选一）。</p>
-<ul>
-<li>（中国音乐）弘扬民族音乐，增强民族自信；</li>
-<li>（外国音乐）理解音乐文化多样性（义务教育）/理解多元文化（高中）。</li>
-<li>（校园歌曲）进一步培养积极、乐观的生活态度。</li>
-</ul>
-<h4 id="2-过程与方法"><a href="#2-过程与方法" class="headerlink" title="2.过程与方法"></a>2.过程与方法</h4><ul>
-<li>（义务）通过视听结合法、创设情境法以及小组合作探究法，（学生）能够进一步提高演唱能力。</li>
-</ul>
-<h4 id="3-知识与技能"><a href="#3-知识与技能" class="headerlink" title="3.知识与技能"></a>3.知识与技能</h4><p>理解/掌握<strong>__**</strong><strong>****</strong><strong><strong>__</strong></strong>_**（简单知识），（学生）能够完整表现歌曲。</p>
-<p><a href="http://tc.rexau.com:8888/images/2020/04/01/20190518182534.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/04/01/20190518182534.png" class="lazyload"></a></p>
-<h3 id="二、教学重难点"><a href="#二、教学重难点" class="headerlink" title="二、教学重难点"></a>二、教学重难点</h3><p><strong>重点：</strong>本节课最基本、最重要的，必须掌握的知识与技能。</p>
-<p>1.教学重点：演唱、欣赏、演奏、创编</p>
-<p>2.突出重点：1.详略得当；2.启发式引导；3.反复聆听、演唱、练习；4.板书</p>
-<p><strong>难点：</strong>最复杂、最抽象，必须掌握的知识与技能。</p>
-<ul>
-<li>节奏、音高、词曲结合、衬词、呼吸、情感、人文内涵</li>
-</ul>
-<h4 id="【教学重点】"><a href="#【教学重点】" class="headerlink" title="【教学重点】"></a>【教学重点】</h4><p>（学生）能够用____声音有表情地演唱歌曲，进一步提高音乐表现能力。</p>
-<h4 id="【教学难点】"><a href="#【教学难点】" class="headerlink" title="【教学难点】"></a>【教学难点】</h4><p>理解/掌握<strong><strong>（知识/技能），</strong></strong>（二选一）。</p>
-<ul>
-<li>（单声部）并准确表达歌曲感情；</li>
-<li>（双声部）并演绎双声部合唱</li>
-</ul>
-<h3 id="三、教学准备-1"><a href="#三、教学准备-1" class="headerlink" title="三、教学准备"></a>三、教学准备</h3><ol>
-<li>钢琴 多媒体</li>
-<li>伴奏乐器：沙锤、手鼓、三角铁、二胡、笛子等</li>
-<li>其他道具：脸谱、民族服饰、鲜花等</li>
-</ol>
-<h3 id="四、教学过程-1"><a href="#四、教学过程-1" class="headerlink" title="四、教学过程"></a>四、教学过程</h3><h4 id="（一）课堂导入"><a href="#（一）课堂导入" class="headerlink" title="（一）课堂导入"></a>（一）课堂导入</h4><ul>
-<li>创境导入</li>
-<li>设疑导入</li>
-<li>温故导入（高中）</li>
-<li>故事导入</li>
-<li>舞蹈导入</li>
-<li>收集资料导入</li>
-</ul>
-<h5 id="【导入模板】"><a href="#【导入模板】" class="headerlink" title="【导入模板】"></a>【导入模板】</h5><p>1.教师运用<strong>__**</strong><strong>****</strong>**_（方式），为同学们展示<strong><strong>（内容），请同学们思考：“</strong></strong>？（问题）”，学生自由回答。</p>
-<p>2.教师总结，引出<strong>__**</strong><strong>****</strong><strong>**__</strong>___（关联点），激发兴趣，引入新课。</p>
-<h4 id="（二）初步感知环节"><a href="#（二）初步感知环节" class="headerlink" title="（二）初步感知环节"></a>（二）初步感知环节</h4><p>通过聆听获取最表面一层的音乐信息，如情绪、速度、演唱形式等。</p>
-<ul>
-<li>初听——情绪？ 速度？</li>
-<li>复听——演唱形式？/歌曲内容？</li>
-<li>三听——自由律动（义务教育）<ul>
-<li>介绍作曲家生平/歌曲体裁的/背景相关知识（高中）</li>
-</ul>
-</li>
-</ul>
-<h5 id="【感知模板】"><a href="#【感知模板】" class="headerlink" title="【感知模板】"></a>【感知模板】</h5><ol>
-<li><p>初听歌曲，请同学们思考：“听完这段音乐作品你内心有着怎样的感受呢？速度又如何？” 学生回答。（——地；——速）</p>
-</li>
-<li><p>复听歌曲，请同学们闭目思考：“听完这段音乐作品，你脑海中浮现了怎样的画面呢？   ”学生自由想象。（___）</p>
-</li>
-<li><p>（义务）三听歌曲，请同学们跟随音乐自由律动。</p>
-<p>（高中）三听歌曲，请同学们自主分享<strong>__**</strong>_**（体裁/人物/历史/背景）的人文知识。</p>
-</li>
-</ol>
-<h4 id="（三）探究歌曲环节"><a href="#（三）探究歌曲环节" class="headerlink" title="（三）探究歌曲环节"></a>（三）探究歌曲环节</h4><p>在教师引导下探究歌曲中的难题，并逐步掌握歌曲的演唱，体会情感。</p>
-<ul>
-<li>节奏——附点、切分、弱起、常规节奏的快速演唱；</li>
-<li>旋律——大跨度音程构唱；临时变音记号的演唱；</li>
-<li>词曲结合——一字多音/一音多字；</li>
-<li>演唱技巧——（高中）稳定的呼吸、换气；（义务）合唱练习；</li>
-<li>作曲技法——（高中）鱼咬尾、 模仿、倒影、螺蛳结顶等</li>
-<li>情感表达——真切的情感体验。</li>
-</ul>
-<h5 id="【探究模板】"><a href="#【探究模板】" class="headerlink" title="【探究模板】"></a>【探究模板】</h5><p>（三）探究学习</p>
-<ol>
-<li><p>教师弹唱歌曲，<strong>__**</strong><strong>****</strong><strong>**__</strong>_（以下二选一），发现难点问题，并在教师引导下逐一解决。</p>
-<ul>
-<li>义务：请同学们跟随琴声用la哼唱歌曲旋律；</li>
-<li>高中：请同学们跟随琴声视唱歌曲旋律；</li>
-</ul>
-<p>（1）……；（问题知识点）</p>
-<p>（2）……。（问题知识点）</p>
-</li>
-<li><p>请同学们加歌词完整演唱歌曲，提示充分呼吸，咽腔打开，笑肌抬起，气息平稳，并唱出<strong>__**</strong><strong>****</strong>**__（情绪）的感觉。（同时发现词曲结合 / 情感表达问题并解决）。</p>
-<p>（3）……。（问题知识点）</p>
-</li>
-</ol>
-<p>（单声部）：</p>
-<ul>
-<li>3.分组进行轮唱与齐唱相结合的练习，感受不同演唱形式的艺术魅力。</li>
-</ul>
-<p>（双声部）：</p>
-<ul>
-<li><p>3.学生分组自行学唱第二声部，教师提示音准问题，并巡视点拨。</p>
-</li>
-<li><p>4.师生合作，进行双声部合唱/轮唱练习，教师提示二声部的音色和音量控制，注意双声部的和谐统一。</p>
-</li>
-</ul>
-<p>4./5.教师追问：“这首歌曲表达了怎样的感情呢？”（    ）</p>
-<h4 id="（四）巩固延伸"><a href="#（四）巩固延伸" class="headerlink" title="（四）巩固延伸"></a>（四）巩固延伸</h4><p>在演唱歌曲的基础上，对本节课学习的内容进行巩固或进一步知识延伸。</p>
-<ul>
-<li><p>（1）巩固提高——立足本课授课内容；</p>
-<p>（器乐编配、节奏/旋律创编、演唱形式的变化、角色扮演等。）</p>
-</li>
-<li><p>（2）拓展延伸——脱离本课授课内容。 （对比欣赏、人文知识拓展等。）</p>
-</li>
-</ul>
-<h5 id="【巩固延伸模板】"><a href="#【巩固延伸模板】" class="headerlink" title="【巩固延伸模板】"></a>【巩固延伸模板】</h5><p>【小学】</p>
-<p>1.请同学们运用课前分发的沙锤、手鼓等乐器为歌曲进行器乐编配，前后四人一组，限时10分钟。</p>
-<p>2.学生自由练习，教师巡视纠错。</p>
-<p>3.小组自由展示，组内互评与教师评价相结合。</p>
-<p>【初/高中】</p>
-<p>1.教师为同学们展示《__》，并请学生自由讨论：”这与我们今天学习的《》有哪些异同点呢？”</p>
-<p>2.学生自由讨论，组内分享观点和理由，教师予以鼓励性评价。</p>
-<p>3.小组代表自由发言，小组互评与教师评价相结合。</p>
-<h4 id="（五）小结作业"><a href="#（五）小结作业" class="headerlink" title="（五）小结作业"></a>（五）小结作业</h4><h5 id="小结作业模板"><a href="#小结作业模板" class="headerlink" title="小结作业模板"></a>小结作业模板</h5><ol>
-<li>师生共同总结本课收获。</li>
-<li>请同学们课下___（学科综合），下节课与同学们一起分享。</li>
-</ol>
-<h3 id="五、板书设计-1"><a href="#五、板书设计-1" class="headerlink" title="五、板书设计"></a>五、板书设计</h3><p><a href="http://tc.rexau.com:8888/images/2020/04/01/20190518212451.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/04/01/20190518212451.png" class="lazyload"></a></p>
-<h1 id="第二部分-欣赏-鉴赏课"><a href="#第二部分-欣赏-鉴赏课" class="headerlink" title="第二部分 欣赏/鉴赏课"></a>第二部分 欣赏/鉴赏课</h1><h2 id="【设计意图】"><a href="#【设计意图】" class="headerlink" title="【设计意图】"></a>【设计意图】</h2><p>上述教学设计以《义务教育阶段音乐课程标准（2011年版）为导向，遵循以学生为主体，教师做主导的授课原则，分为课堂导入、初步感知、探究音乐、巩固延伸以及小结作业五个环节。</p>
-<p>其主要环节设计意图如下：</p>
-<p>（1）初步感知环节：通过聆听获取最表面一层音乐信息，形成对音乐作品的最初印象，如表现形式、音乐形象、音乐结构等，为接下来的探究学习环节做好准备。</p>
-<p>（2）探究音乐环节：请学生按照“分乐段聆听——探寻音乐本体——情感提”的顺序参与学习。引导学生自主合作、探究，理解音乐本体知识与情绪情感之间的紧密联系等问题。由此，培养自主学习能力和团结合作精神，能够把握作品的风格特点。</p>
-<p>（3）拓展延伸环节：引导学生根据自己对音乐作品的理解，进行器乐统配/舞蹈统配/音乐欣赏，以提高学生对音乐的感知能力，激发想象力和创造力。</p>
-<h2 id="一、教学目标-1"><a href="#一、教学目标-1" class="headerlink" title="一、教学目标"></a>一、教学目标</h2><a href="http://tc.rexau.com:8888/images/2020/04/09/image-20200409135448469.png" data-fancybox="group" data-caption="image-20200409135448469" class="fancybox"><img alt="image-20200409135448469" style="zoom:50%;" title="image-20200409135448469" data-src="http://tc.rexau.com:8888/images/2020/04/09/image-20200409135448469.png" class="lazyload"></a>
-
-<h3 id="1-情感、态度与价值观-1"><a href="#1-情感、态度与价值观-1" class="headerlink" title="1.情感、态度与价值观"></a>1.情感、态度与价值观</h3><p>（学生能够）感受<strong>__**</strong><strong><strong>_（体裁）的美，体会</strong></strong><strong>**__</strong>（情感），<strong>__**</strong><strong>****</strong>**（以下二选一）。</p>
-<ul>
-<li>（中国音乐）弘扬民族音乐，增强民族自信；</li>
-<li>（外国音乐）<ul>
-<li>义务教育：理解音乐文化多样性；</li>
-<li>普通高中：培养国际交往能力；</li>
-</ul>
-</li>
-<li>（校园歌曲）培养积极、乐观的生活态度。</li>
-</ul>
-<h3 id="2-过程与方法-1"><a href="#2-过程与方法-1" class="headerlink" title="2.过程与方法"></a>2.过程与方法</h3><p>通过反复聆听、创设情境法以及小组合作探究法，（学生）能够进一步提高音乐审美能力。</p>
-<h3 id="3-知识与技能-1"><a href="#3-知识与技能-1" class="headerlink" title="3.知识与技能"></a>3.知识与技能</h3><p>理解<strong>__**</strong><strong>****</strong>**（简单知识），（学生）能够完整听赏音乐作品  。</p>
-<h2 id="二、教学重难点-1"><a href="#二、教学重难点-1" class="headerlink" title="二、教学重难点"></a>二、教学重难点</h2><p>教学重点：听辩、欣赏、创编、分析</p>
-<p>教学难点：节奏、音高、情感、曲式、音乐要素与情绪情感的联系、词曲结合、人文内涵、演唱。</p>
-<h3 id="（一）教学重点"><a href="#（一）教学重点" class="headerlink" title="（一）教学重点"></a>（一）教学重点</h3><p>能够准确听辨音乐主题，感受音乐不同情绪变化。</p>
-<h3 id="（二）教学难点"><a href="#（二）教学难点" class="headerlink" title="（二）教学难点"></a>（二）教学难点</h3><p>能够探索音乐要素与情绪情感之间的联系，理解作品的人文内涵。</p>
-<h2 id="三、教学准备-2"><a href="#三、教学准备-2" class="headerlink" title="三、教学准备"></a>三、教学准备</h2><p>【常规情况】：钢琴 多媒体</p>
-<p>【特殊情况】：</p>
-<ul>
-<li>伴奏乐器：沙锤、手鼓、三角铁、二胡、笛子等</li>
-<li>其他实物：脸谱、民族服饰、鲜花等</li>
-</ul>
-<h2 id="四、教学过程-2"><a href="#四、教学过程-2" class="headerlink" title="四、教学过程"></a>四、教学过程</h2><h3 id="（一）课堂导入-1"><a href="#（一）课堂导入-1" class="headerlink" title="（一）课堂导入"></a>（一）课堂导入</h3><ul>
-<li>创境导入</li>
-<li>设疑导入</li>
-<li>温故导入（高中）</li>
-<li>故事导入</li>
-<li>舞蹈导入</li>
-<li>收集资料导入</li>
-</ul>
-<h5 id="【导入模板】-1"><a href="#【导入模板】-1" class="headerlink" title="【导入模板】"></a>【导入模板】</h5><ol>
-<li><p>教师运用（方式）为同学们展示（内容），请同学们思考：“？（问题）”</p>
-<p>学生自由回答。</p>
-</li>
-<li><p>教师总结，引出____（关联点），激发学生兴趣，引入新课。</p>
-</li>
-</ol>
-<h3 id="（二）初步感知环节-1"><a href="#（二）初步感知环节-1" class="headerlink" title="（二）初步感知环节"></a>（二）初步感知环节</h3><p>通过聆听获取最表面一层的音乐信息，如结构、演唱形式、背景等。</p>
-<ul>
-<li>初听——表现形式？</li>
-<li>复听——音乐结构？</li>
-<li>三听——介绍作曲家生平/歌曲体裁的相关知识（通用）。</li>
-</ul>
-<h5 id="【感知模板】-1"><a href="#【感知模板】-1" class="headerlink" title="【感知模板】"></a>【感知模板】</h5><ol>
-<li>初听音乐作品，请同学们思考：“这段音乐作品的<strong>表现形式</strong>是怎样的呢？”学生回答。（<strong>__**</strong>__**）</li>
-<li>复听音乐作品，请同学们思考：“这首音乐作品可以分为<strong>几个部分</strong>？”学生自由回答。（<strong>__**</strong>__**个部分）</li>
-<li>三听音乐作品：<ul>
-<li>义务：请同学们跟随音乐自由律动。</li>
-<li>高中：请同学们自主分享____的人文知识。</li>
-</ul>
-</li>
-</ol>
-<h3 id="（三）探究乐曲"><a href="#（三）探究乐曲" class="headerlink" title="（三）探究乐曲"></a>（三）探究乐曲</h3><p>通过分主题聆听，获取音乐要素与情绪情感的紧密联系。</p>
-<ul>
-<li>热烈、欢快、跳跃——前八后十六、前十六后八、密集的十六分音符、小切分、小附点、顿音记号；</li>
-<li>优美、抒情、荡漾——长时值的节奏、大附点、大切分、自由延长记号、连音线等，重复的音乐材料。</li>
-</ul>
-<p>补充：旋律走向；歌词等也可以表现不同音乐情绪。</p>
-<h5 id="【探究模板】-1"><a href="#【探究模板】-1" class="headerlink" title="【探究模板】"></a>【探究模板】</h5><p>【小学】：</p>
-<ol>
-<li>分乐段聆听音乐作品，并感受音乐情绪变化等表象音乐要素。</li>
-</ol>
-<p>①欣赏<strong>（X乐段/主题），请同学们思考：这段音乐给你怎样的感受？（</strong>）</p>
-<ul>
-<li><p>再次闭目聆听，教师追问：听到这段音乐让你想象到了怎样的画面呢？</p>
-<p>学生自由回答，教师予以鼓励性评价。</p>
-</li>
-<li><p>请同学们跟随____（X乐段/主题），跟随音乐自由律动。</p>
-</li>
-</ul>
-<p>②欣赏_（X乐段/主题），请同学们思考：这段音乐和前一乐段相比有什么不同之处呢？（__）</p>
-<ul>
-<li><p>(器乐欣赏)再次闭目聆听，教师追问：你听到了哪些乐器呢？（__）</p>
-</li>
-<li><p>请同学们跟随__（X乐段/主题），哼唱音乐主题并自由展示。</p>
-</li>
-</ul>
-<p>③__。（内容同①②均可）</p>
-<ol start="2">
-<li>完整聆听音乐作品，请同学们思考作品表达的思想主旨。（__）</li>
-</ol>
-<p>【中学（初/高）】：</p>
-<ol>
-<li>分乐段聆听音乐作品，并探寻音乐要素与情绪情感的紧密联系。</li>
-</ol>
-<p>①欣赏<strong>（X乐段/主题），请同学们思考：这段音乐给你怎样的感受？你是从哪里体会到的？（</strong>）</p>
-<ul>
-<li><p>再次闭目聆听，教师追问：听到这段音乐让你想象到了怎样的画面呢？</p>
-<p>学生自由回答，教师予以鼓励性评价。</p>
-</li>
-<li><p>请同学们跟随__（X乐段/主题），音乐自由律动。</p>
-</li>
-</ul>
-<p>②欣赏<strong>（X乐段/主题），请同学们思考：这段音乐和前一主题相比有什么不同之处呢？你是从哪里体会到的？（</strong>；__）</p>
-<ul>
-<li><p>（器乐欣赏）再次闭目聆听，教师追问：你听到了哪些乐器呢？（__）</p>
-</li>
-<li><p>请同学们跟随___（X乐段/主题），哼唱音乐主题并自由展示。</p>
-</li>
-</ul>
-<p>③__（内容同①②均可）</p>
-<ol start="2">
-<li>完整聆听音乐作品，请同学们思考作品表达的思想主旨。（__）</li>
-</ol>
-<h3 id="（四）巩固延伸-1"><a href="#（四）巩固延伸-1" class="headerlink" title="（四）巩固延伸"></a>（四）巩固延伸</h3><p>【巩固延伸模板】</p>
-<p>【小学】：</p>
-<ol>
-<li>__。（以下二选一）</li>
-</ol>
-<ul>
-<li><p>声乐作品：请同学们运用课前分发的沙锤、手鼓等乐器为歌曲进行器乐编配，前后四人一组，限时10分钟。</p>
-</li>
-<li><p>器乐作品：请同学们为歌曲编配适合的舞蹈动作，前后四人一组，限时10分钟。</p>
-</li>
-</ul>
-<ol start="2">
-<li><p>学生自由练习，教师巡视纠错。</p>
-</li>
-<li><p>小组自由展示，组内互评与教师评价相结合。</p>
-<p>【中学】：</p>
-</li>
-<li><p>教师为同学们展示《<strong>》，并请学生自由讨论：“这与我们今天学习的《</strong>》有哪些异同点呢？”</p>
-</li>
-<li><p>学生自由讨论，组内分享观点和理由，教师予以鼓励性评价。</p>
-</li>
-<li><p>小组代表自由发言，小组互评与教师评价相结合。</p>
-</li>
-</ol>
-<h3 id="（五）小结作业-1"><a href="#（五）小结作业-1" class="headerlink" title="（五）小结作业"></a>（五）小结作业</h3><h5 id="【小结作业模板】"><a href="#【小结作业模板】" class="headerlink" title="【小结作业模板】"></a>【小结作业模板】</h5><ol>
-<li>师生共同总结本课收获。</li>
-<li>课下，请同学们搜集<strong>__**</strong><strong>****</strong><strong><strong>__</strong></strong>_**的相关资料，下节课与同学们一起分享。</li>
-</ol>
-<h2 id="五、板书设计-2"><a href="#五、板书设计-2" class="headerlink" title="五、板书设计"></a>五、板书设计</h2><a href="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175434142.png" data-fancybox="group" data-caption="image-20200410175434142" class="fancybox"><img alt="image-20200410175434142" style="zoom:50%;" title="image-20200410175434142" data-src="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175434142.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175525967.png" data-fancybox="group" data-caption="image-20200410175525967" class="fancybox"><img alt="image-20200410175525967" style="zoom:50%;" title="image-20200410175525967" data-src="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175525967.png" class="lazyload"></a>
-
-<h1 id="【案例】"><a href="#【案例】" class="headerlink" title="【案例】"></a>【案例】</h1><p>【小学】：</p>
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143016774.png" data-fancybox="group" data-caption="image-20200411143016774" class="fancybox"><img alt="image-20200411143016774" title="image-20200411143016774" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143016774.png" class="lazyload"></a></p>
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143042998.png" data-fancybox="group" data-caption="image-20200411143042998" class="fancybox"><img alt="image-20200411143042998" title="image-20200411143042998" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143042998.png" class="lazyload"></a></p>
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143121694.png" data-fancybox="group" data-caption="image-20200411143121694" class="fancybox"><img alt="image-20200411143121694" style="zoom:50%;" title="image-20200411143121694" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143121694.png" class="lazyload"></a>
-
-<p>【初中】：</p>
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182157475.png" data-fancybox="group" data-caption="image-20200411182157475" class="fancybox"><img alt="image-20200411182157475" style="zoom:50%;" title="image-20200411182157475" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182157475.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182250788.png" data-fancybox="group" data-caption="image-20200411182250788" class="fancybox"><img alt="image-20200411182250788" style="zoom:50%;" title="image-20200411182250788" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182250788.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182401549.png" data-fancybox="group" data-caption="image-20200411182401549" class="fancybox"><img alt="image-20200411182401549" style="zoom:50%;" title="image-20200411182401549" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182401549.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182450990.png" data-fancybox="group" data-caption="image-20200411182450990" class="fancybox"><img alt="image-20200411182450990" style="zoom:50%;" title="image-20200411182450990" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182450990.png" class="lazyload"></a>
-
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182540063.png" data-fancybox="group" data-caption="image-20200411182540063" class="fancybox"><img alt="image-20200411182540063" title="image-20200411182540063" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182540063.png" class="lazyload"></a></p>
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182650619.png" data-fancybox="group" data-caption="image-20200411182650619" class="fancybox"><img alt="image-20200411182650619" style="zoom:50%;" title="image-20200411182650619" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182650619.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" data-fancybox="group" data-caption="image-20200411182730380" class="fancybox"><img alt="image-20200411182730380" style="zoom:50%;" title="image-20200411182730380" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" class="lazyload"></a>
-
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" data-fancybox="group" data-caption="image-20200411182730380" class="fancybox"><img alt="image-20200411182730380" style="zoom:50%;" title="image-20200411182730380" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" class="lazyload"></a><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182802170.png" data-fancybox="group" data-caption="image-20200411182802170" class="fancybox"><img alt="image-20200411182802170" title="image-20200411182802170" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182802170.png" class="lazyload"></a></p>
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182829211.png" data-fancybox="group" data-caption="image-20200411182829211" class="fancybox"><img alt="image-20200411182829211" title="image-20200411182829211" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182829211.png" class="lazyload"></a></p>
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182904364.png" data-fancybox="group" data-caption="image-20200411182904364" class="fancybox"><img alt="image-20200411182904364" style="zoom:50%;" title="image-20200411182904364" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182904364.png" class="lazyload"></a>
-
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182958471.png" data-fancybox="group" data-caption="image-20200411182958471" class="fancybox"><img alt="image-20200411182958471" title="image-20200411182958471" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182958471.png" class="lazyload"></a></p>
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183033169.png" data-fancybox="group" data-caption="image-20200411183033169" class="fancybox"><img alt="image-20200411183033169" style="zoom:50%;" title="image-20200411183033169" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183033169.png" class="lazyload"></a>
-
-<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183114040.png" data-fancybox="group" data-caption="image-20200411183114040" class="fancybox"><img alt="image-20200411183114040" style="zoom:50%;" title="image-20200411183114040" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183114040.png" class="lazyload"></a>
-
-<h1 id="【歌曲分析】"><a href="#【歌曲分析】" class="headerlink" title="【歌曲分析】"></a>【歌曲分析】</h1><p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233550516.png" data-fancybox="group" data-caption="image-20200411233550516" class="fancybox"><img alt="image-20200411233550516" title="image-20200411233550516" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233550516.png" class="lazyload"></a></p>
-<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233950290.png" data-fancybox="group" data-caption="image-20200411233950290" class="fancybox"><img alt="image-20200411233950290" title="image-20200411233950290" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233950290.png" class="lazyload"></a></p>
 </body></html>]]></content>
   </entry>
   <entry>
@@ -6200,6 +5887,314 @@ hexo.on('new', function(data){
 </ul>
 </li>
 </ol>
+</body></html>]]></content>
+  </entry>
+  <entry>
+    <title>音乐教学设计【粉笔】</title>
+    <url>/2020/05/02/%E9%9F%B3%E4%B9%90%E6%95%99%E5%AD%A6%E8%AE%BE%E8%AE%A1%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/</url>
+    <content><![CDATA[<html><head></head><body><h1 id="教案设计结构"><a href="#教案设计结构" class="headerlink" title="教案设计结构"></a>教案设计结构</h1><h3 id="一、教学目标"><a href="#一、教学目标" class="headerlink" title="一、教学目标"></a>一、教学目标</h3><ol>
+<li>情感、态度与价值观</li>
+<li>过程与方法</li>
+<li>知识与技能</li>
+</ol>
+<h3 id="二、教学重点难点"><a href="#二、教学重点难点" class="headerlink" title="二、教学重点难点"></a>二、教学重点难点</h3><ol>
+<li>教学重点</li>
+<li>教学难点</li>
+</ol>
+<h3 id="三、教学准备"><a href="#三、教学准备" class="headerlink" title="三、教学准备"></a>三、教学准备</h3><p>钢琴 多媒体</p>
+<h3 id="四、教学过程"><a href="#四、教学过程" class="headerlink" title="四、教学过程"></a>四、教学过程</h3><ol>
+<li>课堂导入</li>
+<li>初步感知</li>
+<li>探究学习</li>
+<li>巩固延伸</li>
+<li>小结作业</li>
+</ol>
+<h3 id="五、板书设计"><a href="#五、板书设计" class="headerlink" title="五、板书设计"></a>五、板书设计</h3><h1 id="第一部分-歌唱课"><a href="#第一部分-歌唱课" class="headerlink" title="第一部分 歌唱课"></a>第一部分 歌唱课</h1><h3 id="一、教学目标模板"><a href="#一、教学目标模板" class="headerlink" title="一、教学目标模板"></a>一、教学目标模板</h3><h4 id="1-情感、态度与价值观"><a href="#1-情感、态度与价值观" class="headerlink" title="1.情感、态度与价值观"></a>1.情感、态度与价值观</h4><p>（学生能够）感受<strong>__**</strong><strong><strong>_（体裁）音乐美，体会</strong></strong><strong>**__</strong>（情感），<strong>__**</strong><strong>****</strong>**（以下三选一）。</p>
+<ul>
+<li>（中国音乐）弘扬民族音乐，增强民族自信；</li>
+<li>（外国音乐）理解音乐文化多样性（义务教育）/理解多元文化（高中）。</li>
+<li>（校园歌曲）进一步培养积极、乐观的生活态度。</li>
+</ul>
+<h4 id="2-过程与方法"><a href="#2-过程与方法" class="headerlink" title="2.过程与方法"></a>2.过程与方法</h4><ul>
+<li>（义务）通过视听结合法、创设情境法以及小组合作探究法，（学生）能够进一步提高演唱能力。</li>
+</ul>
+<h4 id="3-知识与技能"><a href="#3-知识与技能" class="headerlink" title="3.知识与技能"></a>3.知识与技能</h4><p>理解/掌握<strong>__**</strong><strong>****</strong><strong><strong>__</strong></strong>_**（简单知识），（学生）能够完整表现歌曲。</p>
+<p><a href="http://tc.rexau.com:8888/images/2020/04/01/20190518182534.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/04/01/20190518182534.png" class="lazyload"></a></p>
+<h3 id="二、教学重难点"><a href="#二、教学重难点" class="headerlink" title="二、教学重难点"></a>二、教学重难点</h3><p><strong>重点：</strong>本节课最基本、最重要的，必须掌握的知识与技能。</p>
+<p>1.教学重点：演唱、欣赏、演奏、创编</p>
+<p>2.突出重点：1.详略得当；2.启发式引导；3.反复聆听、演唱、练习；4.板书</p>
+<p><strong>难点：</strong>最复杂、最抽象，必须掌握的知识与技能。</p>
+<ul>
+<li>节奏、音高、词曲结合、衬词、呼吸、情感、人文内涵</li>
+</ul>
+<h4 id="【教学重点】"><a href="#【教学重点】" class="headerlink" title="【教学重点】"></a>【教学重点】</h4><p>（学生）能够用____声音有表情地演唱歌曲，进一步提高音乐表现能力。</p>
+<h4 id="【教学难点】"><a href="#【教学难点】" class="headerlink" title="【教学难点】"></a>【教学难点】</h4><p>理解/掌握<strong><strong>（知识/技能），</strong></strong>（二选一）。</p>
+<ul>
+<li>（单声部）并准确表达歌曲感情；</li>
+<li>（双声部）并演绎双声部合唱</li>
+</ul>
+<h3 id="三、教学准备-1"><a href="#三、教学准备-1" class="headerlink" title="三、教学准备"></a>三、教学准备</h3><ol>
+<li>钢琴 多媒体</li>
+<li>伴奏乐器：沙锤、手鼓、三角铁、二胡、笛子等</li>
+<li>其他道具：脸谱、民族服饰、鲜花等</li>
+</ol>
+<h3 id="四、教学过程-1"><a href="#四、教学过程-1" class="headerlink" title="四、教学过程"></a>四、教学过程</h3><h4 id="（一）课堂导入"><a href="#（一）课堂导入" class="headerlink" title="（一）课堂导入"></a>（一）课堂导入</h4><ul>
+<li>创境导入</li>
+<li>设疑导入</li>
+<li>温故导入（高中）</li>
+<li>故事导入</li>
+<li>舞蹈导入</li>
+<li>收集资料导入</li>
+</ul>
+<h5 id="【导入模板】"><a href="#【导入模板】" class="headerlink" title="【导入模板】"></a>【导入模板】</h5><p>1.教师运用<strong>__**</strong><strong>****</strong>**_（方式），为同学们展示<strong><strong>（内容），请同学们思考：“</strong></strong>？（问题）”，学生自由回答。</p>
+<p>2.教师总结，引出<strong>__**</strong><strong>****</strong><strong>**__</strong>___（关联点），激发兴趣，引入新课。</p>
+<h4 id="（二）初步感知环节"><a href="#（二）初步感知环节" class="headerlink" title="（二）初步感知环节"></a>（二）初步感知环节</h4><p>通过聆听获取最表面一层的音乐信息，如情绪、速度、演唱形式等。</p>
+<ul>
+<li>初听——情绪？ 速度？</li>
+<li>复听——演唱形式？/歌曲内容？</li>
+<li>三听——自由律动（义务教育）<ul>
+<li>介绍作曲家生平/歌曲体裁的/背景相关知识（高中）</li>
+</ul>
+</li>
+</ul>
+<h5 id="【感知模板】"><a href="#【感知模板】" class="headerlink" title="【感知模板】"></a>【感知模板】</h5><ol>
+<li><p>初听歌曲，请同学们思考：“听完这段音乐作品你内心有着怎样的感受呢？速度又如何？” 学生回答。（——地；——速）</p>
+</li>
+<li><p>复听歌曲，请同学们闭目思考：“听完这段音乐作品，你脑海中浮现了怎样的画面呢？   ”学生自由想象。（___）</p>
+</li>
+<li><p>（义务）三听歌曲，请同学们跟随音乐自由律动。</p>
+<p>（高中）三听歌曲，请同学们自主分享<strong>__**</strong>_**（体裁/人物/历史/背景）的人文知识。</p>
+</li>
+</ol>
+<h4 id="（三）探究歌曲环节"><a href="#（三）探究歌曲环节" class="headerlink" title="（三）探究歌曲环节"></a>（三）探究歌曲环节</h4><p>在教师引导下探究歌曲中的难题，并逐步掌握歌曲的演唱，体会情感。</p>
+<ul>
+<li>节奏——附点、切分、弱起、常规节奏的快速演唱；</li>
+<li>旋律——大跨度音程构唱；临时变音记号的演唱；</li>
+<li>词曲结合——一字多音/一音多字；</li>
+<li>演唱技巧——（高中）稳定的呼吸、换气；（义务）合唱练习；</li>
+<li>作曲技法——（高中）鱼咬尾、 模仿、倒影、螺蛳结顶等</li>
+<li>情感表达——真切的情感体验。</li>
+</ul>
+<h5 id="【探究模板】"><a href="#【探究模板】" class="headerlink" title="【探究模板】"></a>【探究模板】</h5><p>（三）探究学习</p>
+<ol>
+<li><p>教师弹唱歌曲，<strong>__**</strong><strong>****</strong><strong>**__</strong>_（以下二选一），发现难点问题，并在教师引导下逐一解决。</p>
+<ul>
+<li>义务：请同学们跟随琴声用la哼唱歌曲旋律；</li>
+<li>高中：请同学们跟随琴声视唱歌曲旋律；</li>
+</ul>
+<p>（1）……；（问题知识点）</p>
+<p>（2）……。（问题知识点）</p>
+</li>
+<li><p>请同学们加歌词完整演唱歌曲，提示充分呼吸，咽腔打开，笑肌抬起，气息平稳，并唱出<strong>__**</strong><strong>****</strong>**__（情绪）的感觉。（同时发现词曲结合 / 情感表达问题并解决）。</p>
+<p>（3）……。（问题知识点）</p>
+</li>
+</ol>
+<p>（单声部）：</p>
+<ul>
+<li>3.分组进行轮唱与齐唱相结合的练习，感受不同演唱形式的艺术魅力。</li>
+</ul>
+<p>（双声部）：</p>
+<ul>
+<li><p>3.学生分组自行学唱第二声部，教师提示音准问题，并巡视点拨。</p>
+</li>
+<li><p>4.师生合作，进行双声部合唱/轮唱练习，教师提示二声部的音色和音量控制，注意双声部的和谐统一。</p>
+</li>
+</ul>
+<p>4./5.教师追问：“这首歌曲表达了怎样的感情呢？”（    ）</p>
+<h4 id="（四）巩固延伸"><a href="#（四）巩固延伸" class="headerlink" title="（四）巩固延伸"></a>（四）巩固延伸</h4><p>在演唱歌曲的基础上，对本节课学习的内容进行巩固或进一步知识延伸。</p>
+<ul>
+<li><p>（1）巩固提高——立足本课授课内容；</p>
+<p>（器乐编配、节奏/旋律创编、演唱形式的变化、角色扮演等。）</p>
+</li>
+<li><p>（2）拓展延伸——脱离本课授课内容。 （对比欣赏、人文知识拓展等。）</p>
+</li>
+</ul>
+<h5 id="【巩固延伸模板】"><a href="#【巩固延伸模板】" class="headerlink" title="【巩固延伸模板】"></a>【巩固延伸模板】</h5><p>【小学】</p>
+<p>1.请同学们运用课前分发的沙锤、手鼓等乐器为歌曲进行器乐编配，前后四人一组，限时10分钟。</p>
+<p>2.学生自由练习，教师巡视纠错。</p>
+<p>3.小组自由展示，组内互评与教师评价相结合。</p>
+<p>【初/高中】</p>
+<p>1.教师为同学们展示《__》，并请学生自由讨论：”这与我们今天学习的《》有哪些异同点呢？”</p>
+<p>2.学生自由讨论，组内分享观点和理由，教师予以鼓励性评价。</p>
+<p>3.小组代表自由发言，小组互评与教师评价相结合。</p>
+<h4 id="（五）小结作业"><a href="#（五）小结作业" class="headerlink" title="（五）小结作业"></a>（五）小结作业</h4><h5 id="小结作业模板"><a href="#小结作业模板" class="headerlink" title="小结作业模板"></a>小结作业模板</h5><ol>
+<li>师生共同总结本课收获。</li>
+<li>请同学们课下___（学科综合），下节课与同学们一起分享。</li>
+</ol>
+<h3 id="五、板书设计-1"><a href="#五、板书设计-1" class="headerlink" title="五、板书设计"></a>五、板书设计</h3><p><a href="http://tc.rexau.com:8888/images/2020/04/01/20190518212451.png" data-fancybox="group" data-caption="img" class="fancybox"><img alt="img" title="img" data-src="http://tc.rexau.com:8888/images/2020/04/01/20190518212451.png" class="lazyload"></a></p>
+<h1 id="第二部分-欣赏-鉴赏课"><a href="#第二部分-欣赏-鉴赏课" class="headerlink" title="第二部分 欣赏/鉴赏课"></a>第二部分 欣赏/鉴赏课</h1><h2 id="【设计意图】"><a href="#【设计意图】" class="headerlink" title="【设计意图】"></a>【设计意图】</h2><p>上述教学设计以《义务教育阶段音乐课程标准（2011年版）为导向，遵循以学生为主体，教师做主导的授课原则，分为课堂导入、初步感知、探究音乐、巩固延伸以及小结作业五个环节。</p>
+<p>其主要环节设计意图如下：</p>
+<p>（1）初步感知环节：通过聆听获取最表面一层音乐信息，形成对音乐作品的最初印象，如表现形式、音乐形象、音乐结构等，为接下来的探究学习环节做好准备。</p>
+<p>（2）探究音乐环节：请学生按照“分乐段聆听——探寻音乐本体——情感提”的顺序参与学习。引导学生自主合作、探究，理解音乐本体知识与情绪情感之间的紧密联系等问题。由此，培养自主学习能力和团结合作精神，能够把握作品的风格特点。</p>
+<p>（3）拓展延伸环节：引导学生根据自己对音乐作品的理解，进行器乐统配/舞蹈统配/音乐欣赏，以提高学生对音乐的感知能力，激发想象力和创造力。</p>
+<h2 id="一、教学目标-1"><a href="#一、教学目标-1" class="headerlink" title="一、教学目标"></a>一、教学目标</h2><a href="http://tc.rexau.com:8888/images/2020/04/09/image-20200409135448469.png" data-fancybox="group" data-caption="image-20200409135448469" class="fancybox"><img alt="image-20200409135448469" style="zoom:50%;" title="image-20200409135448469" data-src="http://tc.rexau.com:8888/images/2020/04/09/image-20200409135448469.png" class="lazyload"></a>
+
+<h3 id="1-情感、态度与价值观-1"><a href="#1-情感、态度与价值观-1" class="headerlink" title="1.情感、态度与价值观"></a>1.情感、态度与价值观</h3><p>（学生能够）感受<strong>__**</strong><strong><strong>_（体裁）的美，体会</strong></strong><strong>**__</strong>（情感），<strong>__**</strong><strong>****</strong>**（以下二选一）。</p>
+<ul>
+<li>（中国音乐）弘扬民族音乐，增强民族自信；</li>
+<li>（外国音乐）<ul>
+<li>义务教育：理解音乐文化多样性；</li>
+<li>普通高中：培养国际交往能力；</li>
+</ul>
+</li>
+<li>（校园歌曲）培养积极、乐观的生活态度。</li>
+</ul>
+<h3 id="2-过程与方法-1"><a href="#2-过程与方法-1" class="headerlink" title="2.过程与方法"></a>2.过程与方法</h3><p>通过反复聆听、创设情境法以及小组合作探究法，（学生）能够进一步提高音乐审美能力。</p>
+<h3 id="3-知识与技能-1"><a href="#3-知识与技能-1" class="headerlink" title="3.知识与技能"></a>3.知识与技能</h3><p>理解<strong>__**</strong><strong>****</strong>**（简单知识），（学生）能够完整听赏音乐作品  。</p>
+<h2 id="二、教学重难点-1"><a href="#二、教学重难点-1" class="headerlink" title="二、教学重难点"></a>二、教学重难点</h2><p>教学重点：听辩、欣赏、创编、分析</p>
+<p>教学难点：节奏、音高、情感、曲式、音乐要素与情绪情感的联系、词曲结合、人文内涵、演唱。</p>
+<h3 id="（一）教学重点"><a href="#（一）教学重点" class="headerlink" title="（一）教学重点"></a>（一）教学重点</h3><p>能够准确听辨音乐主题，感受音乐不同情绪变化。</p>
+<h3 id="（二）教学难点"><a href="#（二）教学难点" class="headerlink" title="（二）教学难点"></a>（二）教学难点</h3><p>能够探索音乐要素与情绪情感之间的联系，理解作品的人文内涵。</p>
+<h2 id="三、教学准备-2"><a href="#三、教学准备-2" class="headerlink" title="三、教学准备"></a>三、教学准备</h2><p>【常规情况】：钢琴 多媒体</p>
+<p>【特殊情况】：</p>
+<ul>
+<li>伴奏乐器：沙锤、手鼓、三角铁、二胡、笛子等</li>
+<li>其他实物：脸谱、民族服饰、鲜花等</li>
+</ul>
+<h2 id="四、教学过程-2"><a href="#四、教学过程-2" class="headerlink" title="四、教学过程"></a>四、教学过程</h2><h3 id="（一）课堂导入-1"><a href="#（一）课堂导入-1" class="headerlink" title="（一）课堂导入"></a>（一）课堂导入</h3><ul>
+<li>创境导入</li>
+<li>设疑导入</li>
+<li>温故导入（高中）</li>
+<li>故事导入</li>
+<li>舞蹈导入</li>
+<li>收集资料导入</li>
+</ul>
+<h5 id="【导入模板】-1"><a href="#【导入模板】-1" class="headerlink" title="【导入模板】"></a>【导入模板】</h5><ol>
+<li><p>教师运用（方式）为同学们展示（内容），请同学们思考：“？（问题）”</p>
+<p>学生自由回答。</p>
+</li>
+<li><p>教师总结，引出____（关联点），激发学生兴趣，引入新课。</p>
+</li>
+</ol>
+<h3 id="（二）初步感知环节-1"><a href="#（二）初步感知环节-1" class="headerlink" title="（二）初步感知环节"></a>（二）初步感知环节</h3><p>通过聆听获取最表面一层的音乐信息，如结构、演唱形式、背景等。</p>
+<ul>
+<li>初听——表现形式？</li>
+<li>复听——音乐结构？</li>
+<li>三听——介绍作曲家生平/歌曲体裁的相关知识（通用）。</li>
+</ul>
+<h5 id="【感知模板】-1"><a href="#【感知模板】-1" class="headerlink" title="【感知模板】"></a>【感知模板】</h5><ol>
+<li>初听音乐作品，请同学们思考：“这段音乐作品的<strong>表现形式</strong>是怎样的呢？”学生回答。（<strong>__**</strong>__**）</li>
+<li>复听音乐作品，请同学们思考：“这首音乐作品可以分为<strong>几个部分</strong>？”学生自由回答。（<strong>__**</strong>__**个部分）</li>
+<li>三听音乐作品：<ul>
+<li>义务：请同学们跟随音乐自由律动。</li>
+<li>高中：请同学们自主分享____的人文知识。</li>
+</ul>
+</li>
+</ol>
+<h3 id="（三）探究乐曲"><a href="#（三）探究乐曲" class="headerlink" title="（三）探究乐曲"></a>（三）探究乐曲</h3><p>通过分主题聆听，获取音乐要素与情绪情感的紧密联系。</p>
+<ul>
+<li>热烈、欢快、跳跃——前八后十六、前十六后八、密集的十六分音符、小切分、小附点、顿音记号；</li>
+<li>优美、抒情、荡漾——长时值的节奏、大附点、大切分、自由延长记号、连音线等，重复的音乐材料。</li>
+</ul>
+<p>补充：旋律走向；歌词等也可以表现不同音乐情绪。</p>
+<h5 id="【探究模板】-1"><a href="#【探究模板】-1" class="headerlink" title="【探究模板】"></a>【探究模板】</h5><p>【小学】：</p>
+<ol>
+<li>分乐段聆听音乐作品，并感受音乐情绪变化等表象音乐要素。</li>
+</ol>
+<p>①欣赏<strong>（X乐段/主题），请同学们思考：这段音乐给你怎样的感受？（</strong>）</p>
+<ul>
+<li><p>再次闭目聆听，教师追问：听到这段音乐让你想象到了怎样的画面呢？</p>
+<p>学生自由回答，教师予以鼓励性评价。</p>
+</li>
+<li><p>请同学们跟随____（X乐段/主题），跟随音乐自由律动。</p>
+</li>
+</ul>
+<p>②欣赏_（X乐段/主题），请同学们思考：这段音乐和前一乐段相比有什么不同之处呢？（__）</p>
+<ul>
+<li><p>(器乐欣赏)再次闭目聆听，教师追问：你听到了哪些乐器呢？（__）</p>
+</li>
+<li><p>请同学们跟随__（X乐段/主题），哼唱音乐主题并自由展示。</p>
+</li>
+</ul>
+<p>③__。（内容同①②均可）</p>
+<ol start="2">
+<li>完整聆听音乐作品，请同学们思考作品表达的思想主旨。（__）</li>
+</ol>
+<p>【中学（初/高）】：</p>
+<ol>
+<li>分乐段聆听音乐作品，并探寻音乐要素与情绪情感的紧密联系。</li>
+</ol>
+<p>①欣赏<strong>（X乐段/主题），请同学们思考：这段音乐给你怎样的感受？你是从哪里体会到的？（</strong>）</p>
+<ul>
+<li><p>再次闭目聆听，教师追问：听到这段音乐让你想象到了怎样的画面呢？</p>
+<p>学生自由回答，教师予以鼓励性评价。</p>
+</li>
+<li><p>请同学们跟随__（X乐段/主题），音乐自由律动。</p>
+</li>
+</ul>
+<p>②欣赏<strong>（X乐段/主题），请同学们思考：这段音乐和前一主题相比有什么不同之处呢？你是从哪里体会到的？（</strong>；__）</p>
+<ul>
+<li><p>（器乐欣赏）再次闭目聆听，教师追问：你听到了哪些乐器呢？（__）</p>
+</li>
+<li><p>请同学们跟随___（X乐段/主题），哼唱音乐主题并自由展示。</p>
+</li>
+</ul>
+<p>③__（内容同①②均可）</p>
+<ol start="2">
+<li>完整聆听音乐作品，请同学们思考作品表达的思想主旨。（__）</li>
+</ol>
+<h3 id="（四）巩固延伸-1"><a href="#（四）巩固延伸-1" class="headerlink" title="（四）巩固延伸"></a>（四）巩固延伸</h3><p>【巩固延伸模板】</p>
+<p>【小学】：</p>
+<ol>
+<li>__。（以下二选一）</li>
+</ol>
+<ul>
+<li><p>声乐作品：请同学们运用课前分发的沙锤、手鼓等乐器为歌曲进行器乐编配，前后四人一组，限时10分钟。</p>
+</li>
+<li><p>器乐作品：请同学们为歌曲编配适合的舞蹈动作，前后四人一组，限时10分钟。</p>
+</li>
+</ul>
+<ol start="2">
+<li><p>学生自由练习，教师巡视纠错。</p>
+</li>
+<li><p>小组自由展示，组内互评与教师评价相结合。</p>
+<p>【中学】：</p>
+</li>
+<li><p>教师为同学们展示《<strong>》，并请学生自由讨论：“这与我们今天学习的《</strong>》有哪些异同点呢？”</p>
+</li>
+<li><p>学生自由讨论，组内分享观点和理由，教师予以鼓励性评价。</p>
+</li>
+<li><p>小组代表自由发言，小组互评与教师评价相结合。</p>
+</li>
+</ol>
+<h3 id="（五）小结作业-1"><a href="#（五）小结作业-1" class="headerlink" title="（五）小结作业"></a>（五）小结作业</h3><h5 id="【小结作业模板】"><a href="#【小结作业模板】" class="headerlink" title="【小结作业模板】"></a>【小结作业模板】</h5><ol>
+<li>师生共同总结本课收获。</li>
+<li>课下，请同学们搜集<strong>__**</strong><strong>****</strong><strong><strong>__</strong></strong>_**的相关资料，下节课与同学们一起分享。</li>
+</ol>
+<h2 id="五、板书设计-2"><a href="#五、板书设计-2" class="headerlink" title="五、板书设计"></a>五、板书设计</h2><a href="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175434142.png" data-fancybox="group" data-caption="image-20200410175434142" class="fancybox"><img alt="image-20200410175434142" style="zoom:50%;" title="image-20200410175434142" data-src="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175434142.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175525967.png" data-fancybox="group" data-caption="image-20200410175525967" class="fancybox"><img alt="image-20200410175525967" style="zoom:50%;" title="image-20200410175525967" data-src="http://tc.rexau.com:8888/images/2020/04/10/image-20200410175525967.png" class="lazyload"></a>
+
+<h1 id="【案例】"><a href="#【案例】" class="headerlink" title="【案例】"></a>【案例】</h1><p>【小学】：</p>
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143016774.png" data-fancybox="group" data-caption="image-20200411143016774" class="fancybox"><img alt="image-20200411143016774" title="image-20200411143016774" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143016774.png" class="lazyload"></a></p>
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143042998.png" data-fancybox="group" data-caption="image-20200411143042998" class="fancybox"><img alt="image-20200411143042998" title="image-20200411143042998" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143042998.png" class="lazyload"></a></p>
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143121694.png" data-fancybox="group" data-caption="image-20200411143121694" class="fancybox"><img alt="image-20200411143121694" style="zoom:50%;" title="image-20200411143121694" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411143121694.png" class="lazyload"></a>
+
+<p>【初中】：</p>
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182157475.png" data-fancybox="group" data-caption="image-20200411182157475" class="fancybox"><img alt="image-20200411182157475" style="zoom:50%;" title="image-20200411182157475" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182157475.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182250788.png" data-fancybox="group" data-caption="image-20200411182250788" class="fancybox"><img alt="image-20200411182250788" style="zoom:50%;" title="image-20200411182250788" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182250788.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182401549.png" data-fancybox="group" data-caption="image-20200411182401549" class="fancybox"><img alt="image-20200411182401549" style="zoom:50%;" title="image-20200411182401549" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182401549.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182450990.png" data-fancybox="group" data-caption="image-20200411182450990" class="fancybox"><img alt="image-20200411182450990" style="zoom:50%;" title="image-20200411182450990" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182450990.png" class="lazyload"></a>
+
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182540063.png" data-fancybox="group" data-caption="image-20200411182540063" class="fancybox"><img alt="image-20200411182540063" title="image-20200411182540063" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182540063.png" class="lazyload"></a></p>
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182650619.png" data-fancybox="group" data-caption="image-20200411182650619" class="fancybox"><img alt="image-20200411182650619" style="zoom:50%;" title="image-20200411182650619" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182650619.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" data-fancybox="group" data-caption="image-20200411182730380" class="fancybox"><img alt="image-20200411182730380" style="zoom:50%;" title="image-20200411182730380" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" class="lazyload"></a>
+
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" data-fancybox="group" data-caption="image-20200411182730380" class="fancybox"><img alt="image-20200411182730380" style="zoom:50%;" title="image-20200411182730380" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182730380.png" class="lazyload"></a><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182802170.png" data-fancybox="group" data-caption="image-20200411182802170" class="fancybox"><img alt="image-20200411182802170" title="image-20200411182802170" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182802170.png" class="lazyload"></a></p>
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182829211.png" data-fancybox="group" data-caption="image-20200411182829211" class="fancybox"><img alt="image-20200411182829211" title="image-20200411182829211" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182829211.png" class="lazyload"></a></p>
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182904364.png" data-fancybox="group" data-caption="image-20200411182904364" class="fancybox"><img alt="image-20200411182904364" style="zoom:50%;" title="image-20200411182904364" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182904364.png" class="lazyload"></a>
+
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182958471.png" data-fancybox="group" data-caption="image-20200411182958471" class="fancybox"><img alt="image-20200411182958471" title="image-20200411182958471" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411182958471.png" class="lazyload"></a></p>
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183033169.png" data-fancybox="group" data-caption="image-20200411183033169" class="fancybox"><img alt="image-20200411183033169" style="zoom:50%;" title="image-20200411183033169" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183033169.png" class="lazyload"></a>
+
+<a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183114040.png" data-fancybox="group" data-caption="image-20200411183114040" class="fancybox"><img alt="image-20200411183114040" style="zoom:50%;" title="image-20200411183114040" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411183114040.png" class="lazyload"></a>
+
+<h1 id="【歌曲分析】"><a href="#【歌曲分析】" class="headerlink" title="【歌曲分析】"></a>【歌曲分析】</h1><p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233550516.png" data-fancybox="group" data-caption="image-20200411233550516" class="fancybox"><img alt="image-20200411233550516" title="image-20200411233550516" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233550516.png" class="lazyload"></a></p>
+<p><a href="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233950290.png" data-fancybox="group" data-caption="image-20200411233950290" class="fancybox"><img alt="image-20200411233950290" title="image-20200411233950290" data-src="http://tc.rexau.com:8888/images/2020/04/11/image-20200411233950290.png" class="lazyload"></a></p>
 </body></html>]]></content>
   </entry>
   <entry>
@@ -8025,7 +8020,7 @@ hexo.on('new', function(data){
 <h3 id="104-那不勒斯乐派"><a href="#104-那不勒斯乐派" class="headerlink" title="104.那不勒斯乐派"></a>104.那不勒斯乐派</h3><p>17世纪末，这里的歌剧创作和演出活动达到高峰，形成了18世纪意大利歌剧的标准形式。首先是出现了两种不同形式的宣叙调，一种是干唱宣叙调，通奏低音伴奏；一种是带伴奏的宣叙调，乐队伴奏。返始咏叹调得到了很大的发展，给歌手提供炫技空间，促进了美声发展但是却相对忽略戏剧性性表现。斯卡拉蒂使歌剧基本成熟，在他的歌剧中，咏叹调用得很多，返始咏叹调已经普遍，他的歌剧序曲包括三个不同的部分，速度的顺序是“快——慢——快”，这种歌剧序曲也称“意大利序曲”，它被认为是后来的交响乐的一个主要的前身。</p>
 <h3 id="105-标题音乐"><a href="#105-标题音乐" class="headerlink" title="105.标题音乐"></a>105.标题音乐</h3><p>标题音乐是用文字来说明作曲家创作意图和作品思想内容的器乐曲，强调描绘性的因素，推动作曲家努力表现具体的情感，并显示了音乐与生活的直接联系。</p>
 <h3 id="106-轻音乐"><a href="#106-轻音乐" class="headerlink" title="106.轻音乐"></a>106.轻音乐</h3><p>是指那种风格轻松、活泼的音乐，它是能给人以愉悦和抒情感，优美动听、通俗易懂的音乐。</p>
-<h3 id="107-轻歌剧"><a href="#107-轻歌剧" class="headerlink" title="107.轻歌剧"></a>107.轻歌剧</h3><p>结构通常比较短小，大多为独幕剧形式，是一种诙谐幽默、讽刺性的喜歌剧，有说白，旋律动听，色调鲜明，其创始者是奥芬马赫。</p>
+<h3 id="107-轻歌剧"><a href="#107-轻歌剧" class="headerlink" title="107.轻歌剧"></a>107.轻歌剧</h3><p>源于喜歌剧和歌唱剧，是歌剧体裁之一，题材通俗轻松，内容多抒情。结构通常比较短小，大多为独幕剧形式，是一种诙谐幽默、讽刺性的喜歌剧，有说白，旋律动听，色调鲜明，其创始者是奥芬巴赫。</p>
 <h3 id="108-爵士音乐"><a href="#108-爵士音乐" class="headerlink" title="108.爵士音乐"></a>108.爵士音乐</h3><p>是占有重要地位的音乐形式。19世纪末20世纪初起源于美国，音乐根基来自布鲁斯和拉格泰姆，在流行音乐领域影响最大。它以具有摇摆特点的shuffle 节奏为基础，是一种喧闹的、强调节奏的器乐曲，多采用即兴演奏，是非洲黑人文化和欧洲白人文化的结合。</p>
 <h3 id="109-探戈舞"><a href="#109-探戈舞" class="headerlink" title="109.探戈舞"></a>109.探戈舞</h3><p>是一种双人舞蹈，源于非洲，流行于阿根廷，伴奏音乐为2/4拍，采用顿挫感非常强烈的断奏式演奏，是国际标准舞大赛的正式项目之一。</p>
 <h3 id="110-布鲁斯"><a href="#110-布鲁斯" class="headerlink" title="110.布鲁斯"></a>110.布鲁斯</h3><p>布鲁斯是一种基于五声音阶的声乐和乐器音乐，它的另一个特点是其特殊的和声。刚开始主要在黑人社会流传，后成为白人社会流行的音乐主流。“布鲁斯”的意思是“哀怨、忧郁的”，采用一种慢4/4拍节奏，歌词多半是伤感、哀怨的内容。</p>
@@ -8037,6 +8032,9 @@ hexo.on('new', function(data){
 <h3 id="115-圆舞曲"><a href="#115-圆舞曲" class="headerlink" title="115.圆舞曲"></a>115.圆舞曲</h3><p>是奥地利的一种民间舞曲，18世纪后半叶用于社会舞会，19世纪开始流行于西欧各国，它采用3/4拍，强调第一拍上的重音，旋律流畅，节奏明显，伴奏中每一小节仅用一个和弦，由于舞蹈时需由两人成对旋转，因而被称为圆舞曲。</p>
 <h3 id="116-玛祖卡"><a href="#116-玛祖卡" class="headerlink" title="116.玛祖卡"></a>116.玛祖卡</h3><p>是一种三拍子的波兰民间舞曲，情绪热烈，节奏重音常落在第三拍，有的落在第二拍上，这是玛祖卡舞曲是突出的特点。</p>
 <h3 id="117-弗拉门戈"><a href="#117-弗拉门戈" class="headerlink" title="117.弗拉门戈"></a>117.弗拉门戈</h3><p>是一种融舞蹈、歌唱、器乐为一体的综合性艺术形式，舞台艺术是整个西班牙的代表性艺术之一。弗拉门戈艺术通过诗歌、音乐、舞蹈表现了吉卜赛贫穷、悲惨的命运和处境。</p>
+<h3 id="118-摇篮曲"><a href="#118-摇篮曲" class="headerlink" title="118.摇篮曲"></a>118.摇篮曲</h3><p>也被称为催眠曲。原指母亲在摇篮旁边为使婴儿安静入睡而唱的歌曲，后来逐渐发展成为一种独立的音乐体裁。</p>
+<h3 id="119-纯律"><a href="#119-纯律" class="headerlink" title="119.纯律"></a>119.纯律</h3><p>在分音列的第二分音和第三分音之间再插入第五分音，构成和弦形式，作为生律要素。</p>
+<h3 id="120-协奏曲"><a href="#120-协奏曲" class="headerlink" title="120.协奏曲"></a>120.协奏曲</h3><p>最早是作为一种声乐体裁出现的，大约在17世纪的意大利，是经文歌的一种。直到18世纪早期，巴赫在创作他的早期康塔塔的时候仍然按照意大利的习惯称之为concerto。巴洛克时期的意大利作曲家确定了协奏曲的形式，并创作了大量的大协奏曲，和以小提琴协奏曲为代表的独奏乐器协奏曲。</p>
 <h2 id="二、作品类"><a href="#二、作品类" class="headerlink" title="二、作品类"></a>二、作品类</h2><p><a href="http://tc.rexau.com:8888/images/2020/04/08/image-20200408190838081.png" data-fancybox="group" data-caption="image-20200408190838081" class="fancybox"><img alt="image-20200408190838081" title="image-20200408190838081" data-src="http://tc.rexau.com:8888/images/2020/04/08/image-20200408190838081.png" class="lazyload"></a></p>
 <h3 id="1-《黄河大合唱》"><a href="#1-《黄河大合唱》" class="headerlink" title="1.《黄河大合唱》"></a>1.《黄河大合唱》</h3><blockquote>
 <ul>
@@ -8388,6 +8386,19 @@ hexo.on('new', function(data){
 <p>5）采用特殊的“曲式结构”，整部作品成为套曲式的复合体。</p>
 <p>6）瓦格纳的半音化和声，持续的离调和转调以及对终止式地避免对后来的作曲家产生了很大的影响，并最终导致调性和声体系走向解体的边缘。</p>
 <p>​        代表作品有《漂泊的荷兰人》《帕西法尔》《纽伦堡的名歌手》等。</p>
+<h3 id="14-论述理查-施特劳斯的贡献及成就。"><a href="#14-论述理查-施特劳斯的贡献及成就。" class="headerlink" title="14.论述理查*施特劳斯的贡献及成就。"></a>14.论述理查*施特劳斯的贡献及成就。</h3><p>​        理查*施特劳斯是德国晚期浪漫主义音乐的重要代表。他是早期和晚期创作都属于古典风格，而在1886年至1910年期间，是他重要的创作时期，则属晚期浪漫主义音乐范畴。</p>
+<p>​        主要作品：</p>
+<ul>
+<li><p>有交响诗：《唐璜》《查拉图斯特拉如是说》《梯尔奥伦皮格尔愉快的恶作剧》《堂吉诃德》《死与净化》《英雄的生涯》；</p>
+</li>
+<li><p>歌剧：《莎乐美》《玫瑰骑士》《失去影子的女人》；</p>
+</li>
+<li><p>标题交响曲：《家庭》《阿尔比斯山交响曲》；</p>
+</li>
+<li><p>还有各类协奏曲、室内乐和歌曲等，如《d小调小提琴协奏曲》《bE大调圆号协奏曲M13件管乐器的协奏曲》等。</p>
+<p>​    理查*施特劳斯继承了柏辽兹、李斯特、瓦格纳的传统，热衷于标题音乐的创作，但他认为标题音乐与无标题音乐之间绝无差别，因此，他的音乐内容比前辈更为抽象，他具有杰出的旋律天赋，他的音乐横跨的音域宽广，富有活力、激情和紧张感。他的复调多属情感的自然流动，追求各自声部的独立性，而不顾及相互之间和谐，呈现出整体音响的复杂性。他的音乐结构形式自由，与传统曲式既保持联系又竭力分离。他的作品常由强烈的统一和不时地杂乱并存于一体。在配器方面，他是记忆高超的大师，他基本使用瓦格纳的乐队编制，但组织了新的配器法，喜欢用各种乐器的极限音域，在宏大的音响中增加刺激的紧张度，逼真地模仿各种自然办的声响和表现某种象征的理念，同时大大提高了乐器的表现性能和演奏水平。他在配器上的贡献是同时代大多作曲家难以相比的。</p>
+</li>
+</ul>
 <h2 id="二、音乐体裁"><a href="#二、音乐体裁" class="headerlink" title="二、音乐体裁"></a>二、音乐体裁</h2><a href="http://tc.rexau.com:8888/images/2020/04/08/image-20200408221547656.png" data-fancybox="group" data-caption="image-20200408221547656" class="fancybox"><img alt="image-20200408221547656" style="zoom:50%;" title="image-20200408221547656" data-src="http://tc.rexau.com:8888/images/2020/04/08/image-20200408221547656.png" class="lazyload"></a>
 
 <h3 id="1-简述唐大曲的结构。"><a href="#1-简述唐大曲的结构。" class="headerlink" title="1.简述唐大曲的结构。"></a>1.简述唐大曲的结构。</h3><p>唐大曲是唐朝时期流行的大型宫廷乐舞。</p>
@@ -8493,6 +8504,13 @@ hexo.on('new', function(data){
 <p>4.音乐要素，旋律乐句组成趋向不对称的自由化形态，伸缩性大。对和弦的结构进行了扩展，不协和和弦被更自由地运用、采用半音关系转调和远关系转调、调式含糊不清。</p>
 <p>（二）主要代表人物及作品：舒伯特《野玫瑰》《美丽的磨坊女》、肖邦《c小调“革命”》练习曲、柏辽兹《幻想交响曲》、门德尔松《无词歌》</p>
 <p>【口诀】：个性民族破程式，自由伸缩不协和</p>
+<h4 id="3-1-简述浪漫主义音乐的特征。"><a href="#3-1-简述浪漫主义音乐的特征。" class="headerlink" title="3.1 简述浪漫主义音乐的特征。"></a>3.1 简述浪漫主义音乐的特征。</h4><ul>
+<li>民族性、民主性。反对外族侵略和民族压迫，反对封建统治和民族分裂，是浪漫主义音乐的主要思想内容。</li>
+<li>人民性。浪漫主义音乐家的作品中力求真实地表现普通人的精神面貌、社会道德、审美观和理想，同时为使作品被人所理解，发展了乐器作品的标题性，创作了大量的标题音乐。</li>
+<li>抒情性。它注重提示人类精神和内心世界，而这些又是通过作曲家个人的感受表现的。因而抒情性的个人心理刻画，自传性，则成为浪漫主义音乐的重要特征，并促进了抒情体裁的发展。</li>
+<li>幻想性。这是作曲家为了在他们的作品中解决残酷的现实与美好理想矛盾，所采取的一种手法。浪漫主义作曲家之所以喜欢从民间传说、神话故事中选取题材和形象，正是由于从这里可以为他们的想象，提供任意驰骋的天地。</li>
+<li>新精神。浪漫主义作曲家不但在政治上、思想上和道德观念上反对因袭守旧，而且在艺术上，在音乐体裁、形式以及创作手法诸方面，都进行了大胆的革新。</li>
+</ul>
 <h3 id="4-简述印象主义音乐。"><a href="#4-简述印象主义音乐。" class="headerlink" title="4.简述印象主义音乐。"></a>4.简述印象主义音乐。</h3><p><strong>1）来源。</strong></p>
 <p>印象主义是19世纪末20世纪初首先在绘画领域兴起的一个艺术流派，其风格源于莫奈的一幅画作《日出・印象》，印象主义画家关注光与色的变化，在平凡题材中表达对生活和大自然的热爱。印象主义音乐是20世纪音乐流派的先行者，第一次世界大战前，它在文学和绘画领域印象主义潮流的影响下产生，因德彪西交响组曲《春天》的问世而作为一种新音乐风格的称谓被保留下来。</p>
 <p><strong>2）特征。</strong></p>
@@ -8502,6 +8520,8 @@ hexo.on('new', function(data){
 <li>德彪西的管弦乐作品《牧神午后》《夜曲》《大海》以及钢琴曲《意象集》《前奏曲》等。</li>
 <li>拉威尔的舞剧音乐《达芙妮与克罗埃》《鹅妈妈》，管弦乐《西班牙狂想曲》《波莱罗舞曲》《鹅妈妈组曲》等。</li>
 </ul>
+<h4 id="4-1-论述欧洲印象派音乐的特色。"><a href="#4-1-论述欧洲印象派音乐的特色。" class="headerlink" title="4.1 论述欧洲印象派音乐的特色。"></a>4.1 论述欧洲印象派音乐的特色。</h4><p>印象主义音乐是19世纪末20世纪初，以法国作曲家德彪西为代表的音乐流派。其音乐风格主要特征是：作品多以自然景物或诗歌绘画为题材，突出瞬间的主观印象或感受；在音乐语言上突破大小调体系，重视和声、织体和配器的色彩；擅长表现幽静朦胧、飘忽空幻的意境。德彪西偏离了浪漫主义音乐那些感情丰富的宏大主题，他用模糊的旋律线条、缥缈的音色、独特的和声记录自己瞬间的印象。</p>
+<p>​        对德彪西而言，色彩胜于线条，就如同和声用于旋律。印象派的绘画作品就是避开线条分明的轮廓，用于模糊的外廓、细碎的表现对景物的视觉印象；而象征主义诗人则喜好用奇异的辞藻和声韵云抒发不可捉摸的内心隐秘。德彪西综合了印象派绘画和象征主义诗歌的特征，在音乐上进行了创造性的探索，首创了印象主义音乐风格。</p>
 <h3 id="5-简述《十面埋伏》"><a href="#5-简述《十面埋伏》" class="headerlink" title="5.简述《十面埋伏》"></a>5.简述《十面埋伏》</h3><p>《十面埋伏》是一首历史题材的大型琵琶曲，它是中国十大古曲之一，乐曲描写的是公元前202年楚汉战争垓下决战的情景。最早存谱见于19世纪初叶，1895年李芳园改名《淮阴平楚》。</p>
 <p>全曲十三段，标题如下：</p>
 <p>1）列营；2）吹打；3）点将；4）排阵；5）走队；6）埋伏；7）鸡鸣山小战；8）九里山大战；9）项王败阵；10）乌江自刎；11）众军奏凯；12）诸将争功；13）得胜回营。</p>
@@ -8570,7 +8590,8 @@ hexo.on('new', function(data){
 <p>3）代表人物。</p>
 <p>勋伯格、贝尔格、韦伯恩，他们三人被称为“新维也纳乐派”。</p>
 <h2 id="五、音乐理论"><a href="#五、音乐理论" class="headerlink" title="五、音乐理论"></a>五、音乐理论</h2><h3 id="1-简述二段式可以分成几种类型，分类的依据是什么？"><a href="#1-简述二段式可以分成几种类型，分类的依据是什么？" class="headerlink" title="1.简述二段式可以分成几种类型，分类的依据是什么？"></a>1.简述二段式可以分成几种类型，分类的依据是什么？</h3><p>二段式可分为两类：对比二段式（并列二段式）和再现二段式。二段式分类的依据是第二段后句的写法。第二段后句的写法延续前句的乐思继续发展就是对比二段式，如果第二段后句隔时再现第一段的材料则是再现二段式。</p>
-<h3 id="2-乐段间奏的作用。"><a href="#2-乐段间奏的作用。" class="headerlink" title="2.乐段间奏的作用。"></a>2.乐段间奏的作用。</h3><p>1）乐段间情绪、速度转换过渡作用。</p>
+<h3 id="2-乐段间奏的作用。"><a href="#2-乐段间奏的作用。" class="headerlink" title="2.乐段间奏的作用。"></a>2.乐段间奏的作用。</h3><p>间奏也称过门，是间插在曲式主体结构中间的段落。</p>
+<p>1）乐段间情绪、速度转换过渡作用。</p>
 <p>2）连接两段歌词的作用。</p>
 <p>3）规模较大的展开性间奏。</p>
 <h3 id="3-乐器演奏中单旋律编配的方法。"><a href="#3-乐器演奏中单旋律编配的方法。" class="headerlink" title="3.乐器演奏中单旋律编配的方法。"></a>3.乐器演奏中单旋律编配的方法。</h3><p>（1）旋律的加花重复：围绕主旋律加紧其他音，如装饰音、波音等，使旋律更为丰富多彩。</p>
@@ -8862,6 +8883,18 @@ hexo.on('new', function(data){
 <li>他推行“平民”的音乐教育理念，以“德艺为用”的育才观培养出了大批的音乐人才，取得了丰硕的成果。</li>
 <li>他对学校音乐教育方式的成功探索开创了中国的学校音乐教育和歌舞表演艺术由业余转向专业化的先河。</li>
 </ul>
+<h3 id="62-歌唱姿势对于呼吸、发声器官的运动有首直接的影响。请从站姿与坐姿两方面，论述正确歌唱姿势的要领。"><a href="#62-歌唱姿势对于呼吸、发声器官的运动有首直接的影响。请从站姿与坐姿两方面，论述正确歌唱姿势的要领。" class="headerlink" title="62.歌唱姿势对于呼吸、发声器官的运动有首直接的影响。请从站姿与坐姿两方面，论述正确歌唱姿势的要领。"></a>62.歌唱姿势对于呼吸、发声器官的运动有首直接的影响。请从站姿与坐姿两方面，论述正确歌唱姿势的要领。</h3><p>​        姿势是呼吸的源泉，呼吸是发声的源泉。唱歌训练，首先要有正确的歌唱姿势，没有经过专业训练的人往往不够重视姿势，姿势的正确与否是直接关系到发声时各个器官配合的协调姿势，姿势的正确了，发声各部分就能正常地工作，而不正确的姿势，则往往带来不正确的声音。</p>
+<p>​        站姿：自然直立，两脚稍分开，重心稳定，两手自然下垂或轻松地放在背后，头部端正，双目平视；身体各部分肌肉放松，特别是肩部、颈部、下颌及面部肌肉不可紧张僵持，以免影响正确的呼吸和发声；精神饱满、集中，表情自然，不要有多余动作。</p>
+<p>​        坐姿：上身头部端正，不要前俯后仰，两手平放在膝上，或双手曲肘拿正歌谱，高度以不影响头部端正为准，两腿不可伸直，应自然支撑坐姿；胸部微挺，但不可耸肩；颈部、下颌及面部肌肉自然放松，保持发声器官自如的活动；精神饱满、集中，表情自然。</p>
+<h3 id="63-论述中国音乐文化与诗歌文化的关系。"><a href="#63-论述中国音乐文化与诗歌文化的关系。" class="headerlink" title="63.论述中国音乐文化与诗歌文化的关系。"></a>63.论述中国音乐文化与诗歌文化的关系。</h3><p>​        诗歌和音乐的发展是相互作用的。最开始是民间小调以四言为主，而后是五言七言的古乐府，接着是五言七言的律诗和绝句，每句长短一致，音乐的格式也以均衡为主。到了宋朝，流行长短句，音乐格式也转向不均衡，到了元曲时代，戏曲雏形生成，要求音乐相应的有大型套曲。</p>
+<p>​        唐朝之前，乐器种类比较少，多是独奏乐器，适合个人弹奏养生，演奏乐器的多是文人，音乐属于个人修养的一部分，所以配合的歌词就是一些抒发个人情感的诗歌；而唐朝之后，大量乐器引进，如琵琶，胡琴，扬琴等，适合组成大型演奏团进行合奏，这也是戏曲诞生的前提，戏曲的诞生，催化了诗词向长篇叙事功能演化，出现有别于散曲的套曲词和以后发展的各类词本。而戏曲的诞生，加强了文学整体的叙事功能，为之后小说的诞生奠定基础。</p>
+<h3 id="64-您认为合格的音乐教师该具备哪些素质？"><a href="#64-您认为合格的音乐教师该具备哪些素质？" class="headerlink" title="64.您认为合格的音乐教师该具备哪些素质？"></a>64.您认为合格的音乐教师该具备哪些素质？</h3><p>音乐教育作为美育的重要途径，其特质就是情感审美。情与美的这种不解之缘，决定了音乐教育的根本方式是：以情感人，以美育人。我认为合格的音乐教师要具备如下素质：</p>
+<p>1）有高尚的敬业精神和强烈的责任感。每一位教师都应具备高尚的思想道德情操，应当热爱自己的教育事业，有着强烈的教育事业心和使命感，但更应当具有热爱学生的深厚情感。教师只有热爱学生，才能教育好学生，才能使教育发挥最大限度的作用；教师只有以自己的爱才能赢得学生的爱，才能搭起师生之间的情感桥梁，才能为学生创设愉悦的学习环境，激发学生的学习兴趣，培养他们爱学和会学的能力。</p>
+<p>2）具备一定的音乐能力和音乐技能。因为音乐艺术是一门集理论性、操作性、实践性、即兴性、创造性为一体的学科，这就要求音乐教师应具备一定的音乐能力：包括敏锐的音乐感知能力、良好的音乐记忆能力，丰富的音乐表现能力，即兴的音乐创造能力及音乐审美的评价能力等。</p>
+<p>3）要有广泛的文化艺术素养。在中小学音乐课堂教学中不是仅仅只涉及到音乐，还关联到更多的学科，比如绘画、舞蹈、文学、戏剧、历史、地理等等。这就要求音乐老师具备广泛的文化艺术素养，音乐教师如果缺乏各门相关学科的素养，必然很难满足和完成对于学生进行音乐审美素质教育的要求，甚至会影响教学。</p>
+<p>4）具备教学反思和对学生进行合理全面评价的能力。</p>
+<p>反思是一个人成长与发展的核心能力之一，新课程要求我们音乐教师不断培养和发展自己的反思能力，成为反思型教师。孔夫子曾说：”学而不思则罔“。如果一个人只是一味地学习而不思考，那他就会陷入迷惘困惑。以上是对音乐教师应具备的基本素质的浅显看法。</p>
+<p>​        总之作为一名音乐教师，在教学中不仅要善于学习和运用音乐教学中已揭示的教学规律去指导教学实践，还要用科学的方法去开展教学艺术的研究，从而达到丰富和发展教学理论，提高教学基本功和教学质量的目的。要严于律已，勤奋学习，加强自身思想意识和修养，培养良好的工作态度和心理品质，处处以身作则，以自己的模范行为为影响教学。树立当代教师的良好形象，从而成为一名合格的音乐教师。</p>
 <h2 id="新课标类"><a href="#新课标类" class="headerlink" title="新课标类"></a>新课标类</h2><h3 id="1-音乐课程总目标中，情感态度与价值观目标包括哪几个方面。"><a href="#1-音乐课程总目标中，情感态度与价值观目标包括哪几个方面。" class="headerlink" title="1.音乐课程总目标中，情感态度与价值观目标包括哪几个方面。"></a>1.音乐课程总目标中，情感态度与价值观目标包括哪几个方面。</h3><ul>
 <li>丰富情感体验，培养对生活积极乐观的态度；</li>
 <li>培养学习兴趣，树立终身学习的愿望；</li>
