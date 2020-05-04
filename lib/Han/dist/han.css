@@ -1,4 +1,4 @@
-<html><head></head><body>@charset "UTF-8";
+@charset "UTF-8";
 
 /*! 漢字標準格式 v3.3.0 | MIT License | css.hanzi.co */
 /*! Han.css: the CSS typography framework optimised for Hanzi */
@@ -1166,4 +1166,3 @@ ruby [annotation] rt,
 h-ruby [annotation] rt {
   font-family: "Romanization Sans", "Helvetica Neue", Helvetica, Arial, "Han Heiti", sans-serif;
 }
-</body></html>

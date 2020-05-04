@@ -1,102 +1,1095 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-block top_img
-  - var top_img =  page.top_img || page.cover || theme.post_meta.top_img || theme.default_top_img
-  - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
-  div#top-container(style=bg_img)
-    #post-info
-      #post-title
-          .posttitle= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          if (theme.post_meta.date_type === 'both')
-            time.post-meta__date
-              i.fa.fa-calendar.fa-fw(aria-hidden="true")
-              =' '+_p('post.created')+' '+date(page.date, config.date_format)
-              span.post-meta__separator |
-              i.fa.fa-history.fa-fw(aria-hidden="true")
-              =' '+_p('post.updated')+' '+date(page.updated, config.date_format)
-          else
-            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-            time.post-meta__date #[i.fa.fa-calendar.fa-fw(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-                  
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator |
-          span
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon.fa-fw(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right.fa-fw(aria-hidden="true")
-        .post-meta-wordcount
-          if (theme.wordcount && theme.wordcount.enable)
-            i.fa.fa-file-word-o.post-meta__icon.fa-fw(aria-hidden="true")
-            span= _p('post.wordcount') + ':'
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            i.fa.fa-clock-o.post-meta__icon.fa-fw(aria-hidden="true")
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-          .post-meta-pv-cv
-            if (theme.wordcount && theme.wordcount.enable && theme.busuanzi.page_pv)
-              span.post-meta__separator |
-            if theme.busuanzi.page_pv       
-              span
-                i.fa.fa-eye.post-meta__icon.fa-fw(aria-hidden="true") 
-                =_p('post.page_pv') + ':'
-              span#busuanzi_value_page_pv
-            if (theme.disqus && theme.disqus.enable && theme.disqus.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comment-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment')
-                span.disqus-comment-count(data-disqus-url=page.permalink)
-            if (theme.valine && theme.valine.enable && theme.valine.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comments-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment' itemprop="discussionUrl")
-                span.valine-comment-count.comment-count(data-xid=url_for(page.path) itemprop="commentCount")
-            if (theme.gitalk && theme.gitalk.enable && theme.gitalk.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comments-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment')
-                span.gitalk-comment-count.comment-count
+<link rel="stylesheet" href="/css/main.css">
 
 
-block content
-  article#post(class="")
-    #post-content.article-container!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable && page.copyright != false)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(page.permalink)) #[=page.permalink]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="中国近现代音乐史一、鸦片战争以来中国传统音乐的发展（一）民歌  （二）说唱音乐1.京韵大鼓 由河北木板大鼓与平津清音子弟书合流而成，后吸收北京方言，在三弦基础上，增加了四胡和琵琶形成。 代表人物：  白云鹏 刘宝全：鼓王 骆玉笙：林冲很丑要重生：《林冲发配》《丑末寅初》《重整河山待后生》  2.苏州弹词  陈调、俞调、马调 代表作品：《白蛇传》《玉晴蜓》《描金风》《珍珠塔》 代表人物：朱素兰  （">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中国近现代音乐史【粉笔】">
+<meta property="og:url" content="http://retwa.com/2020/05/02/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/index.html">
+<meta property="og:site_name" content="AisYun">
+<meta property="og:description" content="中国近现代音乐史一、鸦片战争以来中国传统音乐的发展（一）民歌  （二）说唱音乐1.京韵大鼓 由河北木板大鼓与平津清音子弟书合流而成，后吸收北京方言，在三弦基础上，增加了四胡和琵琶形成。 代表人物：  白云鹏 刘宝全：鼓王 骆玉笙：林冲很丑要重生：《林冲发配》《丑末寅初》《重整河山待后生》  2.苏州弹词  陈调、俞调、马调 代表作品：《白蛇传》《玉晴蜓》《描金风》《珍珠塔》 代表人物：朱素兰  （">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png">
+<meta property="og:image" content="http://image-update.test.upcdn.net/img/20190520205010.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png">
+<meta property="article:published_time" content="2020-05-02T07:00:49.185Z">
+<meta property="article:modified_time" content="2020-05-04T07:08:47.528Z">
+<meta property="article:author" content="CYIDA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png">
+
+<link rel="canonical" href="http://retwa.com/2020/05/02/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>中国近现代音乐史【粉笔】 | AisYun</title>
   
-  .tag_share
-    if (theme.post_meta.tags)
-      .post-meta__tag-list
-        each item, index in page.tags.data
-          a(href=url_for(item.path)).post-meta__tags #[=item.name]    
-    include includes/share/index.pug
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AisYun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为艺术，为爱情！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/05/02/%E4%B8%AD%E5%9B%BD%E8%BF%91%E7%8E%B0%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CYIDA">
+      <meta itemprop="description" content="爱尚音乐">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AisYun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          中国近现代音乐史【粉笔】
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-02 15:00:49" itemprop="dateCreated datePublished" datetime="2020-05-02T15:00:49+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-05-04 15:08:47" itemprop="dateModified" datetime="2020-05-04T15:08:47+08:00">2020-05-04</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="中国近现代音乐史"><a href="#中国近现代音乐史" class="headerlink" title="中国近现代音乐史"></a>中国近现代音乐史</h1><h1 id="一、鸦片战争以来中国传统音乐的发展"><a href="#一、鸦片战争以来中国传统音乐的发展" class="headerlink" title="一、鸦片战争以来中国传统音乐的发展"></a>一、鸦片战争以来中国传统音乐的发展</h1><h2 id="（一）民歌"><a href="#（一）民歌" class="headerlink" title="（一）民歌"></a>（一）民歌</h2><img src="http://tc.rexau.com:8888/images/2020/03/21/20190520192311.png" alt="img" style="zoom:75%;" />
+
+<h2 id="（二）说唱音乐"><a href="#（二）说唱音乐" class="headerlink" title="（二）说唱音乐"></a>（二）说唱音乐</h2><p>1.京韵大鼓</p>
+<p>由河北木板大鼓与平津清音子弟书合流而成，后吸收北京方言，在三弦基础上，增加了四胡和琵琶形成。</p>
+<p>代表人物：</p>
+<ul>
+<li>白云鹏</li>
+<li>刘宝全：鼓王</li>
+<li>骆玉笙：林冲很丑要重生：《林冲发配》《丑末寅初》《重整河山待后生》</li>
+</ul>
+<p>2.苏州弹词</p>
+<ul>
+<li>陈调、俞调、马调</li>
+<li>代表作品：《白蛇传》《玉晴蜓》《描金风》《珍珠塔》</li>
+<li>代表人物：朱素兰</li>
+</ul>
+<h2 id="（三）戏曲音乐"><a href="#（三）戏曲音乐" class="headerlink" title="（三）戏曲音乐"></a>（三）戏曲音乐</h2><h3 id="1-四大名旦："><a href="#1-四大名旦：" class="headerlink" title="1.四大名旦："></a>1.四大名旦：</h3><ul>
+<li>梅兰方：<ul>
+<li>代表作品：《贵妃醉酒》《霸王别姬》（选段《看大王在帐中和衣睡稳》）、《洛神》《木兰从军》</li>
+<li>创造<strong>雍容华贵</strong>的新腔，被称“梅派”</li>
+<li>创立“花衫”</li>
+<li>在伴奏音乐加入二胡、月琴。</li>
+<li>赴美国、苏联演出，为传统艺术和音乐赢得了国际声誉。</li>
+<li>中国“梅派”与苏联斯坦尼斯拉夫斯基、德国的布莱希特 并称“世界三大艺术表演体系”。</li>
+</ul>
+</li>
+<li>程砚秋：<ul>
+<li><strong>以腔就字</strong>，声、情、美、永</li>
+<li>筹建了“中国戏曲音乐院”</li>
+<li>代表作品：《荒山泪》《春闺梦》</li>
+</ul>
+</li>
+<li>荀慧生：<ul>
+<li><strong>念白</strong>韵律美，唱腔俏丽多姿，动作美、媚、脆。</li>
+<li>代表剧目：《玉堂春》《太英节烈》</li>
+</ul>
+</li>
+<li>尚小云：<ul>
+<li>“第一童伶”</li>
+<li>正旦、<strong>刀马旦</strong>，唱腔以刚劲著称，字正腔圆。</li>
+<li>代表剧目：《二进宫》<strong>《昭君出塞》</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2-前四大须生："><a href="#2-前四大须生：" class="headerlink" title="2.前四大须生："></a>2.前四大须生：</h3><ul>
+<li><p><strong>余</strong>叔岩、<strong>言</strong>菊朋、<strong>高</strong>庆奎、<strong>马</strong>连良</p>
+</li>
+<li><p>后四在须生：马连良、杨宝森、潭富英、奚啸伯。</p>
+</li>
+</ul>
+<h3 id="3-老生三鼎甲："><a href="#3-老生三鼎甲：" class="headerlink" title="3.老生三鼎甲："></a>3.老生三鼎甲：</h3><p>张二奎、程长庚、余三胜</p>
+<h2 id="（四）民族器乐"><a href="#（四）民族器乐" class="headerlink" title="（四）民族器乐"></a>（四）民族器乐</h2><p><img src="http://image-update.test.upcdn.net/img/20190520205010.png" alt="img"></p>
+<p>《百鸟朝凤》——任同祥</p>
+<h1 id="二、西洋音乐传入与学堂乐歌的发展"><a href="#二、西洋音乐传入与学堂乐歌的发展" class="headerlink" title="二、西洋音乐传入与学堂乐歌的发展"></a>二、西洋音乐传入与学堂乐歌的发展</h1><p><img src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314191441365.png" alt="image-20200314191441365"></p>
+<h2 id="（一）学堂乐歌"><a href="#（一）学堂乐歌" class="headerlink" title="（一）学堂乐歌"></a>（一）学堂乐歌</h2><p><strong>1.定义：</strong></p>
+<p>学堂乐歌是我国19世纪末随着<strong>新式学堂</strong>的建立而兴起的歌唱文化，一般指开设的<strong>音乐课</strong>或为学堂歌唱而编创的歌曲。</p>
+<p><strong>2.内容：</strong></p>
+<ul>
+<li>“富国强兵”“抵御外辱”</li>
+<li>推翻帝制，建立民主共和的新政</li>
+<li>进行国民教育的军歌</li>
+<li>妇女解放、男女平等。</li>
+<li>提倡新文化、反对旧文化；提倡新风气，反对旧习俗；宣传科学文明，反对封建迷信。</li>
+</ul>
+<p><strong>3.曲调特点及来源：</strong></p>
+<p>（1）曲调特点：旧曲填新词</p>
+<p>（2）曲调来源：</p>
+<ul>
+<li>欧美、日本的曲调；</li>
+<li>中国民歌；</li>
+<li>自主创作。</li>
+</ul>
+<p><strong>4.社会意义</strong></p>
+<p>（1）集体歌咏形式得以传播；</p>
+<p>（2）歌曲体裁对后世影响很多</p>
+<p>（3）普及简谱，介绍线谱和西方音乐知识；</p>
+<p>（4）培养音乐人才；</p>
+<p>（5）启蒙意义:中国近代民主主义音乐文化的开端。</p>
+<a id="more"></a>
+
+<p><strong>5.历史意义</strong></p>
+<ul>
+<li>促进欧洲<strong>音乐文化</strong>的传入，</li>
+<li>促进欧洲<strong>音乐技能</strong>的传播</li>
+<li>促进中国“新音乐”的发展</li>
+<li>促进“军革群”体裁的发展</li>
+<li>培养了第一批现代作曲家</li>
+</ul>
+<p>“四促一培”</p>
+<h2 id="（二）代表人物"><a href="#（二）代表人物" class="headerlink" title="（二）代表人物"></a>（二）代表人物</h2><h3 id="1-沈心工"><a href="#1-沈心工" class="headerlink" title="1.沈心工"></a>1.沈心工</h3><ul>
+<li>“学堂乐歌之父”</li>
+<li>最早针对中小学生返学前儿童特点编写音乐教科书</li>
+<li>填词歌曲：《体操——兵操》（《男儿第一志气高》），第一部学堂乐歌。</li>
+<li>创作歌曲：《黄河》</li>
+</ul>
+<h3 id="2-李叔同"><a href="#2-李叔同" class="headerlink" title="2.李叔同"></a>2.李叔同</h3><ul>
+<li>“弘一法师”</li>
+<li>创办中国第一份音乐期刊<strong>《音乐小杂志》</strong></li>
+<li>第一个话剧团体“春柳社”</li>
+<li>最早向中国介绍贝多芬</li>
+<li>代表作品：<ul>
+<li>填词歌曲：《送别》《祖国歌》（根据传统乐曲《老六版》改编填词）</li>
+<li>创作歌曲：<strong>《春游》</strong>（中国第一部三声合唱）《留别》</li>
+</ul>
+</li>
+</ul>
+<p>【补充说明】</p>
+<p>《送别》曲调来源：</p>
+<p>1）十九世纪美国音乐家J・P・奥德威《梦见家和母亲》</p>
+<p>2）歌曲到日本后，犬童球溪创作《旅愁》</p>
+<h3 id="3-曾志忞"><a href="#3-曾志忞" class="headerlink" title="3.曾志忞"></a>3.曾志忞</h3><ul>
+<li>组织“亚雅音乐会”，创办“上海贫儿院音乐部”</li>
+<li>编印《教育唱歌集》</li>
+<li>出版了《乐理大意》《乐典教科书》（最早的一本较完备的系统介绍西方音乐体系的乐理教科书）</li>
+</ul>
+<h1 id="三、20世纪20年代的音乐"><a href="#三、20世纪20年代的音乐" class="headerlink" title="三、20世纪20年代的音乐"></a>三、20世纪20年代的音乐</h1><h2 id="（一）音乐教育的发展"><a href="#（一）音乐教育的发展" class="headerlink" title="（一）音乐教育的发展"></a>（一）音乐教育的发展</h2><p>早期音乐教学：</p>
+<ul>
+<li><p>北京大学音乐传习所：前身1916年蔡元培建立的北大音乐团</p>
+<ul>
+<li>1919年改名音乐研究会</li>
+<li>1922年，萧友梅改名北京大学附设音乐传习所。</li>
+</ul>
+</li>
+<li><p>上海国立音乐院：</p>
+<p>1）1927年建立，蔡元培任校长，萧友梅任教务主任</p>
+<p>2）是我国第一所独立高等专科音乐学院。</p>
+<p>3）标志着中国专业音乐教育进入了新阶段。</p>
+<p>4）1929更名“国立音乐专科学院”，萧友梅校长，黄自教务主任。</p>
+<p>5）上海音乐学院的前身。</p>
+</li>
+</ul>
+<h2 id="（二）萧友梅"><a href="#（二）萧友梅" class="headerlink" title="（二）萧友梅"></a>（二）萧友梅</h2><img src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314213443480.png" alt="image-20200314213443480" style="zoom: 33%;" />
+
+<p>“中国近代音乐教育的宗师”</p>
+<p>1.音乐教育：</p>
+<ul>
+<li>1927年建立上海国立音乐院，1929年更名“国立音乐专科学校”</li>
+</ul>
+<p>2.音乐创作</p>
+<p>改变“选曲填词”的创 作音乐家</p>
+<ul>
+<li>声乐作品：《五四纪念爱国歌》、独唱歌曲《问》、大型声乐套曲《春江花月夜》</li>
+<li>器乐作品：我国第一部管弦乐曲《新霓裳羽衣舞》、第一部大提琴曲《秋思》</li>
+</ul>
+<p>3.音乐理论《和声学》《普通乐学》《中西音乐的比较研究》</p>
+<h2 id="（三）赵元任"><a href="#（三）赵元任" class="headerlink" title="（三）赵元任"></a>（三）赵元任</h2><ul>
+<li><p>“语言学之父”、“中国的舒伯特”</p>
+</li>
+<li><p>为中国民间歌曲配写钢琴伴奏第一人</p>
+</li>
+<li><p>代表作品：</p>
+<p>（1）合唱<strong>《海韵》</strong>（徐志摩词）清唱剧式</p>
+<p>（2）抒情艺术歌曲《教我如何不想他》（刘半农词）</p>
+<p>（3）<strong>反封建：《卖布谣》</strong></p>
+</li>
+</ul>
+<h2 id="（四）黎锦晖"><a href="#（四）黎锦晖" class="headerlink" title="（四）黎锦晖"></a>（四）黎锦晖</h2><p>关键词：儿童音乐</p>
+<ul>
+<li>创办儿童读物《小朋友》</li>
+<li><strong>1927创办第一所“中华歌舞专科学院”</strong></li>
+<li>首创儿童歌舞剧体裁，中国流行歌曲的创作第一人</li>
+</ul>
+<p>代表作品：</p>
+<p>（1）儿童歌舞剧《小小画家》</p>
+<p>（2）儿童歌舞表演剧《可怜的秋香》</p>
+<p>（3）流行歌曲《桃花江》《毛毛雨》《特别快车》</p>
+<h2 id="（五）王光祈"><a href="#（五）王光祈" class="headerlink" title="（五）王光祈"></a>（五）王光祈</h2><p>关键词：比较音乐学</p>
+<ul>
+<li>向外国介绍中国音乐《论中国古典歌剧》《东方民族之音乐》</li>
+<li>向中国介绍外国音乐《欧洲音乐进化论》</li>
+<li>中西方音乐的比较研究《东西乐制之研究》</li>
+<li><strong>世界三大乐系统：欧洲乐系、波斯——阿拉伯乐系、中国乐系。</strong></li>
+</ul>
+<h2 id="（六）华彦钧"><a href="#（六）华彦钧" class="headerlink" title="（六）华彦钧"></a>（六）华彦钧</h2><p>关键词：“民间艺人”，又名阿炳</p>
+<p>代表作品：</p>
+<ul>
+<li>二胡曲《二泉映月》《听松》《寒春风曲》</li>
+<li>琵琶曲《大浪淘沙》《昭君出塞》《龙船》</li>
+</ul>
+<h2 id="（七）刘天华"><a href="#（七）刘天华" class="headerlink" title="（七）刘天华"></a>（七）刘天华</h2><p>关键词：教授</p>
+<p>中国20世纪20年代作曲家、国乐改进家，中国二胡学派的奠基人。</p>
+<p><strong>【对二胡创作的改良】：</strong></p>
+<ul>
+<li>音乐音调、曲式结构有鲜明的民族特点；</li>
+<li>吸收了西洋音乐要素，二胡富有鲜明的标题性，吸收西洋乐器演奏方法，将小提琴的跳弓、颤弓、换把等技法移植到二胡上。</li>
+<li>第一次把二胡音乐搬上独奏舞台。</li>
+</ul>
+<p><strong>【十首二胡曲】：</strong></p>
+<p>《良宵》《月夜》《苦闷之讴》《独弦操》《病中吟》（复三部）《烛影摇红》《光明行》《悲歌》《空山鸟语》《闲居吟》</p>
+<p>挽联：“良月苦独病，烛光悲空闲”</p>
+<p><strong>【三首琵琶曲】：</strong></p>
+<p>《歌舞引》《虚赖》《改进操》</p>
+<h1 id="四、20世纪30年代音乐"><a href="#四、20世纪30年代音乐" class="headerlink" title="四、20世纪30年代音乐"></a>四、20世纪30年代音乐</h1><p><strong>左翼音乐运动与救亡歌咏运动</strong></p>
+<p>阎述诗《五月的鲜花》</p>
+<h2 id="（一）青主"><a href="#（一）青主" class="headerlink" title="（一）青主"></a>（一）青主</h2><p>关键词：音乐美学、艺术歌曲</p>
+<p>1.音乐美学论著：《乐话》《音乐通论》</p>
+<p>2.艺术歌曲：</p>
+<ul>
+<li><strong>《大江东去》</strong>为苏东坡《念奴娇*赤壁怀古》谱写</li>
+<li>《我住长江头》</li>
+</ul>
+<h2 id="（二）黄自"><a href="#（二）黄自" class="headerlink" title="（二）黄自"></a>（二）黄自</h2><p>关键词：音乐教育，艺术歌曲，清唱剧</p>
+<p>是我国20世纪30年代著名作曲家、音乐教育家。</p>
+<p>音乐创作：</p>
+<p>（1）合唱：<strong>《抗敌歌》</strong>（词：韦瀚章）<strong>《旗正飘飘》</strong></p>
+<p>（2）我国第一部清唱剧<strong>《长恨歌》</strong>，韦瀚章根据白居易同名诗选取歌词。第三乐章《渔阳 鼙pi鼓动地来》、第八《山在虚无缥缈间》、第十《此恨绵绵无绝期》</p>
+<p>（3）艺术歌曲《南乡子》《点绛唇》《花非花》《春思曲》《思乡》<strong>《玫瑰三愿》</strong></p>
+<p>（4）儿童歌曲《西风的话》《踏雪寻梅》</p>
+<p>（5）管弦乐作品《怀旧》:交响序曲，我国第一部真正意义上的交响曲。</p>
+<img src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314225042823.png" alt="image-20200314225042823" style="zoom:50%;" />
+
+<img src="http://tc.rexau.com:8888/images/2020/03/14/image-20200314231110831.png" alt="image-20200314231110831" style="zoom:50%;" />
+
+
+
+<h2 id="（三）聂耳"><a href="#（三）聂耳" class="headerlink" title="（三）聂耳"></a>（三）聂耳</h2><p>关键词：群众歌曲、抒情歌曲、民乐合奏</p>
+<p>“无产阶级革命音乐的开路先锋”</p>
+<p>音音乐创作：</p>
+<p>（1）群众歌曲：</p>
+<ul>
+<li>《自卫歌》、《打长江》</li>
+<li>《前进歌》《大路歌》《义勇军进行曲》（选自电影《风云儿女》）《码头工人》《毕业歌》（选自电影《桃李劫》）《开路先锋》<ul>
+<li>记忆：“前路一工业先锋”</li>
+</ul>
+</li>
+</ul>
+<p>（2）抒情歌曲：</p>
+<ul>
+<li>《铁蹄下的歌女》选自电影《风云儿女》</li>
+<li>《塞外村女》、《梅娘曲》、《飞花歌》</li>
+</ul>
+<p>（3）儿童歌曲：《卖报歌》（安娥词）</p>
+<p>（4）民间器乐曲：</p>
+<ul>
+<li>《金蛇狂舞》（根据乐曲《倒八板》整理）</li>
+<li>《翠湖春晓》、《昭君出塞》</li>
+</ul>
+<p>拓展：《卖报歌》《码头工人》选自舞台剧《扬子江暴风雨》</p>
+<h2 id="（四）冼星海"><a href="#（四）冼星海" class="headerlink" title="（四）冼星海"></a>（四）冼星海</h2><p>“人民音乐家”</p>
+<p>代表作品：</p>
+<p>（1）创作歌曲：《救国军歌》《夜半 歌声》《太行山上》</p>
+<p>（2）劳动歌曲：《搬夫曲》《拉犁歌》（职业歌曲）</p>
+<p>（3）儿童歌曲：《只怕不抵搞》《谁来跟我玩》</p>
+<p>（4）合唱作品：《黄河大合唱》《生产运动大合唱》（《二月里来》《酸枣刺儿》）、《牺盟大合唱》《九一八大合唱》</p>
+<p>（5）最后一部作品：《中国狂想曲》</p>
+<p><strong>《黄河大合唱》：</strong>（光未然 词）</p>
+<ol>
+<li><p>《黄河船夫曲》：混声四部合唱，劳动号子体裁。</p>
+</li>
+<li><p>《黄河颂》：男声独唱</p>
+</li>
+<li><p>《黄河之水天上来》：配乐诗朗诵</p>
+</li>
+<li><p>《黄水谣》：女声二部合唱，出现转折</p>
+</li>
+<li><p>《河边对口曲》：男生对唱、轮唱</p>
+</li>
+<li><p>《黄河怨》：女高音独唱</p>
+</li>
+<li><p>《保卫黄河》：齐唱、轮唱</p>
+</li>
+<li><p>《怒吼吧！黄河》：混声合唱</p>
+</li>
+</ol>
+<p>口诀：夫颂天谣对怨吼，不去保卫妻没有</p>
+<ul>
+<li><strong>新考点：</strong>钢琴协奏曲《黄河》<ul>
+<li>《黄河船夫曲》《黄河颂》《黄河愤》《保卫黄河》</li>
+</ul>
+</li>
+</ul>
+<h2 id="（五）贺绿汀"><a href="#（五）贺绿汀" class="headerlink" title="（五）贺绿汀"></a>（五）贺绿汀</h2><p>1934 年创作钢琴曲《牧童短笛》和《摇篮曲》分别获齐尔品举办的“征求中国音乐风格的钢琴曲”的一等奖和名誉二等奖。</p>
+<p>他的作品与 20 世纪中国人民的生活与斗争紧密相连，具有鲜明的时代特征和深厚的群众基础，真实地反映了人民的生活和思想感情。</p>
+<p>代表作品：</p>
+<ul>
+<li>群众歌曲：《游击队歌》《嘉陵江上》</li>
+<li>钢琴独奏：《牧童短笛》（复调对位法）《摇篮曲》</li>
+<li>管弦乐曲：《森吉德玛》《晚会》</li>
+<li>电影歌曲《春天里》《天涯歌女》《四季歌》《秋水伊人》</li>
+<li>合唱作品：《垦春泥》《新中国的青年》</li>
+</ul>
+<h2 id="（六）江文也"><a href="#（六）江文也" class="headerlink" title="（六）江文也"></a>（六）江文也</h2><p>代表作品：</p>
+<ul>
+<li>管弦乐：《台湾舞曲》《孔庙大晟乐章》《北京点点》</li>
+<li>交响诗：《汩罗沉流》</li>
+<li>钢琴曲：《乡土节令诗》</li>
+</ul>
+<h2 id="（七）其他音乐家"><a href="#（七）其他音乐家" class="headerlink" title="（七）其他音乐家"></a>（七）其他音乐家</h2><p>刘雪庵：《红豆词》《长城谣》《枫桥夜泊》，作词《踏雪寻梅》</p>
+<p>陈田鹤：《采桑曲》《牧歌》《在那遥远的地方》</p>
+<p>张曙：《洪波曲》《日落西山》</p>
+<p>任光：《渔光曲》《打回老家去》民乐《彩云追月》</p>
+<p>麦新：《大刀进行曲》《马儿真正好》</p>
+<p>吕骥：《自由神》《抗日军政大学校歌》</p>
+<p>张寒晖：《松花江上》</p>
+<ul>
+<li>流亡三部曲：张寒晖《松花江上》、刘雪庵《流亡曲》《复仇曲》</li>
+</ul>
+<h1 id="五、20世纪40年代音乐"><a href="#五、20世纪40年代音乐" class="headerlink" title="五、20世纪40年代音乐"></a>五、20世纪40年代音乐</h1><h2 id="（一）重要作曲家"><a href="#（一）重要作曲家" class="headerlink" title="（一）重要作曲家"></a>（一）重要作曲家</h2><h3 id="1-马思聪"><a href="#1-马思聪" class="headerlink" title="1.马思聪"></a>1.马思聪</h3><p>第一代小提琴家</p>
+<p>代表作品：《摇篮曲》《内蒙组曲》《西藏音诗》《牧歌》《山林之歌》</p>
+<p>1）小提琴曲《内蒙组曲》（《绥远组曲》）：</p>
+<ul>
+<li>《史诗》：吸收民歌《跑马溜溜的山上》</li>
+<li>《思乡曲》：吸收《城墙上跑马》</li>
+<li>《塞外舞曲》：吸收《叫大娘》</li>
+</ul>
+<p>2）交响乐：《山林之歌》</p>
+<p>3）抗日歌曲《控诉》</p>
+<p>4）大型声乐套曲：《祖国大合唱》。</p>
+<p>5）晚年创作歌剧《热碧亚》和舞剧《晚霞》。</p>
+<img src="http://tc.rexau.com:8888/images/2020/03/21/20190521033101.png" alt="img" style="zoom:50%;" />
+
+<h3 id="2-谭小麟："><a href="#2-谭小麟：" class="headerlink" title="2.谭小麟："></a>2.谭小麟：</h3><p>《弦乐三重奏》1945年获杰克逊奖，第一首在国际上获奖的管弦乐。</p>
+<h3 id="3-丁善德："><a href="#3-丁善德：" class="headerlink" title="3.丁善德："></a>3.丁善德：</h3><p>第一个灌制唱片钢琴家</p>
+<p>《新中国交响组曲》</p>
+<p>《长征交响曲》我国第一部以中国工农红军为题材的大型管弦乐作品。</p>
+<h2 id="（二）秧歌剧及歌剧的发展"><a href="#（二）秧歌剧及歌剧的发展" class="headerlink" title="（二）秧歌剧及歌剧的发展"></a>（二）秧歌剧及歌剧的发展</h2><h3 id="1-秧歌剧："><a href="#1-秧歌剧：" class="headerlink" title="1.秧歌剧："></a>1.秧歌剧：</h3><p>将戏剧、音乐、舞蹈融为一体的广场歌舞剧。歌舞戏</p>
+<p>安波《兄妹开荒》</p>
+<h4 id="马可："><a href="#马可：" class="headerlink" title="马可："></a>马可：</h4><ul>
+<li>群众歌曲：《南泥湾》《咱们工人有力量》</li>
+<li>管弦乐作品：《陕北组曲》</li>
+<li>秧歌剧：《夫妻识字》《牛永贵负伤》</li>
+<li>歌剧：《小二黑结婚》《白毛女》</li>
+</ul>
+<blockquote>
+<p>名词解释马可：</p>
+<p>马可是我国20世纪40年代群众音乐作曲家代表，他一生致力于群众歌曲、管弦乐以及秧歌剧等体裁的创作。（1）群众歌曲：《南泥湾》《咱们工人有力量》等；（2)管弦乐作品：《陕北组曲》最为著名；(3)创作秧歌剧：《夫妻识字》以及《牛永贵负伤》等。</p>
+</blockquote>
+<h3 id="2-歌剧（新歌剧）"><a href="#2-歌剧（新歌剧）" class="headerlink" title="2.歌剧（新歌剧）"></a>2.歌剧（新歌剧）</h3><h4 id="1-《白毛女》："><a href="#1-《白毛女》：" class="headerlink" title="1.《白毛女》："></a>1.《白毛女》：</h4><ul>
+<li>1945年创作，贺敬之编剧，马可作曲。</li>
+<li>作品通过“旧社会使人变成鬼，新社会使鬼变成人”的传奇故事情节，深刻反映了农民的苦难生活，表现了他们推翻旧世界的决心。</li>
+<li>吸收了河北民歌《小白菜》的音调，创作了大量优秀选段如：《北风吹》《扎红头绳》《恨似高山仇似海》《我要活》《太阳出来啦》《杨白劳》《十里风雪》。</li>
+<li>中国歌剧史上里程碑式的杰作，标志着中国第一部新歌剧的诞生。</li>
+<li>首演者是王昆</li>
+</ul>
+<h1 id="中国当代音乐"><a href="#中国当代音乐" class="headerlink" title="中国当代音乐"></a>中国当代音乐</h1><h2 id="一、声乐作品"><a href="#一、声乐作品" class="headerlink" title="一、声乐作品"></a>一、声乐作品</h2><h3 id="（一）独唱歌曲"><a href="#（一）独唱歌曲" class="headerlink" title="（一）独唱歌曲"></a>（一）独唱歌曲</h3><h5 id="1-王-莘："><a href="#1-王-莘：" class="headerlink" title="1.王 莘："></a>1.王 莘：</h5><p>《歌唱祖国》</p>
+<h5 id="2-郑律成："><a href="#2-郑律成：" class="headerlink" title="2.郑律成："></a>2.郑律成：</h5><p>《我们多么幸福》《采伐歌》《长征路上》《星星歌》《中国人民解放军军歌》（原名《八路军进行曲》）《延安颂》《延水谣》</p>
+<h5 id="3-马思聪："><a href="#3-马思聪：" class="headerlink" title="3.马思聪："></a>3.马思聪：</h5><p>代表作品：《中国少年儿童队队歌》《新疆狂想曲》《山歌》《春天舞曲》</p>
+<img src="http://tc.rexau.com:8888/images/2020/03/15/image-20200315112746957.png" alt="image-20200315112746957" style="zoom: 80%;" />
+
+<h5 id="4-刘-炽："><a href="#4-刘-炽：" class="headerlink" title="4.刘 炽："></a>4.刘 炽：</h5><p>代表作品：《让我们荡起又桨》《祖国颂》《我的祖国》（乔羽作词）《新疆好》《英雄赞歌》《牧羊姑娘》</p>
+<p>（1）《让我们荡起双桨》1955，电影《祖国的花朵》插曲957年国庆节》主题歌曲</p>
+<p>（3）《我的祖国》电影《上甘岭》（1956年），单二部曲式</p>
+<h5 id="5-麦丁："><a href="#5-麦丁：" class="headerlink" title="5.麦丁："></a>5.麦丁：</h5><p>代表作品：《远方的客人请你留下来》，彝族、撒尼族</p>
+<h5 id="6-美丽其格："><a href="#6-美丽其格：" class="headerlink" title="6.美丽其格："></a>6.美丽其格：</h5><p>代表作品：《草原上升起不落的太阳》</p>
+<h5 id="7-李劫夫："><a href="#7-李劫夫：" class="headerlink" title="7.李劫夫："></a>7.李劫夫：</h5><p>代表作品：《我们走在大路上》《歌唱二小放牛郎》（叙事歌曲）</p>
+<h5 id="8-吕其明"><a href="#8-吕其明" class="headerlink" title="8.吕其明"></a>8.吕其明</h5><ul>
+<li>《谁不说俺家乡好》电影《红日》插曲，1961年</li>
+<li>《红旗颂》交响诗，1965年，融入了《东方红》和《义勇军进行曲》</li>
+</ul>
+<h5 id="9-施光南"><a href="#9-施光南" class="headerlink" title="9.施光南"></a>9.施光南</h5><ul>
+<li>《打起手鼓唱起歌》《祝酒歌》（粉碎四人帮，韩伟词）《吐鲁番的葡萄熟了》（瞿琮词）《在希望的田野上》（程晓光词）《紫藤花》《一抹夕阳》（选自歌剧《伤逝》）《假如你要认识我》《月光下的凤尾竹》</li>
+</ul>
+<h5 id="10-谷建芬"><a href="#10-谷建芬" class="headerlink" title="10.谷建芬"></a>10.谷建芬</h5><ul>
+<li>《我的小路》《那就是我》《绿叶对根的情意》《思念》《独光里的妈妈》《歌声与微笑》《年轻的朋友来相会》《妈妈的吻》《菜蘑菇的小姑娘》《今天是你的生日》《清唱我们踏上小道》</li>
+</ul>
+<h5 id="11-徐沛东"><a href="#11-徐沛东" class="headerlink" title="11.徐沛东"></a>11.徐沛东</h5><ul>
+<li>《亚洲雄风》《爱我中华》《得民心者得天下》（电视剧《雍正王朝）《大地飞歌》《我像雪花天上来》《梅花引》《种太阳》《乡音乡情》《篱笆墙的影子》</li>
+</ul>
+<img src="http://tc.rexau.com:8888/images/2020/03/21/20190529153035.png" alt="img" style="zoom: 80%;" />
+
+<h5 id="12-王酩"><a href="#12-王酩" class="headerlink" title="12.王酩"></a>12.王酩</h5><ul>
+<li>《妹妹找哥泪花流》《难忘今宵》（乔羽词）《绒花》《边疆的泉水清又纯》</li>
+</ul>
+<h5 id="13-瞿希贤"><a href="#13-瞿希贤" class="headerlink" title="13.瞿希贤"></a>13.瞿希贤</h5><ul>
+<li>《听妈妈讲那过去的事情》《全世界人民一条心》</li>
+</ul>
+<h5 id="14-郑秋枫"><a href="#14-郑秋枫" class="headerlink" title="14.郑秋枫"></a>14.郑秋枫</h5><ul>
+<li>《我爱你中国》（瞿琮词）选自电影《海外赤子》</li>
+</ul>
+<h5 id="15-其他作曲家独唱作品"><a href="#15-其他作曲家独唱作品" class="headerlink" title="15.其他作曲家独唱作品"></a>15.其他作曲家独唱作品</h5><ul>
+<li>李群：《快乐的节日》</li>
+<li>朱践耳：《唱支山歌给党听》</li>
+<li>娄生茂：《学习雷锋好榜样》</li>
+<li>王永泉：《打靶归来》</li>
+<li>羊鸣：《我爱祖国的蓝天》</li>
+<li>傅庚辰：《红星照我去战斗》（电影《闪闪的红星》插曲）</li>
+<li>印青：《走进新时代》（蒋开如词）《天路》《西部放歌》《走向复兴》</li>
+<li>《苗岭的早晨》：1974白诚仁创作，1975陈刚改编</li>
+<li>王立平：《大海啊，故乡》《枉凝眉》</li>
+</ul>
+<h3 id="（二）合唱歌曲"><a href="#（二）合唱歌曲" class="headerlink" title="（二）合唱歌曲"></a>（二）合唱歌曲</h3><ol>
+<li>《半个月亮爬上来》，王洛宾译配</li>
+<li>《长征大合唱》——时乐濛曲，陈其通词</li>
+<li>《长江之歌》——王建民<ul>
+<li>电视纪录片《话说长江》主题歌</li>
+</ul>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">《长征交响曲》</th>
+<th align="center">《长征大合唱》</th>
+<th align="center">《长征组歌》</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">体裁</td>
+<td align="center">交响曲</td>
+<td align="center">合唱</td>
+<td align="center">声乐套曲</td>
+</tr>
+<tr>
+<td align="center">作者</td>
+<td align="center">丁善德</td>
+<td align="center">时乐蒙</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">重要内容</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">1.告别；2.突破封锁线；3.遵义会议的光辉；4.《四渡赤水出奇兵》；5.飞越大渡河；6.过雪山草地；7.到吴起镇；8.祝提；9报喜；10.大会师</td>
+</tr>
+</tbody></table>
+<p>口诀：告破遵义出奇兵，飞越草地到乌镇</p>
+<p>横批：喜祝会师</p>
+<h2 id="二、器乐作品"><a href="#二、器乐作品" class="headerlink" title="二、器乐作品"></a>二、器乐作品</h2><h3 id="（一）独奏作品"><a href="#（一）独奏作品" class="headerlink" title="（一）独奏作品"></a>（一）独奏作品</h3><ol>
+<li><h5 id="笛子曲"><a href="#笛子曲" class="headerlink" title="笛子曲"></a>笛子曲</h5><p>代表作品：</p>
+<ul>
+<li>《喜相逢》（冯子存）、</li>
+<li>《鹧鸪飞》（陆春龄根据湖南民间乐曲）、</li>
+<li>《三五七》（赵松庭根据婺剧唱腔）、</li>
+<li>《牧民新歌》（简广易、王志伟曲）、</li>
+<li>《扬鞭催马运粮忙》（魏显忠曲）、</li>
+<li>《帕米尔的春天》（刘富荣曲）</li>
+</ul>
+</li>
+<li><h5 id="唢呐曲"><a href="#唢呐曲" class="headerlink" title="唢呐曲"></a>唢呐曲</h5><p>代表作品：《百鸟朝凤》（任同祥）</p>
+</li>
+<li><h5 id="双管独奏曲"><a href="#双管独奏曲" class="headerlink" title="双管独奏曲"></a>双管独奏曲</h5><ul>
+<li>《江河水》，原名《江儿水》</li>
+</ul>
+</li>
+<li><h5 id="三弦独奏曲"><a href="#三弦独奏曲" class="headerlink" title="三弦独奏曲"></a>三弦独奏曲</h5><ul>
+<li>《十八板》（李乙）</li>
+</ul>
+</li>
+<li><h5 id="二胡曲"><a href="#二胡曲" class="headerlink" title="二胡曲"></a>二胡曲</h5><ul>
+<li>《奔驰在千里草原》（王国潼、李秀琪曲）、《草原新牧民》（刘长福曲）、《兰花花叙事曲》（关铭）、《第一二胡狂想曲》（王建民曲）</li>
+</ul>
+</li>
+<li><h5 id="琵琶协奏曲"><a href="#琵琶协奏曲" class="headerlink" title="琵琶协奏曲"></a>琵琶协奏曲</h5><ul>
+<li>《草原小姐妹》（吴祖强、王燕樵、刘德海曲）</li>
+</ul>
+</li>
+</ol>
+<h3 id="（二）合奏作品"><a href="#（二）合奏作品" class="headerlink" title="（二）合奏作品"></a>（二）合奏作品</h3><table>
+<thead>
+<tr>
+<th align="center">民乐合奏曲</th>
+<th align="center">作者</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">《春江花月夜》根据琵琶《夕阳簫鼓》改编</td>
+<td align="center">秦鹏章、罗忠镕</td>
+</tr>
+<tr>
+<td align="center">《陕北组曲》</td>
+<td align="center">马可曲</td>
+</tr>
+<tr>
+<td align="center">《大寨红花遍地开》</td>
+<td align="center">许镜清曲</td>
+</tr>
+<tr>
+<td align="center">《丰收锣鼓》</td>
+<td align="center">彭修文</td>
+</tr>
+<tr>
+<td align="center">《喜洋洋》</td>
+<td align="center">刘明沅作曲</td>
+</tr>
+<tr>
+<td align="center">《北京喜讯到边寨》</td>
+<td align="center">郑路、马洪业曲</td>
+</tr>
+<tr>
+<td align="center">《瑶族舞曲》</td>
+<td align="center">刘铁山、茅沅曲</td>
+</tr>
+<tr>
+<td align="center">《春节序曲》</td>
+<td align="center">李焕之曲</td>
+</tr>
+</tbody></table>
+<h5 id="2-西洋器乐"><a href="#2-西洋器乐" class="headerlink" title="2.西洋器乐"></a>2.西洋器乐</h5><p>（1）《风<em>雅</em>颂》</p>
+<p>谭盾弦乐四重奏《风<em>雅</em>颂》以《诗经》的三大部类为标题。运用中国瑶族民歌以及古琴曲《梅花三弄》为音乐素材。</p>
+<p>（2）《梁山伯与祝英台》</p>
+<p>何占豪、陈钢小提琴协奏曲，俞丽拿首演。作品吸收了越剧的音调特色。</p>
+<h2 id="三、戏曲、曲节音乐"><a href="#三、戏曲、曲节音乐" class="headerlink" title="三、戏曲、曲节音乐"></a>三、戏曲、曲节音乐</h2><h3 id="（一）八大革命样板戏"><a href="#（一）八大革命样板戏" class="headerlink" title="（一）八大革命样板戏"></a>（一）八大革命样板戏</h3><p>1.五部“革命现代京剧”：《智取威虎山》《红灯记》《沙家浜》《海港》《奇袭白虎团》</p>
+<p>2.两部“革命舞剧”：《白毛女》《红色娘子军》</p>
+<p>3.一部“革命交响乐”：《沙家浜》</p>
+<h4 id="《智取威虎山》："><a href="#《智取威虎山》：" class="headerlink" title="《智取威虎山》："></a>《智取威虎山》：</h4><p>唱段《甘洒热血写春秋》</p>
+<p><img src="http://tc.rexau.com:8888/images/2020/03/21/20190521030043.png" alt="img"></p>
+<h4 id="《红灯记》："><a href="#《红灯记》：" class="headerlink" title="《红灯记》："></a>《红灯记》：</h4><p>唱段《都有一颗红亮的心》</p>
+<p><img src="http://tc.rexau.com:8888/images/2020/03/21/20190521030111.png" alt="img"></p>
+<h3 id="（二）曲艺作品："><a href="#（二）曲艺作品：" class="headerlink" title="（二）曲艺作品："></a>（二）曲艺作品：</h3><p>苏州弹词《山山水水奇深情》、梅花大鼓《二泉映月》、骆玉笙《和氏璧》</p>
+<h3 id="（三）其他剧种"><a href="#（三）其他剧种" class="headerlink" title="（三）其他剧种"></a>（三）其他剧种</h3><p>昆剧《李慧娘》、越剧《红楼梦》《文成公主》《西厢记》</p>
+<h2 id="四、歌剧和舞剧"><a href="#四、歌剧和舞剧" class="headerlink" title="四、歌剧和舞剧"></a>四、歌剧和舞剧</h2><h3 id="（一）歌剧"><a href="#（一）歌剧" class="headerlink" title="（一）歌剧"></a>（一）歌剧</h3><h5 id="1-《刘胡兰》"><a href="#1-《刘胡兰》" class="headerlink" title="1.《刘胡兰》"></a>1.《刘胡兰》</h5><p>以山西民歌为基调，吸取山西梆子。</p>
+<p>选段《一道道水来一道道山》《数九寒天下大雪》</p>
+<h5 id="2-《小二黑结婚》"><a href="#2-《小二黑结婚》" class="headerlink" title="2.《小二黑结婚》"></a>2.《小二黑结婚》</h5><p>选段《清粼粼的水来蓝莹莹的天》</p>
+<h5 id="3-《洪湖赤卫队》"><a href="#3-《洪湖赤卫队》" class="headerlink" title="3.《洪湖赤卫队》"></a>3.《洪湖赤卫队》</h5><p>张敬安、欧阳谦叔作曲</p>
+<p>选段《看天下劳苦人民都解放》《洪湖水浪打浪》《这一仗打得真漂亮》《放下三棒鼓，扛起红樱枪》</p>
+<h5 id="4-《江姐》"><a href="#4-《江姐》" class="headerlink" title="4.《江姐》"></a>4.《江姐》</h5><p>选段：《红梅赞》《绣红旗》《五洲人民齐欢笑》</p>
+<h5 id="5-《伤逝》"><a href="#5-《伤逝》" class="headerlink" title="5.《伤逝》"></a>5.《伤逝》</h5><p>施光楠</p>
+<ul>
+<li>唱段：《一抹夕阳》《风萧瑟》《不幸的人生》《紫藤花》</li>
+</ul>
+<h3 id="（二）舞剧"><a href="#（二）舞剧" class="headerlink" title="（二）舞剧"></a>（二）舞剧</h3><p>1950年的《和平鸽》拉开了中国舞剧新时期的序幕。</p>
+<p>1957年《宝莲灯》当代第一部具有典型意义的大型民族舞剧。</p>
+<p>代表作品：</p>
+<p>《鱼美人》《红色娘子军》（吴祖强和杜鸣心曲）《白毛女》、民族舞剧《丝路花雨》（韩中才、呼延、焦凯曲）《文成公主》（石夫曲）《阿诗玛》（万里、黄田曲）《森吉德玛》（王竹林、桑洁、玛希曲）等</p>
+<h5 id="1-芭蕾舞剧《红色娘子军》"><a href="#1-芭蕾舞剧《红色娘子军》" class="headerlink" title="1.芭蕾舞剧《红色娘子军》"></a>1.芭蕾舞剧《红色娘子军》</h5><p>选段：《快乐的女战士》</p>
+<p><img src="http://tc.rexau.com:8888/images/2020/03/21/20190521032226.png" alt="img"></p>
+<h5 id="2-芭蕾舞剧《鱼美人》"><a href="#2-芭蕾舞剧《鱼美人》" class="headerlink" title="2.芭蕾舞剧《鱼美人》"></a>2.芭蕾舞剧《鱼美人》</h5><p>选段：《水草舞》、《珊瑚舞》</p>
+<h5 id="3-民族舞剧《丝路花雨》"><a href="#3-民族舞剧《丝路花雨》" class="headerlink" title="3.民族舞剧《丝路花雨》"></a>3.民族舞剧《丝路花雨》</h5><p>以丝绸之路和敦煌壁画为素材，中国民族舞剧的典范。选段《反弹琵琶》</p>
+
+    </div>
+
+    
+    
+    
         
-  if theme.reward.enable
-    include includes/reward.pug
-  include includes/pagination.pug
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/02/%E4%B8%AD%E5%9B%BD%E6%B0%91%E6%97%8F%E6%B0%91%E9%97%B4%E9%9F%B3%E4%B9%90%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="prev" title="中国民族民间音乐【粉笔】">
+      <i class="fa fa-chevron-left"></i> 中国民族民间音乐【粉笔】
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/02/%E4%B8%AD%E5%9B%BD%E5%8F%A4%E4%BB%A3%E9%9F%B3%E4%B9%90%E5%8F%B2%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="next" title="中国古代音乐史【粉笔】">
+      中国古代音乐史【粉笔】 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  if theme.related_post && theme.related_post.enable
-    != related_posts(page,site.posts)
-  if page.comments !== false
-    include includes/comments/index.pug
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#中国近现代音乐史"><span class="nav-number">1.</span> <span class="nav-text">中国近现代音乐史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、鸦片战争以来中国传统音乐的发展"><span class="nav-number">2.</span> <span class="nav-text">一、鸦片战争以来中国传统音乐的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）民歌"><span class="nav-number">2.1.</span> <span class="nav-text">（一）民歌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）说唱音乐"><span class="nav-number">2.2.</span> <span class="nav-text">（二）说唱音乐</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）戏曲音乐"><span class="nav-number">2.3.</span> <span class="nav-text">（三）戏曲音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-四大名旦："><span class="nav-number">2.3.1.</span> <span class="nav-text">1.四大名旦：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-前四大须生："><span class="nav-number">2.3.2.</span> <span class="nav-text">2.前四大须生：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-老生三鼎甲："><span class="nav-number">2.3.3.</span> <span class="nav-text">3.老生三鼎甲：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（四）民族器乐"><span class="nav-number">2.4.</span> <span class="nav-text">（四）民族器乐</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、西洋音乐传入与学堂乐歌的发展"><span class="nav-number">3.</span> <span class="nav-text">二、西洋音乐传入与学堂乐歌的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）学堂乐歌"><span class="nav-number">3.1.</span> <span class="nav-text">（一）学堂乐歌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）代表人物"><span class="nav-number">3.2.</span> <span class="nav-text">（二）代表人物</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-沈心工"><span class="nav-number">3.2.1.</span> <span class="nav-text">1.沈心工</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-李叔同"><span class="nav-number">3.2.2.</span> <span class="nav-text">2.李叔同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-曾志忞"><span class="nav-number">3.2.3.</span> <span class="nav-text">3.曾志忞</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、20世纪20年代的音乐"><span class="nav-number">4.</span> <span class="nav-text">三、20世纪20年代的音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）音乐教育的发展"><span class="nav-number">4.1.</span> <span class="nav-text">（一）音乐教育的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）萧友梅"><span class="nav-number">4.2.</span> <span class="nav-text">（二）萧友梅</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）赵元任"><span class="nav-number">4.3.</span> <span class="nav-text">（三）赵元任</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（四）黎锦晖"><span class="nav-number">4.4.</span> <span class="nav-text">（四）黎锦晖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（五）王光祈"><span class="nav-number">4.5.</span> <span class="nav-text">（五）王光祈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（六）华彦钧"><span class="nav-number">4.6.</span> <span class="nav-text">（六）华彦钧</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（七）刘天华"><span class="nav-number">4.7.</span> <span class="nav-text">（七）刘天华</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、20世纪30年代音乐"><span class="nav-number">5.</span> <span class="nav-text">四、20世纪30年代音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）青主"><span class="nav-number">5.1.</span> <span class="nav-text">（一）青主</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）黄自"><span class="nav-number">5.2.</span> <span class="nav-text">（二）黄自</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（三）聂耳"><span class="nav-number">5.3.</span> <span class="nav-text">（三）聂耳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（四）冼星海"><span class="nav-number">5.4.</span> <span class="nav-text">（四）冼星海</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（五）贺绿汀"><span class="nav-number">5.5.</span> <span class="nav-text">（五）贺绿汀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（六）江文也"><span class="nav-number">5.6.</span> <span class="nav-text">（六）江文也</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（七）其他音乐家"><span class="nav-number">5.7.</span> <span class="nav-text">（七）其他音乐家</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、20世纪40年代音乐"><span class="nav-number">6.</span> <span class="nav-text">五、20世纪40年代音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）重要作曲家"><span class="nav-number">6.1.</span> <span class="nav-text">（一）重要作曲家</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-马思聪"><span class="nav-number">6.1.1.</span> <span class="nav-text">1.马思聪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-谭小麟："><span class="nav-number">6.1.2.</span> <span class="nav-text">2.谭小麟：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-丁善德："><span class="nav-number">6.1.3.</span> <span class="nav-text">3.丁善德：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）秧歌剧及歌剧的发展"><span class="nav-number">6.2.</span> <span class="nav-text">（二）秧歌剧及歌剧的发展</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-秧歌剧："><span class="nav-number">6.2.1.</span> <span class="nav-text">1.秧歌剧：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#马可："><span class="nav-number">6.2.1.1.</span> <span class="nav-text">马可：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-歌剧（新歌剧）"><span class="nav-number">6.2.2.</span> <span class="nav-text">2.歌剧（新歌剧）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-《白毛女》："><span class="nav-number">6.2.2.1.</span> <span class="nav-text">1.《白毛女》：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中国当代音乐"><span class="nav-number">7.</span> <span class="nav-text">中国当代音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、声乐作品"><span class="nav-number">7.1.</span> <span class="nav-text">一、声乐作品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）独唱歌曲"><span class="nav-number">7.1.1.</span> <span class="nav-text">（一）独唱歌曲</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-王-莘："><span class="nav-number">7.1.1.0.1.</span> <span class="nav-text">1.王 莘：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-郑律成："><span class="nav-number">7.1.1.0.2.</span> <span class="nav-text">2.郑律成：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-马思聪："><span class="nav-number">7.1.1.0.3.</span> <span class="nav-text">3.马思聪：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-刘-炽："><span class="nav-number">7.1.1.0.4.</span> <span class="nav-text">4.刘 炽：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-麦丁："><span class="nav-number">7.1.1.0.5.</span> <span class="nav-text">5.麦丁：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-美丽其格："><span class="nav-number">7.1.1.0.6.</span> <span class="nav-text">6.美丽其格：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-李劫夫："><span class="nav-number">7.1.1.0.7.</span> <span class="nav-text">7.李劫夫：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#8-吕其明"><span class="nav-number">7.1.1.0.8.</span> <span class="nav-text">8.吕其明</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#9-施光南"><span class="nav-number">7.1.1.0.9.</span> <span class="nav-text">9.施光南</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#10-谷建芬"><span class="nav-number">7.1.1.0.10.</span> <span class="nav-text">10.谷建芬</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#11-徐沛东"><span class="nav-number">7.1.1.0.11.</span> <span class="nav-text">11.徐沛东</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#12-王酩"><span class="nav-number">7.1.1.0.12.</span> <span class="nav-text">12.王酩</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#13-瞿希贤"><span class="nav-number">7.1.1.0.13.</span> <span class="nav-text">13.瞿希贤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#14-郑秋枫"><span class="nav-number">7.1.1.0.14.</span> <span class="nav-text">14.郑秋枫</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#15-其他作曲家独唱作品"><span class="nav-number">7.1.1.0.15.</span> <span class="nav-text">15.其他作曲家独唱作品</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）合唱歌曲"><span class="nav-number">7.1.2.</span> <span class="nav-text">（二）合唱歌曲</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、器乐作品"><span class="nav-number">7.2.</span> <span class="nav-text">二、器乐作品</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）独奏作品"><span class="nav-number">7.2.1.</span> <span class="nav-text">（一）独奏作品</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#笛子曲"><span class="nav-number">7.2.1.0.1.</span> <span class="nav-text">笛子曲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#唢呐曲"><span class="nav-number">7.2.1.0.2.</span> <span class="nav-text">唢呐曲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#双管独奏曲"><span class="nav-number">7.2.1.0.3.</span> <span class="nav-text">双管独奏曲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三弦独奏曲"><span class="nav-number">7.2.1.0.4.</span> <span class="nav-text">三弦独奏曲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二胡曲"><span class="nav-number">7.2.1.0.5.</span> <span class="nav-text">二胡曲</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#琵琶协奏曲"><span class="nav-number">7.2.1.0.6.</span> <span class="nav-text">琵琶协奏曲</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）合奏作品"><span class="nav-number">7.2.2.</span> <span class="nav-text">（二）合奏作品</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#2-西洋器乐"><span class="nav-number">7.2.2.0.1.</span> <span class="nav-text">2.西洋器乐</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、戏曲、曲节音乐"><span class="nav-number">7.3.</span> <span class="nav-text">三、戏曲、曲节音乐</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）八大革命样板戏"><span class="nav-number">7.3.1.</span> <span class="nav-text">（一）八大革命样板戏</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#《智取威虎山》："><span class="nav-number">7.3.1.1.</span> <span class="nav-text">《智取威虎山》：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#《红灯记》："><span class="nav-number">7.3.1.2.</span> <span class="nav-text">《红灯记》：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）曲艺作品："><span class="nav-number">7.3.2.</span> <span class="nav-text">（二）曲艺作品：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）其他剧种"><span class="nav-number">7.3.3.</span> <span class="nav-text">（三）其他剧种</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、歌剧和舞剧"><span class="nav-number">7.4.</span> <span class="nav-text">四、歌剧和舞剧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）歌剧"><span class="nav-number">7.4.1.</span> <span class="nav-text">（一）歌剧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-《刘胡兰》"><span class="nav-number">7.4.1.0.1.</span> <span class="nav-text">1.《刘胡兰》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-《小二黑结婚》"><span class="nav-number">7.4.1.0.2.</span> <span class="nav-text">2.《小二黑结婚》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-《洪湖赤卫队》"><span class="nav-number">7.4.1.0.3.</span> <span class="nav-text">3.《洪湖赤卫队》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-《江姐》"><span class="nav-number">7.4.1.0.4.</span> <span class="nav-text">4.《江姐》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-《伤逝》"><span class="nav-number">7.4.1.0.5.</span> <span class="nav-text">5.《伤逝》</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）舞剧"><span class="nav-number">7.4.2.</span> <span class="nav-text">（二）舞剧</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-芭蕾舞剧《红色娘子军》"><span class="nav-number">7.4.2.0.1.</span> <span class="nav-text">1.芭蕾舞剧《红色娘子军》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-芭蕾舞剧《鱼美人》"><span class="nav-number">7.4.2.0.2.</span> <span class="nav-text">2.芭蕾舞剧《鱼美人》</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-民族舞剧《丝路花雨》"><span class="nav-number">7.4.2.0.3.</span> <span class="nav-text">3.民族舞剧《丝路花雨》</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CYIDA"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CYIDA</p>
+  <div class="site-description" itemprop="description">爱尚音乐</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://pan.rexau.com:8000/" title="http:&#x2F;&#x2F;pan.rexau.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CYIDA</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

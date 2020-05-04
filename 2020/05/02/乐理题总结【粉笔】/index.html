@@ -1,102 +1,627 @@
-extends includes/layout.pug
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
-block top_img
-  - var top_img =  page.top_img || page.cover || theme.post_meta.top_img || theme.default_top_img
-  - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
-  div#top-container(style=bg_img)
-    #post-info
-      #post-title
-          .posttitle= page.title || _p('no_title')
-      #post-meta
-        if (theme.post_meta.date_type)
-          if (theme.post_meta.date_type === 'both')
-            time.post-meta__date
-              i.fa.fa-calendar.fa-fw(aria-hidden="true")
-              =' '+_p('post.created')+' '+date(page.date, config.date_format)
-              span.post-meta__separator |
-              i.fa.fa-history.fa-fw(aria-hidden="true")
-              =' '+_p('post.updated')+' '+date(page.updated, config.date_format)
-          else
-            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
-            time.post-meta__date #[i.fa.fa-calendar.fa-fw(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
-                  
-        if (theme.post_meta.categories && page.categories.data.length > 0)
-          if (theme.post_meta.date_type)
-            span.post-meta__separator |
-          span
-            each item, index in page.categories.data
-              i.fa.fa-inbox.post-meta__icon.fa-fw(aria-hidden="true")
-              a(href=url_for(item.path)).post-meta__categories #[=item.name]
-              if (index < page.categories.data.length - 1)
-                i.fa.fa-angle-right.fa-fw(aria-hidden="true")
-        .post-meta-wordcount
-          if (theme.wordcount && theme.wordcount.enable)
-            i.fa.fa-file-word-o.post-meta__icon.fa-fw(aria-hidden="true")
-            span= _p('post.wordcount') + ':'
-            span.word-count= wordcount(page.content)
-            span.post-meta__separator |
-            i.fa.fa-clock-o.post-meta__icon.fa-fw(aria-hidden="true")
-            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
-          .post-meta-pv-cv
-            if (theme.wordcount && theme.wordcount.enable && theme.busuanzi.page_pv)
-              span.post-meta__separator |
-            if theme.busuanzi.page_pv       
-              span
-                i.fa.fa-eye.post-meta__icon.fa-fw(aria-hidden="true") 
-                =_p('post.page_pv') + ':'
-              span#busuanzi_value_page_pv
-            if (theme.disqus && theme.disqus.enable && theme.disqus.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comment-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment')
-                span.disqus-comment-count(data-disqus-url=page.permalink)
-            if (theme.valine && theme.valine.enable && theme.valine.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comments-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment' itemprop="discussionUrl")
-                span.valine-comment-count.comment-count(data-xid=url_for(page.path) itemprop="commentCount")
-            if (theme.gitalk && theme.gitalk.enable && theme.gitalk.count && page.comments !== false)
-              if (theme.busuanzi && theme.busuanzi.page_pv)
-                span.post-meta__separator |
-              i.fa.fa-comments-o.post-meta__icon.fa-fw(aria-hidden="true")
-              span= _p('post.comments') + ':'
-              a(href=url_for(page.path) + '#post-comment')
-                span.gitalk-comment-count.comment-count
+<link rel="stylesheet" href="/css/main.css">
 
 
-block content
-  article#post(class="")
-    #post-content.article-container!= page.content
-  if (theme.post_copyright && theme.post_copyright.enable && page.copyright != false)
-    .post-copyright
-      .post-copyright__author
-        span.post-copyright-meta= _p('post.copyright.author') + ": "
-        span.post-copyright-info
-          a(href=`mailto:${config.email}`) #[=config.author]
-      .post-copyright__type
-        span.post-copyright-meta= _p('post.copyright.link') + ": "
-        span.post-copyright-info
-          a(href=url_for(page.permalink)) #[=page.permalink]
-      .post-copyright__notice
-        span.post-copyright-meta= _p('post.copyright.copyright_notice') + ": "
-        span.post-copyright-info!= _p('post.copyright.copyright_content', theme.post_copyright.license_url, theme.post_copyright.license, config.url, config.title)
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="一、移调1.根据音程移调2.改变调号的移调 步骤：  将原谱音符照抄；  书写新调的调号；  修改临时变化音。  3.改变谱号的移调解题步骤：  按原本音符位置照抄原谱音符；  首调唱谱，确定主音位置；  根据主音实际单高，确定谱号；  书写谱号、调号和拍号； 修改临时变化音（注意变音记号的真正含义），补写音乐记号。  4.移调乐器移调    【解题步骤】：  判断乐谱调式调性 确认乐谱，明确音差">
+<meta property="og:type" content="article">
+<meta property="og:title" content="乐理题总结【粉笔】">
+<meta property="og:url" content="http://retwa.com/2020/05/02/%E4%B9%90%E7%90%86%E9%A2%98%E6%80%BB%E7%BB%93%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/index.html">
+<meta property="og:site_name" content="AisYun">
+<meta property="og:description" content="一、移调1.根据音程移调2.改变调号的移调 步骤：  将原谱音符照抄；  书写新调的调号；  修改临时变化音。  3.改变谱号的移调解题步骤：  按原本音符位置照抄原谱音符；  首调唱谱，确定主音位置；  根据主音实际单高，确定谱号；  书写谱号、调号和拍号； 修改临时变化音（注意变音记号的真正含义），补写音乐记号。  4.移调乐器移调    【解题步骤】：  判断乐谱调式调性 确认乐谱，明确音差">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/03/31/image-20200331111721781.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143001730.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143114811.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143248559.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413145442168.png">
+<meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413145558625.png">
+<meta property="article:published_time" content="2020-05-02T07:00:49.085Z">
+<meta property="article:modified_time" content="2020-04-13T06:56:05.000Z">
+<meta property="article:author" content="CYIDA">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://tc.rexau.com:8888/images/2020/03/31/image-20200331111721781.png">
+
+<link rel="canonical" href="http://retwa.com/2020/05/02/%E4%B9%90%E7%90%86%E9%A2%98%E6%80%BB%E7%BB%93%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>乐理题总结【粉笔】 | AisYun</title>
   
-  .tag_share
-    if (theme.post_meta.tags)
-      .post-meta__tag-list
-        each item, index in page.tags.data
-          a(href=url_for(item.path)).post-meta__tags #[=item.name]    
-    include includes/share/index.pug
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AisYun</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">为艺术，为爱情！</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="search-pop-overlay">
+  <div class="popup search-popup">
+      <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+  </div>
+</div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/05/02/%E4%B9%90%E7%90%86%E9%A2%98%E6%80%BB%E7%BB%93%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="CYIDA">
+      <meta itemprop="description" content="爱尚音乐">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AisYun">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          乐理题总结【粉笔】
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-05-02 15:00:49" itemprop="dateCreated datePublished" datetime="2020-05-02T15:00:49+08:00">2020-05-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-04-13 14:56:05" itemprop="dateModified" datetime="2020-04-13T14:56:05+08:00">2020-04-13</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="一、移调"><a href="#一、移调" class="headerlink" title="一、移调"></a>一、移调</h2><h3 id="1-根据音程移调"><a href="#1-根据音程移调" class="headerlink" title="1.根据音程移调"></a>1.根据音程移调</h3><h3 id="2-改变调号的移调"><a href="#2-改变调号的移调" class="headerlink" title="2.改变调号的移调"></a>2.改变调号的移调</h3><p><img src="http://tc.rexau.com:8888/images/2020/03/31/image-20200331111721781.png" alt="image-20200331111721781"></p>
+<p>步骤：</p>
+<ol>
+<li>将原谱音符照抄； </li>
+<li>书写新调的调号； </li>
+<li>修改临时变化音。</li>
+</ol>
+<h3 id="3-改变谱号的移调"><a href="#3-改变谱号的移调" class="headerlink" title="3.改变谱号的移调"></a>3.改变谱号的移调</h3><p>解题步骤：</p>
+<ol>
+<li>按原本音符位置照抄原谱音符； </li>
+<li>首调唱谱，确定主音位置； </li>
+<li>根据主音实际单高，确定谱号； </li>
+<li>书写谱号、调号和拍号；</li>
+<li>修改临时变化音（注意变音记号的真正含义），补写音乐记号。</li>
+</ol>
+<h3 id="4-移调乐器移调"><a href="#4-移调乐器移调" class="headerlink" title="4.移调乐器移调"></a>4.移调乐器移调</h3><img src="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143001730.png" alt="image-20200413143001730" style="zoom:50%;" />
+
+<p><img src="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143114811.png" alt="image-20200413143114811"></p>
+<p><img src="http://tc.rexau.com:8888/images/2020/04/13/image-20200413143248559.png" alt="image-20200413143248559"></p>
+<p><strong>【解题步骤】：</strong></p>
+<ul>
+<li>判断乐谱调式调性</li>
+<li>确认乐谱，明确音差，并计算新调</li>
+<li>按指定音程移调。</li>
+</ul>
+<h2 id="二、音乐术语"><a href="#二、音乐术语" class="headerlink" title="二、音乐术语"></a>二、音乐术语</h2><h3 id="（一）基本速度"><a href="#（一）基本速度" class="headerlink" title="（一）基本速度"></a>（一）基本速度</h3><p>Grave 庄板（40拍/分钟）</p>
+<p>Largo 广板 （46拍/分钟）</p>
+<p>Lento 慢板 （52拍/分钟）</p>
+<p>Adagio 柔板 （56拍/分钟）</p>
+<p>Larghetto 小广板（60拍/分钟）</p>
+<p>Andante 行板 （66拍/分钟）</p>
+<p>Andantino 小行板 （69拍/分钟）</p>
+<p>Moderato 中板 （88拍/分钟）</p>
+<p>Allegretto 小快板 （108拍/分钟）</p>
+<p>Aallegro 快板 （132拍/分钟）</p>
+<p>Vivace 急快板 （160拍/分钟）</p>
+<p>Presto 急板 （184拍/分钟）</p>
+<p>Prestissimo 最急板 （228拍/分钟）</p>
+<h3 id="（二）变化速度"><a href="#（二）变化速度" class="headerlink" title="（二）变化速度"></a>（二）变化速度</h3><p>Ritardando(rit.) 渐慢</p>
+<p>Ritenuto(riten.) 转慢</p>
+<p>Piu mosso 转快</p>
+<p>Stringendo (string.) 渐快</p>
+<p>Smorzando 渐慢减弱</p>
+<p>Tempo rubato 速度自由</p>
+<p>Rallentando(rall.) 渐慢</p>
+<p>Piu lento 更慢</p>
+<p>Accelerando(accel.) 渐快</p>
+<p>Allargando (allarg.) 渐慢渐强</p>
+<p>a tempo 回原速</p>
+<p>l’istesso tempo 同速</p>
+<h3 id="（三）力度记号"><a href="#（三）力度记号" class="headerlink" title="（三）力度记号"></a>（三）力度记号</h3><p>中强比强弱，中弱比弱强。</p>
+<p>Crescendo(cresc.)  渐强</p>
+<p>Diminuendo(dim.) 渐弱</p>
+<p>Sforzando (缩写为sf) 特强</p>
+<p>Forte-piano(fp) 强后即弱</p>
+<p><img src="http://tc.rexau.com:8888/images/2020/04/13/image-20200413145442168.png" alt="image-20200413145442168" style="zoom:50%;" />倍强音</p>
+<h3 id="（四）表情术语"><a href="#（四）表情术语" class="headerlink" title="（四）表情术语"></a>（四）表情术语</h3><p><img src="http://tc.rexau.com:8888/images/2020/04/13/image-20200413145558625.png" alt="image-20200413145558625"></p>
+
+    </div>
+
+    
+    
+    
         
-  if theme.reward.enable
-    include includes/reward.pug
-  include includes/pagination.pug
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+            <div class="social-item">
+              <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+                <span class="icon">
+                  <i class="fa fa-wechat"></i>
+                </span>
+
+                <span class="label">WeChat</span>
+              </a>
+            </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/02/%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A+%E7%AE%80%E7%AD%94+%E6%A1%88%E4%BE%8B%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="prev" title="名词解释+简答+案例【粉笔】">
+      <i class="fa fa-chevron-left"></i> 名词解释+简答+案例【粉笔】
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/02/%E6%9B%B2%E5%BC%8F%E3%80%90%E7%B2%89%E7%AC%94%E3%80%91/" rel="next" title="曲式【粉笔】">
+      曲式【粉笔】 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  if theme.related_post && theme.related_post.enable
-    != related_posts(page,site.posts)
-  if page.comments !== false
-    include includes/comments/index.pug
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、移调"><span class="nav-number">1.</span> <span class="nav-text">一、移调</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-根据音程移调"><span class="nav-number">1.1.</span> <span class="nav-text">1.根据音程移调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-改变调号的移调"><span class="nav-number">1.2.</span> <span class="nav-text">2.改变调号的移调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-改变谱号的移调"><span class="nav-number">1.3.</span> <span class="nav-text">3.改变谱号的移调</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-移调乐器移调"><span class="nav-number">1.4.</span> <span class="nav-text">4.移调乐器移调</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、音乐术语"><span class="nav-number">2.</span> <span class="nav-text">二、音乐术语</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（一）基本速度"><span class="nav-number">2.1.</span> <span class="nav-text">（一）基本速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（二）变化速度"><span class="nav-number">2.2.</span> <span class="nav-text">（二）变化速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（三）力度记号"><span class="nav-number">2.3.</span> <span class="nav-text">（三）力度记号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（四）表情术语"><span class="nav-number">2.4.</span> <span class="nav-text">（四）表情术语</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CYIDA"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">CYIDA</p>
+  <div class="site-description" itemprop="description">爱尚音乐</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://pan.rexau.com:8000/" title="http:&#x2F;&#x2F;pan.rexau.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CYIDA</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+<script>
+if (document.querySelectorAll('div.pdf').length) {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js', () => {
+    document.querySelectorAll('div.pdf').forEach(element => {
+      PDFObject.embed(element.getAttribute('target'), element, {
+        pdfOpenParams: {
+          navpanes : 0,
+          toolbar  : 0,
+          statusbar: 0,
+          pagemode : 'thumbs',
+          view     : 'FitH'
+        },
+        PDFJS_URL: '/lib/pdf/web/viewer.html',
+        height   : element.getAttribute('height') || '500px'
+      });
+    });
+  }, window.PDFObject);
+}
+</script>
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
