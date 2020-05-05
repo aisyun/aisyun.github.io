@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"retwa.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="古琴：  古筝：    黄锦培：  * 二胡协奏曲《阳光华想曲》：中国最早见于记录的二胡协奏曲，也是大型二胡音乐的开篇。  管弦乐和交响乐的区别：  * 管弦乐：用管弦乐队演奏的，包括器乐协奏曲、奏鸣曲。  * 交响乐：结构必需满足 快 慢 小步舞曲 快。  填空题 一、音乐理论  1.   语言的声调是歌曲创作中音调的重要生活依据之一。  2.   三音跳进是指两个四、五度关系 的正三和弦做和声">
@@ -32,7 +32,7 @@
 <meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413135157158.png">
 <meta property="og:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413135215277.png">
 <meta property="article:published_time" content="2020-05-02T07:00:49.270Z">
-<meta property="article:modified_time" content="2020-05-04T15:09:14.983Z">
+<meta property="article:modified_time" content="2020-05-05T10:52:57.413Z">
 <meta property="article:author" content="CYIDA">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://tc.rexau.com:8888/images/2020/04/13/image-20200413125012091.png">
@@ -84,7 +84,7 @@
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <div class="container">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -109,6 +109,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -133,11 +134,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -164,7 +192,7 @@
     <link itemprop="mainEntityOfPage" href="http://retwa.com/2020/05/02/%E9%94%99%E9%A2%98%E9%9B%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="CYIDA">
       <meta itemprop="description" content="爱尚音乐">
     </span>
@@ -191,10 +219,17 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-04 23:09:14" itemprop="dateModified" datetime="2020-05-04T23:09:14+08:00">2020-05-04</time>
+                <time title="修改时间：2020-05-05 18:52:57" itemprop="dateModified" datetime="2020-05-05T18:52:57+08:00">2020-05-05</time>
               </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
 
         </div>
       </header>
@@ -276,7 +311,7 @@
 <li>越剧基本唱腔有尺调腔、弦下调腔和四工调腔等三种。</li>
 <li>《前门情思大碗茶》属于戏歌。</li>
 <li>常德丝弦属于时调小曲说唱音乐。</li>
-<li>曾侯乙编钟分三层悬挂于钟架上。</li>
+<li>曾侯乙编钟分三层悬挂于钟架上，可演奏5个八度的音阶。</li>
 <li>大同乐会是我国近现代音乐史的一个民族器乐社团。</li>
 <li>扬琴是弹拨乐器。</li>
 <li>我国古代律调中存在着两类调名体系分别是“为调”和“之调”。</li>
@@ -360,6 +395,7 @@
 <li>音乐的基本要素包括节奏、旋律、节拍、曲式、和声、速度和力度、音色等。</li>
 <li>曲式即音乐作品的结构形式，节奏、旋律、调式是构成曲式的三大要素。</li>
 <li>在音乐作品中把旋律的形态分为两大类：直线性、曲线性。</li>
+<li>顶真是中国传统作曲技法。</li>
 </ol>
 <h2 id="二、中国音乐"><a href="#二、中国音乐" class="headerlink" title="二、中国音乐"></a>二、中国音乐</h2><ol>
 <li>中国民族音乐基本上由宫廷音乐、人文音乐、宗教音乐、民间音乐四部分构成。</li>
@@ -459,6 +495,7 @@
 <li>《新法密律》的计算成果最早见于《律历融通》。</li>
 <li>从民歌的体裁形式来讲，主要有：号子、山歌、小调、舞歌、风俗仪式歌。</li>
 <li>中国近代音乐创作开始进入成熟阶段的一个重要的标志是合唱曲《海韵》的出现。</li>
+<li>杂剧的音乐风格是豪放粗犷，一般用的是七声音阶。</li>
 </ol>
 <h2 id="三、西方音乐"><a href="#三、西方音乐" class="headerlink" title="三、西方音乐"></a>三、西方音乐</h2><ol>
 <li>柏拉图和亚里士多德等哲学家的音乐思想奠定了音乐美学发展的基础。</li>
@@ -559,6 +596,7 @@
 <li>文艺复兴时期的法国最发达的声乐体裁是歌谣曲。</li>
 <li>萨克斯属于管乐器中的木管乐器。</li>
 <li>安德森被誉为”半古典主义作曲家“。</li>
+<li>“猫王”将乡村音乐、布鲁斯和山地摇滚融合起来形成个性鲜明的摇滚风格。</li>
 </ol>
 <h2 id="四、教材教法"><a href="#四、教材教法" class="headerlink" title="四、教材教法"></a>四、教材教法</h2><ol>
 <li>音乐课程具有的价值：审美价值；文化传承价值；创造性发展价值；社会交往价值。</li>
@@ -584,7 +622,7 @@
 <li>艺术接受的社会环节有艺术展览馆，新闻媒人、艺术出版社、艺术博物馆、艺术市场、艺术院校等。</li>
 <li>艺术作品的内容由题材和主题两种因素构成。</li>
 <li>音乐 旋律、和声、配器、复调等为基本手段，以表达人的审美情感为目标，具有较强的情感表现力。其中旋律是最具有表现力的因素。</li>
-<li>感受与欣赏音乐学习的重要领域，是整个音乐学习活动的基础。</li>
+<li>感受与欣赏是音乐学习的重要领域，是整个音乐学习活动的基础，包括：情绪与情感、体裁与形式、风格与流派、表现要素。</li>
 <li>音乐课程的性质主要体现在人文性、审美性和实践性三个方面。</li>
 <li>中小学音乐学科常用的教学媒体，大致可分为传统类音乐教学媒体、光源类、影视类和电脑类。</li>
 <li>音乐与相关文化是音乐课人文学科的集中体现，是直接增进学生文化素养的学习领域。</li>
@@ -687,6 +725,25 @@
     
     
     
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+            <span class="icon">
+              <i class="wechat"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
 
       <footer class="post-footer">
 
@@ -768,7 +825,7 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="CYIDA"
-      src="/images/avatar.gif">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">CYIDA</p>
   <div class="site-description" itemprop="description">爱尚音乐</div>
 </div>
@@ -791,7 +848,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="http://pan.tozhu.com:8000/" title="http:&#x2F;&#x2F;pan.tozhu.com:8000" rel="noopener" target="_blank">Title</a>
+          <a href="http://pan.tozhu.com:8000/" title="http:&#x2F;&#x2F;pan.tozhu.com:8000" rel="noopener" target="_blank">AISYUN网盘</a>
         </li>
     </ul>
   </div>
@@ -823,6 +880,26 @@
 </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -837,12 +914,8 @@
 
   
   <script src="/lib/anime.min.js"></script>
-  <script src="/lib/velocity/velocity.min.js"></script>
-  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
 <script src="/js/utils.js"></script>
-
-<script src="/js/motion.js"></script>
 
 
 <script src="/js/schemes/pisces.js"></script>
@@ -858,6 +931,8 @@
 
 
 
+  
+<script src="/js/local-search.js"></script>
 
 
 
@@ -867,7 +942,31 @@
 
 
 
+<script>
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
 
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+</script>
+
+
+
+
+  
 
   
 
