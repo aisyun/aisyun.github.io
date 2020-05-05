@@ -1,41 +1,24 @@
-extends includes/layout.pug
+- var top_img = theme.error_404.background || theme.default_top_img
+- var bg_img = `background-image: url(${url_for(top_img)})`
 
-block content
-  if page.type === 'tags'
-    .tag-cloud
-      .tag-cloud__title= _p('page.tag')
-        |  - 
-        span.tag-cloud__amount= site.tags.length
-      .tag-cloud-tags
-        include includes/page_tag.pug
-      if page.comments !== false
-        include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/widget/index.pug
+doctype html
+html(lang=config.language data-theme=theme.display_mode)
+  head
+    include includes/head.pug
+  body
+    if theme.preloader
+      !=partial('includes/loading/loading', {}, {cache:theme.fragment_cache})
 
-  else if page.type === 'link'
-    include flink.pug
-      if page.comments !== false
-        include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/widget/index.pug
-  else if page.type === 'categories'    
-    #post-content.category-content
-      .category-lists
-        .category__title= _p('page.category')
-          |  - 
-          span.category__amount= site.categories.length
-        div!= list_categories()
-      if page.comments !== false
-        include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/widget/index.pug
-  else
-    article#page
-      h1= page.title
-      .article-container!= page.content
-      include includes/pagination.pug
-      if page.comments !== false
-        include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/widget/index.pug
+    if theme.fireworks && theme.fireworks.enable
+      canvas.fireworks
+
+    include includes/mobile-sidebar/index.pug
+
+    nav#nav.error-no-found(style=bg_img)
+      include includes/header/header.pug
+      #error_info.is-center
+        h1#error_title= '404'
+        #error_subtitle= theme.error_404.subtitle
+    include includes/rightside.pug
+    !=partial('includes/search/index', {}, {cache:theme.fragment_cache})
+    include includes/additional-js.pug
